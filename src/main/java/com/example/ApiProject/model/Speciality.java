@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -24,5 +25,13 @@ public class Speciality   implements Serializable {
     @NotNull(message = "Le champ name de la specialité est obligatoire")
     @NotBlank(message = "Le champ name de la specialité ne peut etre vide")
     private String name;
+
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+
+    @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -29,5 +30,13 @@ public class City implements Serializable {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_city_id",referencedColumnName ="id")
     private List<Municipality> Municipalities ;
+
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+
+    @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
 }

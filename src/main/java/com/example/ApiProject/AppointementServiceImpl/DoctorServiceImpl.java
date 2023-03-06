@@ -37,13 +37,11 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setAdresse(doctorDto.getAdresse());
 
-        addDoctor.setEmail(doctorDto.getEmail());
+        addDoctor.setMatricule(doctorDto.getMatricule());
 
         addDoctor.setDoctor_status(doctorDto.isDoctor_status());
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
-
-        addDoctor.setSpeciality(speciality);
 
         return addDoctor;
     }

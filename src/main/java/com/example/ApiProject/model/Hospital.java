@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +30,14 @@ public class Hospital implements Serializable {
 
 //    @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY)
 //    private Collection<Appointements> appointemnts;
+
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+
+    @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
 
 

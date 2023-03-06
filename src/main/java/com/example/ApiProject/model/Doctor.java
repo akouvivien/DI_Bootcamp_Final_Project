@@ -5,19 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 
 @Table(name = "doctors")
-public class Doctor  implements Serializable {
+public class Doctor extends Users implements Serializable {
 
-    @Id
+   /*@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -41,9 +40,21 @@ public class Doctor  implements Serializable {
     
     private String phone_number;
 
-    private boolean doctor_status;
-    
+
+    /*
     @ManyToOne()
     @JoinColumn(name = " speciality_id")
-    private Speciality speciality;
+    private SpecialityHospital specialityHospital;
+
+     */
+ private String Matricule ;
+ private boolean doctor_status;
+
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+
+    @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 }

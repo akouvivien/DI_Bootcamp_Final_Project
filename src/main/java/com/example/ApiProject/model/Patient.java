@@ -17,8 +17,8 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "patients")
-public class Patient  implements Serializable {
-    @Id
+public class Patient extends Users  implements Serializable {
+   /* @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
    
@@ -41,9 +41,17 @@ public class Patient  implements Serializable {
     private String adresse;
 
     @Column(length = 200)
-    private String phone_number;
+    private String phone_number;*/
 
 //    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
 //    private Collection<Appointements> appointemnts;
+
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+
+    @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
 }

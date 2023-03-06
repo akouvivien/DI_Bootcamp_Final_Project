@@ -17,12 +17,13 @@ public class DoctorDto {
 
     private String adresse;
 
-
     private String email;
 
     private String phone_number;
 
     private boolean doctor_status;
 
-    private Long specialityId;
+    private String Matricule;
+
+    //private Long specialityId;
 }
