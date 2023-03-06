@@ -22,10 +22,19 @@ public class PatientServiceImpl  implements PatientService {
     public Patient createPatient(PatientDto patientDto) {
 
         Patient addPatient = new Patient();
+
         addPatient.setFirst_name(patientDto.getFirst_name());
+
         addPatient.setLast_name(patientDto.getLast_name());
+
         addPatient.setAdresse(patientDto.getAddress());
+
+        addPatient.setLogin(patientDto.getLogin());
+
+        addPatient.setMdPasse(patientDto.getMdPasse());
+
         addPatient.setPhone_number(patientDto.getPhone_number());
+
         patientRepo.save(addPatient);
 
         return addPatient;

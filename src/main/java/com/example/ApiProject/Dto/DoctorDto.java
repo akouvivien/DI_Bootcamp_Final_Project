@@ -21,6 +21,12 @@ public class DoctorDto {
 
     private String phone_number;
 
+    private String login;
+
+    private String mdPasse;
+
+    private  String roleId;
+
     private boolean doctor_status;
 
     private String Matricule;

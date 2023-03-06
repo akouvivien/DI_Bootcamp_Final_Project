@@ -13,32 +13,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Users  {
+
+public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
-    @NotNull(message = "Le champ first_name est obligatoire")
-    @NotBlank(message = "Le champ first_name ne peut etre vide")
-    private String first_name;
-
-    @NotNull(message = "Le champ last_name est obligatoire")
-    @NotBlank(message = "Le champ last_name ne peut etre vide")
-    private String last_name;
-
-    @NotNull(message = "Le champ adresse est obligatoire")
-    @NotBlank(message = "Le champ adresse ne peut etre vide")
-    @Column(nullable = false, length = 200)
-    private String adresse;
-
-    @Column(length = 200)
-    private String phone_number;
-
-    private String login;
-
-    private String mdPasse;
+    @NotNull(message = "Le champ name de la specialité est obligatoire")
+    @NotBlank(message = "Le champ name de la specialité ne peut etre vide")
+    private String name;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

@@ -21,5 +21,10 @@ public class PatientDto {
 
     private String address;
 
+    private String login;
+
+    private String mdPasse;
+
+    private  String roleId;
     private String phone_number;
 }

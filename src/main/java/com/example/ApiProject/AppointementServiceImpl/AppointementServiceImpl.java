@@ -51,12 +51,14 @@ public class AppointementServiceImpl implements AppointementsService {
 		        Appointements appByDate = appoRepo.findAllByDate(appointemetDto.getDate());
 		        if(appByDate != null) throw new ApplicationContextException("Cette date est deja occupée par un autre rdv !");
 
+				// creation d'un rdv
 		        Appointements addAppointment = new Appointements();
 		        addAppointment.setHospital(hopital);
 		        addAppointment.setPatient(patient);
 		        addAppointment.setDate(appointemetDto.getDate());
 		        appoRepo.save(addAppointment);
 
+				//choisir un hopital et une specialisation
 		        SpecialityHospital specialityHospital = new SpecialityHospital();
 		        specialityHospital.setHospital(hopital);
 		        specialityHospital.setSpeciality(speciality);

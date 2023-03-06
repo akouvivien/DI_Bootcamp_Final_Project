@@ -39,6 +39,10 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setMatricule(doctorDto.getMatricule());
 
+        addDoctor.setLogin(doctorDto.getLogin());
+
+        addDoctor.setMdPasse(doctorDto.getMdPasse());
+
         addDoctor.setDoctor_status(doctorDto.isDoctor_status());
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
