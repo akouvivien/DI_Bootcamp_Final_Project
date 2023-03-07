@@ -16,4 +16,8 @@ public class HospitalDto {
     private String adresse;
 
     private boolean status;
+
+    private Long municipalityId;
+
+    private Long etablissementCategoryId;
 }

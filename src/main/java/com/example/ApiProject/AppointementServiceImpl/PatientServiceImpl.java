@@ -4,6 +4,7 @@ import com.example.ApiProject.Dto.PatientDto;
 import com.example.ApiProject.Service.PatientService;
 import com.example.ApiProject.model.Patient;
 import com.example.ApiProject.repository.PatientRepository;
+import com.example.ApiProject.repository.RolesRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,15 @@ public class PatientServiceImpl  implements PatientService {
     @Autowired
     PatientRepository patientRepo;
 
+    @Autowired
+    RolesRepository rolesRepo;
+
 
     @Override
     public Patient createPatient(PatientDto patientDto) {
+
+       // Roles roles = rolesRepo.findById(patientDto.getRoleId()).orElse(null);
+       // if(roles == null) throw new ApplicationContextException(" attention le role que vous avez selectionnez n'existe pas");
 
         Patient addPatient = new Patient();
 
@@ -34,6 +41,8 @@ public class PatientServiceImpl  implements PatientService {
         addPatient.setMdPasse(patientDto.getMdPasse());
 
         addPatient.setPhone_number(patientDto.getPhone_number());
+
+       // addPatient.setRoles(roles);
 
         patientRepo.save(addPatient);
 

@@ -14,5 +14,7 @@ public class CityDto {
 
     private String name;
 
-    private Long MunicipalitiesID ;
+    private  Long contryId;
+
+
 }

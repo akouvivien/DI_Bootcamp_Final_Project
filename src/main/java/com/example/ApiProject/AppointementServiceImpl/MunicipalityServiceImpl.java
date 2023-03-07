@@ -3,10 +3,14 @@ package com.example.ApiProject.AppointementServiceImpl;
 import com.example.ApiProject.Dto.CityDto;
 import com.example.ApiProject.Dto.MunicipalityDto;
 import com.example.ApiProject.Service.MunicipalityService;
+import com.example.ApiProject.model.City;
+import com.example.ApiProject.model.Contry;
 import com.example.ApiProject.model.Municipality;
+import com.example.ApiProject.repository.CityRepository;
 import com.example.ApiProject.repository.MunicipalityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,12 +22,19 @@ public class MunicipalityServiceImpl implements MunicipalityService {
     @Autowired
     MunicipalityRepository municipalityRepo;
 
+    @Autowired
+    CityRepository cityRepo;
+
     @Override
     public Municipality createMunicipality(MunicipalityDto municipalityDto) {
+
+        City city = cityRepo.findById(municipalityDto.getCityId()).orElse(null);
+        if(city == null) throw new ApplicationContextException("la Ville selectionnée n'existe pas");
 
         Municipality addMunicipality = new Municipality();
 
         addMunicipality.setName(municipalityDto.getName());
+        addMunicipality.setCity(city);
 
         municipalityRepo.save(addMunicipality);
 

@@ -2,6 +2,10 @@ package com.example.ApiProject.model;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,12 +15,14 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "patients")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Patient extends Users  implements Serializable {
    /* @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,9 +48,9 @@ public class Patient extends Users  implements Serializable {
 
     @Column(length = 200)
     private String phone_number;*/
-
-//    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
-//    private Collection<Appointements> appointemnts;
+   @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
+   private List<Appointements> appointemnts;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

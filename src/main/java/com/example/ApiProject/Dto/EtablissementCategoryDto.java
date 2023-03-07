@@ -14,5 +14,4 @@ public class EtablissementCategoryDto {
 
     private String category;
 
-    private Long hospitalsId ;
 }

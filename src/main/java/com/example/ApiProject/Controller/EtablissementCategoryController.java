@@ -1,6 +1,11 @@
 package com.example.ApiProject.Controller;
 
+import com.example.ApiProject.Dto.EtablissementCategoryDto;
+import com.example.ApiProject.Dto.RolesDto;
+import com.example.ApiProject.Service.EtablissementCategoryService;
+import com.example.ApiProject.Service.RolesService;
 import com.example.ApiProject.model.EtablissementCategory;
+import com.example.ApiProject.model.Roles;
 import com.example.ApiProject.repository.EtablissementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,98 +17,67 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 @Validated
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/etablissementcategory")
-
+@RequestMapping("/categoory")
 public class EtablissementCategoryController {
-
     @Autowired
-    EtablissementRepository etablissementRepository;
+    EtablissementCategoryService etablissementCategoryService;
 
     @GetMapping("")
-    public ResponseEntity<List<EtablissementCategory>> getALLEtablissementCategory(){
-        //recupere la liste de tous les patients
-        List<EtablissementCategory> etablissementcategories = new ArrayList<>();
-        etablissementcategories.addAll(etablissementRepository.findAll());
-        try {
-            if (etablissementcategories.isEmpty()) {
-                //retourne le statut no content lorsque la liste est vide
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            //la methode retourne la liste tutorials
-            return new ResponseEntity<>(etablissementcategories, HttpStatus.OK);
-        } catch (Exception e) {
-            //retoune une execption
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<EtablissementCategory>> getALLEtablissementCategories() {
+
+        List<EtablissementCategory> etablissementCategories = etablissementCategoryService.getEtablissementCategories();
+
+        return new ResponseEntity<>(etablissementCategories, HttpStatus.OK);
+
     }
 
     @GetMapping("/{id}")
-    // le resultat de la methode est accessible via l'url definit ci dessus
-    public ResponseEntity<EtablissementCategory> getEtablissementCategoryById(@PathVariable("id") long id) {
-        //tutorialData retourne de resulat de findById
-        Optional<EtablissementCategory> etablissementcategoryid = etablissementRepository.findById(id);
 
-        if (etablissementcategoryid.isPresent()) {
-            //si tutorialData est present alors on recupere l'ensemble des données  et on affiche ok
-            return new ResponseEntity<>(etablissementcategoryid.get(), HttpStatus.OK);
-        } else {
-            //retourne un resultat not found
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<EtablissementCategory> getEtablissementCategoryById(@PathVariable("id") Long id) {
+
+        Optional<EtablissementCategory> etablissementCategoryId = etablissementCategoryService.getEtablissementCategoryId(id);
+
+        return new ResponseEntity<>(etablissementCategoryId.get(), HttpStatus.OK);
     }
 
     @PostMapping("")
-    public ResponseEntity<EtablissementCategory> createEtablissementCategory(@Validated @RequestBody EtablissementCategory etablissementcategory) {
-        try {
-            //_tutorial  est un enregistrement de Tutorials via son constructeur
-            EtablissementCategory _etablissementCategory = etablissementRepository.save(etablissementcategory);
-            return new ResponseEntity<>(_etablissementCategory, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
+    public ResponseEntity<EtablissementCategory> createEtablissementCategory(@Validated @RequestBody EtablissementCategoryDto etablissementCategoryDto) {
+
+        EtablissementCategory etablissementCategory = etablissementCategoryService.CreateEtablissementCategory(etablissementCategoryDto);
+
+        return new ResponseEntity<>(etablissementCategory, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    //modification via l'id
-    public ResponseEntity<EtablissementCategory> updateEtablissementCategory(@PathVariable("id") long id, @RequestBody EtablissementCategory etablissementcategory)
-    {
-        Optional<EtablissementCategory> etablissementcategory_ = etablissementRepository.findById(id);
-        // avoir
-        if (etablissementcategory_.isPresent()) {
 
-            etablissementcategory.setId(id);
-            etablissementRepository.save(etablissementcategory);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } else {
-            //return un not found pour signifier que l'id n'existe pas
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<EtablissementCategory> updateEtablissementCategory(@PathVariable("id") long id, @RequestBody EtablissementCategoryDto etablissementCategoryDto) {
+
+        EtablissementCategory newUpdateEtablissementCategory = etablissementCategoryService.UpdateEtablissementCategoryId(id,etablissementCategoryDto);
+
+        return new ResponseEntity<>(newUpdateEtablissementCategory, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     //suppression en fonction de l'id
-    public ResponseEntity<HttpStatus> deleteHospital(@Validated @RequestBody  @PathVariable("id") long id) {
-        try {
-            //suppression des données relatives a l'id dans le repertoire
-            etablissementRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<HttpStatus> deleteRole(@Validated @RequestBody @PathVariable("id") long id) {
+
+        etablissementCategoryService.deleteEtablissementCategoryId(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("")
-    //suppression de l'ensemble des données
-    public ResponseEntity<HttpStatus> deleteAllEtablissementCategory() {
-        try {
-            //suppression de toutes les données
-            etablissementRepository.deleteAll();
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
+    public ResponseEntity<HttpStatus> deleteAllSpeciality() {
+
+        etablissementCategoryService.deleteEtablissementCategories();
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }
 }

@@ -14,5 +14,5 @@ public class MunicipalityDto {
 
     private String name;
 
-    private Long  hospitalsId ;
+    private Long  cityId ;
 }

@@ -3,11 +3,8 @@ package com.example.ApiProject.model;
 import lombok.*;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
-import java.sql.Time;
-import java.time.Month;
+
 import java.util.Date;
 
 @Getter

@@ -1,5 +1,6 @@
 package com.example.ApiProject.Dto;
 
+import com.example.ApiProject.model.Doctor;
 import com.example.ApiProject.model.Hospital;
 import com.example.ApiProject.model.Speciality;
 import lombok.AllArgsConstructor;
@@ -14,8 +15,10 @@ public class SpecialityHospitalDto {
 
     private Long id;
 
-    private Hospital hospitalId;
+    private Long hospitalId;
 
-    private Speciality specialityId;
+    private Long doctorId;
+
+    private Long specialityId;
 
 }

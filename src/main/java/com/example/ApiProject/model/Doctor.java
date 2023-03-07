@@ -45,7 +45,6 @@ public class Doctor extends Users implements Serializable {
     @ManyToOne()
     @JoinColumn(name = " speciality_id")
     private SpecialityHospital specialityHospital;
-
      */
  private String Matricule ;
  private boolean doctor_status;

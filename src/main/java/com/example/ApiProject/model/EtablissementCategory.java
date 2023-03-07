@@ -1,5 +1,8 @@
 package com.example.ApiProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,10 +19,11 @@ import java.util.List;
 @Entity
 
 @Table(name = "EtablissementCategories")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class EtablissementCategory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull(message = "Le champ categorie est obligatoire")
@@ -27,9 +31,11 @@ public class EtablissementCategory {
     @Column(length = 100)
     private String category;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_cat_id",referencedColumnName ="id")
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "etablissementCategory",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Hospital> hospitals ;
+
+
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

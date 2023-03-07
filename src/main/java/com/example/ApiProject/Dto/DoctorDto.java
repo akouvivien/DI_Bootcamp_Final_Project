@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+
 public class DoctorDto {
 
     private Long id;
@@ -25,11 +27,10 @@ public class DoctorDto {
 
     private String mdPasse;
 
-    private  String roleId;
+    //private  Long roleId;
 
     private boolean doctor_status;
 
     private String Matricule;
 
-    //private Long specialityId;
 }

@@ -14,5 +14,5 @@ public class ContryDto {
 
     private String name;
 
-    private Long citiesId ;
+   // private Long citiesId ;
 }

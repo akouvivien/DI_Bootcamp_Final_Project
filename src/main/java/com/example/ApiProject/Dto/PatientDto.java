@@ -25,6 +25,7 @@ public class PatientDto {
 
     private String mdPasse;
 
-    private  String roleId;
+   // private  Long roleId;
+
     private String phone_number;
 }

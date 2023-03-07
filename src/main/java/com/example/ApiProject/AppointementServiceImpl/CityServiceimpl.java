@@ -5,12 +5,14 @@ import com.example.ApiProject.Service.CityService;
 import com.example.ApiProject.model.*;
 import com.example.ApiProject.repository.CityRepository;
 
+import com.example.ApiProject.repository.ContryRepository;
 import com.example.ApiProject.repository.MunicipalityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,18 +22,21 @@ public class CityServiceimpl  implements CityService {
     CityRepository cityrepo;
 
     @Autowired
-    MunicipalityRepository municipalityRepo;
+    ContryRepository contryRepo;
     
     @Override
     public City createCity(CityDto cityDto) {
 
-        Municipality municipality = municipalityRepo.findById(cityDto.getMunicipalitiesID()).orElse(null);
-        if(municipality == null) throw new ApplicationContextException("ce la municipalité selectionner n'existe pas");
+        Contry contry = contryRepo.findById(cityDto.getContryId()).orElse(null);
+        if(contry == null) throw new ApplicationContextException("le pays selectionné n'existe pas");
 
         // create city
         City addCity = new City();
-        addCity.setName(cityDto.getName());;
-        addCity.setMunicipalities((List<Municipality>) municipality);
+
+        addCity.setName(cityDto.getName());
+
+        addCity.setContry(contry);
+
         cityrepo.save(addCity);
 
 

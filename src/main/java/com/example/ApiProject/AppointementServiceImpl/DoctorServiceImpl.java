@@ -1,14 +1,10 @@
 package com.example.ApiProject.AppointementServiceImpl;
-
 import com.example.ApiProject.Dto.DoctorDto;
 import com.example.ApiProject.Service.DoctorService;
 import com.example.ApiProject.model.Doctor;
-import com.example.ApiProject.model.Speciality;
 import com.example.ApiProject.repository.DoctorRepository;
-import com.example.ApiProject.repository.SpecilalityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,15 +15,16 @@ public class DoctorServiceImpl  implements DoctorService {
     @Autowired
     DoctorRepository doctorRepo;
 
-    @Autowired
-    SpecilalityRepository specilalityRepo;
+   // @Autowired
+   // RolesRepository rolesRepo;
 
     @Override
     public Doctor CreateDoctor(DoctorDto doctorDto) {
 
-        Speciality speciality = specilalityRepo.findById(doctorDto.getId()).orElse(null);
+       // Roles roles = rolesRepo.findById(doctorDto.getRoleId()).orElse(null);
 
-        if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas desolé");
+       // if(roles == null) throw new ApplicationContextException(" attention le role que vous avez selectionnez n'existe pas");
+
 
         Doctor addDoctor = new Doctor();
 
@@ -43,9 +40,12 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setMdPasse(doctorDto.getMdPasse());
 
+        //addDoctor.setRoles(roles);
+
         addDoctor.setDoctor_status(doctorDto.isDoctor_status());
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
+        doctorRepo.save(addDoctor);
 
         return addDoctor;
     }

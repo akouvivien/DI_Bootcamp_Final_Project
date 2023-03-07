@@ -2,10 +2,16 @@ package com.example.ApiProject.AppointementServiceImpl;
 
 import com.example.ApiProject.Dto.HospitalDto;
 import com.example.ApiProject.Service.HospitalService;
+import com.example.ApiProject.model.Contry;
+import com.example.ApiProject.model.EtablissementCategory;
 import com.example.ApiProject.model.Hospital;
+import com.example.ApiProject.model.Municipality;
+import com.example.ApiProject.repository.EtablissementRepository;
 import com.example.ApiProject.repository.HospitalRepository;
+import com.example.ApiProject.repository.MunicipalityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,14 +23,30 @@ public class HospitalServiceImpl implements HospitalService {
     @Autowired
     HospitalRepository hospitalRepository;
 
+    @Autowired
+    MunicipalityRepository municipalityRepo;
+
+    @Autowired
+    EtablissementRepository etablissementRepo;
+
     @Override
     public Hospital CreateHospital(HospitalDto hospitalDto) {
+
+        Municipality municipality = municipalityRepo.findById(hospitalDto.getMunicipalityId()).orElse(null);
+        if(municipality == null) throw new ApplicationContextException("la municipalité selectionnée n'existe pas");
+
+        EtablissementCategory etablissementCategory = etablissementRepo.findById(hospitalDto.getEtablissementCategoryId()).orElse(null);
+        if(municipality == null) throw new ApplicationContextException("la category selectionnée n'existe pas");
 
         Hospital addHospital = new Hospital();
 
         addHospital.setName(hospitalDto.getName());
 
         addHospital.setAdresse(hospitalDto.getAdresse());
+
+        addHospital.setMunicipality(municipality);
+
+        addHospital.setEtablissementCategory(etablissementCategory);
 
         addHospital.setStatus(hospitalDto.isStatus());
 

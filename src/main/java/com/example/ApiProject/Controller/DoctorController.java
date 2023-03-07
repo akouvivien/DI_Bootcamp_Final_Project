@@ -23,9 +23,9 @@ public class DoctorController {
     //liste des doctors
     public ResponseEntity<List<Doctor>> getALLDoctors(){
 
-        List<Doctor> cities = doctorService.getDoctors();
+        List<Doctor> doctors = doctorService.getDoctors();
 
-        return new ResponseEntity<>(cities, HttpStatus.OK);
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -41,11 +41,11 @@ public class DoctorController {
 
     @PostMapping("")
     //enregistrement des données
-    public ResponseEntity<String> createDoctor(@Validated @RequestBody DoctorDto doctorDto) {
+    public ResponseEntity<String> createDoctors(@Validated @RequestBody DoctorDto doctorDto) {
 
         doctorService.CreateDoctor(doctorDto);
 
-        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.OK);
+        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/{id}")
@@ -69,7 +69,7 @@ public class DoctorController {
 
     @DeleteMapping("")
     //suppression de l'ensemble des données
-    public ResponseEntity<HttpStatus> deleteAllCity() {
+    public ResponseEntity<HttpStatus> deleteAllDoctors() {
 
         doctorService.deleteDoctors();
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -2,10 +2,13 @@ package com.example.ApiProject.AppointementServiceImpl;
 
 import com.example.ApiProject.Dto.ContryDto;
 import com.example.ApiProject.Service.ContryService;
+import com.example.ApiProject.model.City;
 import com.example.ApiProject.model.Contry;
+import com.example.ApiProject.repository.CityRepository;
 import com.example.ApiProject.repository.ContryRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +18,9 @@ public class ContryServiceImpl implements ContryService {
 
     @Autowired
     ContryRepository contryRepo;
+
+    @Autowired
+    CityRepository cityRepo;
 
     @Override
     public Contry createContry(ContryDto contryDto) {

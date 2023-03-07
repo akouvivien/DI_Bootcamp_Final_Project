@@ -1,5 +1,9 @@
 package com.example.ApiProject.model;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,10 +20,11 @@ import java.util.List;
 @Entity
 
 @Table(name = "municipalities")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Municipality implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull(message = "Le champ name de la municipalité est obligatoire")
@@ -27,10 +32,14 @@ public class Municipality implements Serializable {
     @Column(length = 100)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_muni_id",referencedColumnName ="id")
+
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "municipality",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Hospital> hospitals ;
 
+    @ManyToOne()
+    @JoinColumn(name = "city_id")
+    private City city ;
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;

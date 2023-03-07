@@ -19,7 +19,7 @@ import java.util.Date;
 public class Speciality   implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull(message = "Le champ name de la specialité est obligatoire")

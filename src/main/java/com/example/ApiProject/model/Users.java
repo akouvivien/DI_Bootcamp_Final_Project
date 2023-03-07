@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +39,7 @@ public class Users  {
 
     private String mdPasse;
 
+    /*
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;
@@ -47,6 +47,10 @@ public class Users  {
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+    */
 
+    @ManyToOne()
+    @JoinColumn(name = " role_id")
+    private Roles roles ;
 
 }
