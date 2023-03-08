@@ -1,5 +1,8 @@
 package com.example.ApiProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,12 +10,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Users  {
 
     @Id
@@ -37,7 +42,11 @@ public class Users  {
 
     private String login;
 
+    private String email;
+
     private String mdPasse;
+
+
 
     /*
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
@@ -52,5 +61,11 @@ public class Users  {
     @ManyToOne()
     @JoinColumn(name = " role_id")
     private Roles roles ;
+
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
+    private List<SessionUsers> sessionUsers;
+
+
 
 }

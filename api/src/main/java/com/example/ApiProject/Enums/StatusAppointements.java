@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Enums;
 
 public enum StatusAppointements {
     PENDING,

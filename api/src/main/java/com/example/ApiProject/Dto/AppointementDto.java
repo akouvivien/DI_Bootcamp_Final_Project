@@ -22,6 +22,6 @@ public class AppointementDto {
     
     private Date date; 
     
-//    private
+
 
 }

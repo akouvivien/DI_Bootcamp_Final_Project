@@ -1,9 +1,8 @@
 package com.example.ApiProject.repository;
 
-import com.example.ApiProject.model.Roles;
+import com.example.ApiProject.model.SessionUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 @Repository
-public interface RolesRepository extends JpaRepository<Roles, Long> {
+public interface SessionUsersRepository extends JpaRepository<SessionUsers,Long> {
 }
