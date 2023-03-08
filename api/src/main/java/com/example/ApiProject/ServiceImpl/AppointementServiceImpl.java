@@ -1,22 +1,23 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.ApiProject.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import com.example.ApiProject.Dto.AppointementDto;
+import com.example.ApiProject.Model.*;
+import com.example.ApiProject.Repository.AppointementsRepository;
+import com.example.ApiProject.Repository.HospitalRepository;
+import com.example.ApiProject.Repository.PatientRepository;
+import com.example.ApiProject.Repository.SpecialityHospitalRepository;
+import com.example.ApiProject.Repository.SpecilalityRepository;
 import com.example.ApiProject.Service.AppointementsService;
-import com.example.ApiProject.repository.AppointementsRepository;
-import com.example.ApiProject.repository.HospitalRepository;
-import com.example.ApiProject.repository.PatientRepository;
-import com.example.ApiProject.repository.SpecialityHospitalRepository;
-import com.example.ApiProject.repository.SpecilalityRepository;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Service

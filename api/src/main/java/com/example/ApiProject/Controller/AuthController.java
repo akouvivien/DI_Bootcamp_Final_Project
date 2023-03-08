@@ -2,8 +2,9 @@ package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.LoginDto;
 import com.example.ApiProject.Dto.SiginUpDto;
+import com.example.ApiProject.Model.Users;
 import com.example.ApiProject.Service.UsersDetailsService;
-import com.example.ApiProject.model.Users;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

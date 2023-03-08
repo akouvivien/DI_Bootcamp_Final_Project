@@ -1,6 +1,7 @@
 package com.example.ApiProject.Service;
 import com.example.ApiProject.Dto.SpecialityDto;
-import com.example.ApiProject.model.Speciality;
+import com.example.ApiProject.Model.Speciality;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

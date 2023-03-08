@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;

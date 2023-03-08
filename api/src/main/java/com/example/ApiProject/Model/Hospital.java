@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Model;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -8,11 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 

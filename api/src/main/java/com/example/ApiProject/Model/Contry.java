@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Model;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

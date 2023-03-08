@@ -1,18 +1,19 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.LoginDto;
 import com.example.ApiProject.Dto.SiginUpDto;
 import com.example.ApiProject.Enums.SessionType;
+import com.example.ApiProject.Model.*;
+import com.example.ApiProject.Repository.RolesRepository;
+import com.example.ApiProject.Repository.SessionUsersRepository;
+import com.example.ApiProject.Repository.UsersRepository;
 import com.example.ApiProject.Service.UsersDetailsService;
-import com.example.ApiProject.model.*;
-import com.example.ApiProject.repository.RolesRepository;
-import com.example.ApiProject.repository.SessionUsersRepository;
-import com.example.ApiProject.repository.UsersRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+
 import java.util.Optional;
 
 @Service

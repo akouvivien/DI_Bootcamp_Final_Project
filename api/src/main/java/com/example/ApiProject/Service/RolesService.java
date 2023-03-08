@@ -2,8 +2,9 @@ package com.example.ApiProject.Service;
 
 import com.example.ApiProject.Dto.PatientDto;
 import com.example.ApiProject.Dto.RolesDto;
-import com.example.ApiProject.model.Patient;
-import com.example.ApiProject.model.Roles;
+import com.example.ApiProject.Model.Patient;
+import com.example.ApiProject.Model.Roles;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

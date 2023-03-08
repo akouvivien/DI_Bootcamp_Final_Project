@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Model;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
@@ -47,6 +47,8 @@ public class Doctor extends Users implements Serializable {
     private SpecialityHospital specialityHospital;
      */
  private String Matricule ;
+
+ 
  private boolean doctor_status;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)

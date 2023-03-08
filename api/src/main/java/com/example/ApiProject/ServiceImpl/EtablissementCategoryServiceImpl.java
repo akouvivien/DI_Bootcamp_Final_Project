@@ -1,9 +1,10 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.EtablissementCategoryDto;
+import com.example.ApiProject.Model.EtablissementCategory;
+import com.example.ApiProject.Repository.EtablissementRepository;
 import com.example.ApiProject.Service.EtablissementCategoryService;
-import com.example.ApiProject.model.EtablissementCategory;
-import com.example.ApiProject.repository.EtablissementRepository;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

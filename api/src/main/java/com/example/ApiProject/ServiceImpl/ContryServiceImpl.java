@@ -1,14 +1,13 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.ContryDto;
+import com.example.ApiProject.Model.Contry;
+import com.example.ApiProject.Repository.CityRepository;
+import com.example.ApiProject.Repository.ContryRepository;
 import com.example.ApiProject.Service.ContryService;
-import com.example.ApiProject.model.City;
-import com.example.ApiProject.model.Contry;
-import com.example.ApiProject.repository.CityRepository;
-import com.example.ApiProject.repository.ContryRepository;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -2,10 +2,9 @@ package com.example.ApiProject.Controller;
 
 
 import com.example.ApiProject.Dto.HospitalDto;
+import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Service.HospitalService;
-import com.example.ApiProject.model.Hospital;
-import com.example.ApiProject.model.Municipality;
-import com.example.ApiProject.repository.HospitalRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

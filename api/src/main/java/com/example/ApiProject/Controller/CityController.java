@@ -1,8 +1,9 @@
 package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.CityDto;
+import com.example.ApiProject.Model.City;
 import com.example.ApiProject.Service.CityService;
-import com.example.ApiProject.model.City;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
 package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.ContryDto;
+import com.example.ApiProject.Model.Contry;
 import com.example.ApiProject.Service.ContryService;
-import com.example.ApiProject.model.Contry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

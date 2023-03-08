@@ -1,7 +1,8 @@
 package com.example.ApiProject.Service;
 
 import com.example.ApiProject.Dto.MunicipalityDto;
-import com.example.ApiProject.model.Municipality;
+import com.example.ApiProject.Model.Municipality;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

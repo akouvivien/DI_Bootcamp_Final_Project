@@ -1,10 +1,11 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.PatientDto;
+import com.example.ApiProject.Model.Patient;
+import com.example.ApiProject.Repository.PatientRepository;
+import com.example.ApiProject.Repository.RolesRepository;
 import com.example.ApiProject.Service.PatientService;
-import com.example.ApiProject.model.Patient;
-import com.example.ApiProject.repository.PatientRepository;
-import com.example.ApiProject.repository.RolesRepository;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

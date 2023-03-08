@@ -1,18 +1,16 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.CityDto;
+import com.example.ApiProject.Model.*;
+import com.example.ApiProject.Repository.CityRepository;
+import com.example.ApiProject.Repository.ContryRepository;
 import com.example.ApiProject.Service.CityService;
-import com.example.ApiProject.model.*;
-import com.example.ApiProject.repository.CityRepository;
 
-import com.example.ApiProject.repository.ContryRepository;
-import com.example.ApiProject.repository.MunicipalityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

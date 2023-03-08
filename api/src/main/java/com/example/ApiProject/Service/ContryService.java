@@ -2,7 +2,8 @@ package com.example.ApiProject.Service;
 
 import com.example.ApiProject.Dto.CityDto;
 import com.example.ApiProject.Dto.ContryDto;
-import com.example.ApiProject.model.Contry;
+import com.example.ApiProject.Model.Contry;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

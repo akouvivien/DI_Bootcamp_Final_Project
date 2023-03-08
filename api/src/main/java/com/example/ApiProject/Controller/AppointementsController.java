@@ -1,17 +1,15 @@
 package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.AppointementDto;
+import com.example.ApiProject.Model.Appointements;
 import com.example.ApiProject.Service.AppointementsService;
-import com.example.ApiProject.model.Appointements;
-import com.example.ApiProject.model.Speciality;
-import com.example.ApiProject.repository.AppointementsRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

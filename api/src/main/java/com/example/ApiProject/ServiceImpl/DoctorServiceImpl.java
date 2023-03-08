@@ -1,8 +1,9 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 import com.example.ApiProject.Dto.DoctorDto;
+import com.example.ApiProject.Model.Doctor;
+import com.example.ApiProject.Repository.DoctorRepository;
 import com.example.ApiProject.Service.DoctorService;
-import com.example.ApiProject.model.Doctor;
-import com.example.ApiProject.repository.DoctorRepository;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,9 @@
 package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.SpecialityDto;
+import com.example.ApiProject.Model.Speciality;
 import com.example.ApiProject.Service.SpecialityService;
-import com.example.ApiProject.model.Speciality;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

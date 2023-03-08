@@ -1,19 +1,14 @@
 package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.EtablissementCategoryDto;
-import com.example.ApiProject.Dto.RolesDto;
+import com.example.ApiProject.Model.EtablissementCategory;
 import com.example.ApiProject.Service.EtablissementCategoryService;
-import com.example.ApiProject.Service.RolesService;
-import com.example.ApiProject.model.EtablissementCategory;
-import com.example.ApiProject.model.Roles;
-import com.example.ApiProject.repository.EtablissementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

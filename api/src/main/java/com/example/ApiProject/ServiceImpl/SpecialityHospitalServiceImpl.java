@@ -1,9 +1,10 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.SpecialityHospitalDto;
+import com.example.ApiProject.Model.*;
+import com.example.ApiProject.Repository.*;
 import com.example.ApiProject.Service.SpecialityHospitalService;
-import com.example.ApiProject.model.*;
-import com.example.ApiProject.repository.*;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;

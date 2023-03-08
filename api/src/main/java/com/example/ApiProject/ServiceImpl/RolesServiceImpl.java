@@ -1,9 +1,10 @@
-package com.example.ApiProject.AppointementServiceImpl;
+package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.RolesDto;
+import com.example.ApiProject.Model.Roles;
+import com.example.ApiProject.Repository.RolesRepository;
 import com.example.ApiProject.Service.RolesService;
-import com.example.ApiProject.model.Roles;
-import com.example.ApiProject.repository.RolesRepository;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

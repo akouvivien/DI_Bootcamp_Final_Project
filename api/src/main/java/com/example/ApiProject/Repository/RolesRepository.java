@@ -1,8 +1,9 @@
-package com.example.ApiProject.repository;
+package com.example.ApiProject.Repository;
 
-import com.example.ApiProject.model.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.example.ApiProject.Model.Roles;
 
 import java.util.Optional;
 

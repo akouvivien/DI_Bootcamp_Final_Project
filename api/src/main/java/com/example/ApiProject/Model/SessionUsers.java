@@ -1,4 +1,4 @@
-package com.example.ApiProject.model;
+package com.example.ApiProject.Model;
 
 import com.example.ApiProject.Enums.SessionType;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

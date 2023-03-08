@@ -1,7 +1,8 @@
 package com.example.ApiProject.Service;
 
 import com.example.ApiProject.Dto.DoctorDto;
-import com.example.ApiProject.model.Doctor;
+import com.example.ApiProject.Model.Doctor;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
