@@ -16,7 +16,7 @@ import java.util.Optional;
 @Validated
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/categoory")
+@RequestMapping("/category")
 public class EtablissementCategoryController {
     @Autowired
     EtablissementCategoryService etablissementCategoryService;

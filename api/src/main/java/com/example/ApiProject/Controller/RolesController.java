@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Validated
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/roles")
 public class RolesController {

@@ -21,19 +21,27 @@ import java.util.List;
 public class Users  {
 
     @Id
+    
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
 
     @NotNull(message = "Le champ first_name est obligatoire")
+
     @NotBlank(message = "Le champ first_name ne peut etre vide")
+
     private String first_name;
 
     @NotNull(message = "Le champ last_name est obligatoire")
+
     @NotBlank(message = "Le champ last_name ne peut etre vide")
+
     private String last_name;
 
     @NotNull(message = "Le champ adresse est obligatoire")
+
     @NotBlank(message = "Le champ adresse ne peut etre vide")
+
     @Column(nullable = false, length = 200)
     private String adresse;
 
@@ -59,11 +67,15 @@ public class Users  {
     */
 
     @ManyToOne()
+
     @JoinColumn(name = " role_id")
+
     private Roles roles ;
 
     @JsonIdentityReference(alwaysAsId = false)
+
     @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
+
     private List<SessionUsers> sessionUsers;
 
 

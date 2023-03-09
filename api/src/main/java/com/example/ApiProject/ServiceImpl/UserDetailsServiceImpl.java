@@ -82,14 +82,14 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
 
         } else {
 
-            throw  new ApplicationContextException("Utilisateur non trouvé");
+            throw  new ApplicationContextException("User not found");
 
         }
 
 
     }
 
-//Gestion de la deconnection
+//Gestion de la deconnection a rectifier
 
     @Override
     public Users DecconectUsers(Long id) {
