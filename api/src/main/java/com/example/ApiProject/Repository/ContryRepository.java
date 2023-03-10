@@ -7,4 +7,6 @@ import com.example.ApiProject.Model.Contry;
 
 @Repository
 public interface ContryRepository extends JpaRepository<Contry,Long> {
+
+
 }

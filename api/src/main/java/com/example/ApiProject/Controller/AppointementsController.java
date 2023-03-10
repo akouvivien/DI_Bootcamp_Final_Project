@@ -74,4 +74,15 @@ public class AppointementsController {
             return new ResponseEntity<>("L'ensemble des données a éte effacer avec succes !",HttpStatus.NO_CONTENT);
 
     }
+
+    // @GetMapping("/{date}")
+    
+    // public ResponseEntity<Appointements> findByDate(@Validated @RequestBody  @PathVariable("date")  string  date ) {
+
+    //     Optional<Appointements> appointementsDate =  appoService.getAppointementId(date);
+
+    //     return new ResponseEntity<>(appointementsDate.get(), HttpStatus.OK);
+    // }
+
+
 }

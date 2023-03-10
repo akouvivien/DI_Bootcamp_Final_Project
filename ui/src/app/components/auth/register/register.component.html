@@ -1,0 +1,113 @@
+<div class="container">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(./../../../../assets/img/gallery/11.jpg)"  data-overlay="5">
+
+      <div class="row h-100 pl-50">
+        <div class="col-md-10 col-lg-8 align-self-end">
+
+          <img src="./../../../../assets/img/logo-light-lg.png" alt="..." >
+
+          <br><br>
+          <h4 class="text-white">Hospital Appointements</h4>
+          <p class="text-white">Prendre un rdv deviens un jeux d'enfant .</p>
+          <br><br>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+      <div class="px-80 py-30">
+        <h4>veillez creer votre compte</h4>
+        <p><small>Tous les champs sont obligatoires.</small></p>
+        <br>
+
+        <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()"class="form-type-material">
+
+          <div class="form-group">
+
+            <label for="first_name">first_name</label>
+            <input type="text" class="form-control" id="first_name" formControlName="first_name">
+            <div *ngIf="!registerForm.controls['first_name'].valid  &&  (registerForm.controls['first_name'].touched || registerForm.controls['first_name'].dirty)" class="messageError">
+              <p class="text-danger">votre first_name est obligatoire!</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+
+            <label for="last_name">last_name</label>
+            <input type="text" class="form-control" id="last_name" formControlName="last_name">
+            <div *ngIf="!registerForm.controls['last_name'].valid  &&  (registerForm.controls['last_name'].touched || registerForm.controls['last_name'].dirty)" class="messageError">
+              <p class="text-danger">votre last_name est obligatoire!</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <div *ngIf="!registerForm.controls['email'].valid  &&  (registerForm.controls['email'].touched || registerForm.controls['email'].dirty)" class="messageError">
+              <p class="text-danger">votre email est obligatoire!</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="login">login</label>
+            <input type="text" class="form-control" id="login" formControlName="login">
+            <div *ngIf="!registerForm.controls['login'].valid  &&  (registerForm.controls['login'].touched || registerForm.controls['login'].dirty)" class="messageError">
+              <p class="text-danger">votre login  est obligatoire!</p>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="mdPasse">Mot de passe</label>
+            <input type="password" class="form-control" id="mdPasse" formControlName="password">
+            <div *ngIf="!registerForm.controls['password'].valid  &&  (registerForm.controls['password'].touched || registerForm.controls['password'].dirty)" class="messageError">
+              <p class="text-danger">le mote de passe est obligatoire!</p>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+
+            <label for="phone_number">phone_number</label>
+            <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
+            <div *ngIf="!registerForm.controls['phone_number'].valid  &&  (registerForm.controls['phone_number'].touched || registerForm.controls['phone_number'].dirty)" class="messageError">
+              <p class="text-danger">le numero  est obligatoire!</p>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="adresse">adresse</label>
+            <input type="text" class="form-control" id="adresse" formControlName="adresse">
+            <div *ngIf="!registerForm.controls['adresse'].valid  &&  (registerForm.controls['adresse'].touched || registerForm.controls['adresse'].dirty)" class="messageError">
+              <p class="text-danger">votre login  est obligatoire!</p>
+            </div>
+
+          </div>
+
+
+          <br>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Register</button>
+        </form>
+
+        <hr class="w-30px">
+
+        <p class="text-center text-muted fs-13 mt-20">Avez vous deja un compte? <a class="text-primary fw-500"  routerLink="/login">veillez vous connecter</a></p>
+      </div>
+    </div>
+  </div>
+
+
+</div>

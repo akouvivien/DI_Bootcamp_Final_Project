@@ -51,7 +51,7 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
 
         patient.setLogin(signUpDto.getLogin());
 
-        patient.setMdPasse(signUpDto.getMdPasse());
+        patient.setMdPasse(signUpDto.getPassword());
 
         patient.setPhone_number(signUpDto.getPhone_number());
 
@@ -60,7 +60,7 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
         Roles roles = rolesRepo.findByName("Patient").get();
 
         patient.setRoles(roles);
-
+ 
         usersRepo.save(patient);
 
     }

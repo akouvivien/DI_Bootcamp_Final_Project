@@ -1,6 +1,7 @@
 package com.example.ApiProject.serviceImpl;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import com.example.ApiProject.Dto.AppointementDto;
+import com.example.ApiProject.Enums.StatusAppointements;
 import com.example.ApiProject.Model.*;
 import com.example.ApiProject.Repository.AppointementsRepository;
 import com.example.ApiProject.Repository.HospitalRepository;
@@ -45,23 +47,29 @@ public class AppointementServiceImpl implements AppointementsService {
 		        Patient patient = patientRepo.findById(appointemetDto.getPatientId()).orElse(null);
 		        if(patient == null) throw new ApplicationContextException("ce patient n'existe pas");
 
-		        Hospital hopital = hospitalRepo.findById(appointemetDto.getHospitalId()).orElse(null);
+		        Hospital hospital = hospitalRepo.findById(appointemetDto.getHospitalId()).orElse(null);
+				if(hospital == null) throw new ApplicationContextException("l'hopital selectionner n'existe pas");
 
 		        Speciality speciality = specialityRepo.findById(appointemetDto.getSpecialityId()).orElse(null);
+				if(speciality == null) throw new ApplicationContextException(" la specialitée selectionnée n'existe pas");
 
 		        Appointements appByDate = appoRepo.findAllByDate(appointemetDto.getDate());
 		        if(appByDate != null) throw new ApplicationContextException("Cette date est deja occupée par un autre rdv !");
 
+
 				// creation d'un rdv
 		        Appointements addAppointment = new Appointements();
-		        addAppointment.setHospital(hopital);
+		        addAppointment.setHospital(hospital);
 		        addAppointment.setPatient(patient);
 		        addAppointment.setDate(appointemetDto.getDate());
+				// TODO a verifier
+				addAppointment.setStatusAppointements(StatusAppointements.PENDING);
+				
 		        appoRepo.save(addAppointment);
 
 				//choisir un hopital et une specialisation
 		        SpecialityHospital specialityHospital = new SpecialityHospital();
-		        specialityHospital.setHospital(hopital);
+		        specialityHospital.setHospital(hospital);
 		        specialityHospital.setSpeciality(speciality);
 		        shRepo.save(specialityHospital);
 
@@ -109,6 +117,12 @@ public class AppointementServiceImpl implements AppointementsService {
 			appoRepo.deleteAll();
 
 		}
+
+		// public List<Appointements> getAppointementsDate(Date date ){
+
+		// 	return (List<Appointements>) appoRepo.findAllByDate(date);
+			
+		// }
 
 
 	}

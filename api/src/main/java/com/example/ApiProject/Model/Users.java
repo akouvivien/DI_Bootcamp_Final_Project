@@ -43,9 +43,11 @@ public class Users  {
     @NotBlank(message = "Le champ adresse ne peut etre vide")
 
     @Column(nullable = false, length = 200)
+
     private String adresse;
 
     @Column(length = 200)
+
     private String phone_number;
 
     private String login;
@@ -73,11 +75,8 @@ public class Users  {
     private Roles roles ;
 
     @JsonIdentityReference(alwaysAsId = false)
-
     @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
-
     private List<SessionUsers> sessionUsers;
-
 
 
 }

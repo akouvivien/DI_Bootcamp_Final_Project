@@ -25,7 +25,7 @@ public class DoctorDto {
 
     private String login;
 
-    private String mdPasse;
+    private String password;
 
     //private  Long roleId;
 

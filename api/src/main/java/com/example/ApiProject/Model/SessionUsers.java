@@ -31,7 +31,6 @@ public class SessionUsers {
     private Date date;
 
     @ManyToOne
-    @JsonIdentityReference(alwaysAsId = true)
     private Users users;
 
     public SessionUsers(SessionType sessionType) {

@@ -39,7 +39,7 @@ public class PatientServiceImpl  implements PatientService {
 
         addPatient.setLogin(patientDto.getLogin());
 
-        addPatient.setMdPasse(patientDto.getMdPasse());
+        addPatient.setMdPasse(patientDto.getPassword());
 
         addPatient.setPhone_number(patientDto.getPhone_number());
 

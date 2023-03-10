@@ -55,12 +55,14 @@ public class ContryController {
 
         Optional<Contry> contryId = contryService.getContryId(id);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(contryId.get(), HttpStatus.CREATED);
 
     }
 
     @DeleteMapping("/{id}")
+
     //suppression en fonction de l'id
+    
     public ResponseEntity<HttpStatus> deleteContryId(@Validated @RequestBody @PathVariable("id") long id) {
 
         contryService.deleteContryId(id);

@@ -10,33 +10,35 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+
+export class RegisterComponent  {
 
 registerForm!: FormGroup;
-  
+
   constructor(
     private fb:FormBuilder,
-    private httpService : httpService,
-    private route : Router
+     private httpService : httpService,
+     private route : Router
   ){}
 
   ngOnInit(): void {
-    this.registerForm= this.fb.group({
-      
-      email : [``,Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),],
 
-      mdPasse : [``,Validators.required],
-   
+    this.registerForm= this.fb.group({
+
+      email : [``,Validators.required,],
+
+      password : [``,Validators.required],
+
       first_name : [``,Validators.required],
-   
+
       last_name : [``,Validators.required],
-   
+
       phone_number : '',
-   
+
       login : [``,Validators.required ],
-   
+
       adresse : [``,Validators.required],
-   
+
     });
   }
 
@@ -46,10 +48,11 @@ registerForm!: FormGroup;
 
 //TODO a gerer la redirection apres le temps definit
 
-        setTimeout(() => {this.route.navigate(["/login"])}, 3000);
+        //  setTimeout(() => {this.route.navigate(["/login"])}, 3000);
 
       }
-  });
+ });
+
   console.log(this.registerForm.value)
 
 }

@@ -3,6 +3,8 @@ package com.example.ApiProject.Model;
 import lombok.*;
 import javax.persistence.*;
 
+import com.example.ApiProject.Enums.StatusAppointements;
+
 import java.io.Serializable;
 
 import java.util.Date;
@@ -27,6 +29,10 @@ public class Appointements implements Serializable {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", columnDefinition = "VARCHAR")
+    private StatusAppointements statusAppointements;
     
   
     @ManyToOne
@@ -40,4 +46,9 @@ public class Appointements implements Serializable {
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+
+
+    public Appointements(StatusAppointements statusAppointements) {
+        this.statusAppointements = statusAppointements;
+    }
 }

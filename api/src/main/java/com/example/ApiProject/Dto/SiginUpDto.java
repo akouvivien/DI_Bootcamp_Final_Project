@@ -11,7 +11,7 @@ public class SiginUpDto {
 
     private String email;
 
-    private String mdPasse;
+    private String password;
 
     private String first_name;
 

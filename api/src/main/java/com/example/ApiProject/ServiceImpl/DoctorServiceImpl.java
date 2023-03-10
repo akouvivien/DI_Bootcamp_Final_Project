@@ -39,7 +39,7 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setLogin(doctorDto.getLogin());
 
-        addDoctor.setMdPasse(doctorDto.getMdPasse());
+        addDoctor.setMdPasse(doctorDto.getPassword());
 
         //addDoctor.setRoles(roles);
 

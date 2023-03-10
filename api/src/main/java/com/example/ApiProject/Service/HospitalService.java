@@ -1,6 +1,9 @@
 package com.example.ApiProject.Service;
 
+import com.example.ApiProject.Dto.CityDto;
+import com.example.ApiProject.Dto.ContryDto;
 import com.example.ApiProject.Dto.HospitalDto;
+import com.example.ApiProject.Dto.MunicipalityDto;
 import com.example.ApiProject.Model.Hospital;
 
 import org.springframework.stereotype.Service;
@@ -22,4 +25,7 @@ public interface HospitalService {
     List<Hospital> getHospitals();
 
     void deleteHospitals();
+
+    // List<Hospital> findHospitalByCritary( ContryDto contrydto, CityDto cityDto, MunicipalityDto municipalitydto, String Status );
+
 }

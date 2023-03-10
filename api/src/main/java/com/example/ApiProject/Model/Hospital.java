@@ -36,6 +36,11 @@ public class Hospital implements Serializable {
     @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY)
     private List<Appointements> appointemnts;
 
+    // relation a revoir
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY)
+    private List<SpecialityHospital> specialityhospital;
+
     @ManyToOne()
     @JoinColumn(name = "municipality_id")
     private Municipality municipality ;

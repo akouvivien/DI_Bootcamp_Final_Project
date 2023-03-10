@@ -1,12 +1,14 @@
 <div class="container">
 
   <div class="row no-gutters min-h-fullscreen bg-white">
-    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(../assets/img/gallery/11.jpg)" data-overlay="5">
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(./../../../../assets/img/gallery/11.jpgassets/img/gallery/11.jpg)"  data-overlay="5">
 
       <div class="row h-100 pl-50">
         <div class="col-md-10 col-lg-8 align-self-end">
-          <img src="../assets/img/logo-light-lg.png" alt="...">
-          <br><br><br>
+
+          <img src="./../../../../assets/img/logo-light-lg.png" alt="..." >
+
+          <br><br>
           <h4 class="text-white">Hospital Appointements</h4>
           <p class="text-white">Prendre un rdv deviens un jeux d'enfant .</p>
           <br><br>
@@ -22,7 +24,8 @@
         <p><small>Connectez vous a votre compte</small></p>
         <br>
 
-        <form [formGroup]="loginForm"  class="form-type-material">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  class="form-type-material">
+
           <div class="form-group">
             <label for="login">Login</label>
             <input type="text" class="form-control" id="login" formControlName="login">
@@ -32,7 +35,7 @@
           </div>
 
           <div class="form-group">
-            <label for="password">Mot de Passe</label>
+            <label for="mdPasse">Mot de Passe</label>
             <input type="password" class="form-control" id="password" formControlName="password">
             <div *ngIf="!loginForm.controls['password'].valid  &&  (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)" class="messageError">
               <p class="text-danger">le mot de passe est obligatoire!</p>
@@ -41,7 +44,7 @@
 
 
           <div class="form-group">
-            <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+            <button class="btn btn-bold btn-block btn-primary" type="submit">Connectez vous</button>
           </div>
         </form>
 

@@ -1,6 +1,9 @@
 package com.example.ApiProject.serviceImpl;
 
+import com.example.ApiProject.Dto.CityDto;
+import com.example.ApiProject.Dto.ContryDto;
 import com.example.ApiProject.Dto.HospitalDto;
+import com.example.ApiProject.Dto.MunicipalityDto;
 import com.example.ApiProject.Model.EtablissementCategory;
 import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.Municipality;
@@ -98,4 +101,10 @@ public class HospitalServiceImpl implements HospitalService {
         hospitalRepository.deleteAll();
 
     }
+
+    // @Override
+    // public List<Hospital> findHospitalByCritary(ContryDto contrydto, CityDto citydto, MunicipalityDto municipalitydto, String Status) {
+    //     // TODO a corriger pour le status et a revoir la methode
+    //     return hospitalRepository.findHospitalByCritary(contrydto, citydto, municipalitydto, Status) ;
+    // }
 }

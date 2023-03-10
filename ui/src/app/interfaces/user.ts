@@ -2,7 +2,7 @@ export interface User {
 
    email : string,
 
-   mdPasse : string,
+   password : string,
 
    first_name : string,
 
