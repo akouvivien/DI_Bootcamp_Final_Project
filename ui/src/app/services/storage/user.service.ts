@@ -6,9 +6,10 @@ import { environnement } from 'src/app/environnements/environnement';
 @Injectable({
   providedIn :'root'
 })
+
 export class UserService {
 
-  User ?: User;
+  User !: User;
 
   constructor(private storageService : StorageService ){
     this.User = JSON.parse(this.storageService.get(environnement.APIKEY) as string);
@@ -25,4 +26,5 @@ export class UserService {
   getUser() : User{
    return this.User as User;
   }
+
 }

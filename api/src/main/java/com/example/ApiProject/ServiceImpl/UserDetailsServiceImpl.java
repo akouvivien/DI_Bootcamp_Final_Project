@@ -30,17 +30,15 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
     @Override
     public void registerUsers(SiginUpDto signUpDto) {
 
+    System.out.println(signUpDto);
 
         //verifie si l'utilisateur existe deja
         Boolean usersLogin = usersRepo.existsByLogin(signUpDto.getLogin());
-
         if (usersLogin) throw new ApplicationContextException("ce utilisateur existe deja");
 
-        // verifie l'email dans la bd
-        Boolean usersemail = usersRepo.existsByEmail(signUpDto.getEmail());
-
+         // verifie l'email dans la bd
+         Boolean usersemail = usersRepo.existsByEmail(signUpDto.getEmail());
         if (usersemail) throw new ApplicationContextException("ce email est deja utiliser ");
-
 
         // create Patient
         Patient patient = new Patient();
@@ -75,6 +73,8 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
         if (users.isPresent()){
 
             SessionUsers sessionUsers = new SessionUsers(SessionType.CONNECT);
+            
+            sessionUsers.setUsers(users.get());
 
             sessionUsersRepo.save(sessionUsers);
 
@@ -99,6 +99,8 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
         if (users.isPresent()){
 
             SessionUsers sessionUsers = new SessionUsers(SessionType.DISCONNECT);
+
+            sessionUsers.setUsers(users.get());
 
             sessionUsersRepo.save(sessionUsers);
 

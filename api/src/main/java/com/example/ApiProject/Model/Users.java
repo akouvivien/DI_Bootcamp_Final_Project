@@ -22,7 +22,7 @@ public class Users  {
 
     @Id
     
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
@@ -50,9 +50,12 @@ public class Users  {
 
     private String phone_number;
 
+    //@Column(unique=true)
     private String login;
 
+    //@Column(unique=true)
     private String email;
+
 
     private String mdPasse;
 

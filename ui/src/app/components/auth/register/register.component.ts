@@ -48,7 +48,7 @@ registerForm!: FormGroup;
 
 //TODO a gerer la redirection apres le temps definit
 
-        //  setTimeout(() => {this.route.navigate(["/login"])}, 3000);
+         setTimeout(() => {this.route.navigate(["/login"])}, 3000);
 
       }
  });

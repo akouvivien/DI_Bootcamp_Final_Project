@@ -42,6 +42,6 @@ public class Speciality   implements Serializable {
 // a revoir la relation
     @JsonIdentityReference(alwaysAsId = false)
     @OneToMany( mappedBy = "speciality", fetch = FetchType.LAZY)
-    private List<SpecialityHospital> specialityhospital;
+    private List<SpecialityHospitalDoctor> specialityhospital;
 
 }

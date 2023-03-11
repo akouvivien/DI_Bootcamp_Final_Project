@@ -29,6 +29,7 @@ public class CityController {
 
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
+    
 
     @GetMapping("/{id}")
 
@@ -39,6 +40,16 @@ public class CityController {
 
         return new ResponseEntity<>(cityId.get(), HttpStatus.OK);
     }
+    
+
+//     @GetMapping("/{name}")
+// //recuperation de la ville via le nom
+//     public ResponseEntity<City> getCityByName(@PathVariable("name") String name) {
+
+//         Optional<City> cityName=  cityService.getCityName(name);
+
+//         return new ResponseEntity<>(cityName.get(), HttpStatus.OK);
+//     }
 
 
     @PostMapping("")
@@ -51,12 +62,21 @@ public class CityController {
 
     @PutMapping("/{id}")
     //modification via l'id
-    public ResponseEntity<City> updateDoctor(@PathVariable("id") long id, @RequestBody CityDto cityDto)
+    public ResponseEntity<City> updateCityId(@PathVariable("id") Long id, @RequestBody CityDto cityDto)
     {
         City newUpdateCity = cityService.updateCity(id, cityDto);
 
         return new ResponseEntity<>(newUpdateCity, HttpStatus.OK);
     }
+
+    // @PutMapping("/{name}")
+    // //modification via le nom
+    // public ResponseEntity<City> updateCityName(@PathVariable("name") String name, @RequestBody CityDto cityDto)
+    // {
+    //     City newUpdateCity = cityService.updateCityName(name, cityDto);
+
+    //     return new ResponseEntity<>(newUpdateCity, HttpStatus.OK);
+    // }
 
     @DeleteMapping("/{id}")
     //suppression en fonction de l'id

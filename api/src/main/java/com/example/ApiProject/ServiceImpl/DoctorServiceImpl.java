@@ -1,7 +1,8 @@
 package com.example.ApiProject.serviceImpl;
 import com.example.ApiProject.Dto.DoctorDto;
-import com.example.ApiProject.Model.Doctor;
+import com.example.ApiProject.Model.*;
 import com.example.ApiProject.Repository.DoctorRepository;
+import com.example.ApiProject.Repository.RolesRepository;
 import com.example.ApiProject.Service.DoctorService;
 
 import org.springframework.beans.BeanUtils;
@@ -16,16 +17,11 @@ public class DoctorServiceImpl  implements DoctorService {
     @Autowired
     DoctorRepository doctorRepo;
 
-   // @Autowired
-   // RolesRepository rolesRepo;
+    @Autowired
+    RolesRepository rolesRepo;
 
     @Override
     public Doctor CreateDoctor(DoctorDto doctorDto) {
-
-       // Roles roles = rolesRepo.findById(doctorDto.getRoleId()).orElse(null);
-
-       // if(roles == null) throw new ApplicationContextException(" attention le role que vous avez selectionnez n'existe pas");
-
 
         Doctor addDoctor = new Doctor();
 
@@ -33,19 +29,24 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setLast_name(doctorDto.getLast_name());
 
-        addDoctor.setAdresse(doctorDto.getAdresse());
-
-        addDoctor.setMatricule(doctorDto.getMatricule());
+        addDoctor.setAdresse(doctorDto.getAddress());
 
         addDoctor.setLogin(doctorDto.getLogin());
 
+        addDoctor.setEmail(doctorDto.getEmail());
+
         addDoctor.setMdPasse(doctorDto.getPassword());
 
-        //addDoctor.setRoles(roles);
+        Roles roles = rolesRepo.findByName("Doctor").get();
+
+        addDoctor.setRoles(roles);
 
         addDoctor.setDoctor_status(doctorDto.isDoctor_status());
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
+
+        addDoctor.setMatricule(doctorDto.getMatricule());
+
         doctorRepo.save(addDoctor);
 
         return addDoctor;

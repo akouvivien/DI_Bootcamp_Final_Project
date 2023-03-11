@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Validated
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/doctor")
 
@@ -20,6 +21,7 @@ public class DoctorController {
 
     @Autowired
     DoctorService doctorService;
+    
     @GetMapping("")
     //liste des doctors
     public ResponseEntity<List<Doctor>> getALLDoctors(){

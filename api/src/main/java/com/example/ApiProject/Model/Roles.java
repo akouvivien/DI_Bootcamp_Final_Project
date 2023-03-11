@@ -39,7 +39,7 @@ public class Roles  implements Serializable {
 
     private Date updatedAt;
 
-    @JsonIdentityReference(alwaysAsId = false)
+    @JsonIdentityReference(alwaysAsId = true)
     @OneToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private List<Users> users;
 

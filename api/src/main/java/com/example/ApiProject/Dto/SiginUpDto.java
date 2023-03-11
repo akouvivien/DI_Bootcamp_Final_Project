@@ -17,7 +17,6 @@ public class SiginUpDto {
 
     private String last_name;
 
-
     private String phone_number;
 
     private String login;
@@ -25,6 +24,5 @@ public class SiginUpDto {
     private String adresse;
 
 
-    //private String  rolesId;
 
 }

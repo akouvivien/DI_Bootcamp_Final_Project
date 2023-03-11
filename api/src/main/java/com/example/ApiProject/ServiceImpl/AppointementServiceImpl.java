@@ -16,7 +16,7 @@ import com.example.ApiProject.Model.*;
 import com.example.ApiProject.Repository.AppointementsRepository;
 import com.example.ApiProject.Repository.HospitalRepository;
 import com.example.ApiProject.Repository.PatientRepository;
-import com.example.ApiProject.Repository.SpecialityHospitalRepository;
+import com.example.ApiProject.Repository.SpecialityHospitalDoctorRepository;
 import com.example.ApiProject.Repository.SpecilalityRepository;
 import com.example.ApiProject.Service.AppointementsService;
 
@@ -38,7 +38,7 @@ public class AppointementServiceImpl implements AppointementsService {
 	    SpecilalityRepository specialityRepo;
 	    
 	    @Autowired
-	    SpecialityHospitalRepository shRepo;
+	    SpecialityHospitalDoctorRepository shRepo;
 
 // creation d'un rdv selon un service predefinit et en fonction de la disponibilité du medcin (Jours)
 	@Override
@@ -68,7 +68,7 @@ public class AppointementServiceImpl implements AppointementsService {
 		        appoRepo.save(addAppointment);
 
 				//choisir un hopital et une specialisation
-		        SpecialityHospital specialityHospital = new SpecialityHospital();
+		        SpecialityHospitalDoctor specialityHospital = new SpecialityHospitalDoctor();
 		        specialityHospital.setHospital(hospital);
 		        specialityHospital.setSpeciality(speciality);
 		        shRepo.save(specialityHospital);

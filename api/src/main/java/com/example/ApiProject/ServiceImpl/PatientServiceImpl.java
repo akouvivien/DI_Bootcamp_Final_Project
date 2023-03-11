@@ -2,6 +2,7 @@ package com.example.ApiProject.serviceImpl;
 
 import com.example.ApiProject.Dto.PatientDto;
 import com.example.ApiProject.Model.Patient;
+import com.example.ApiProject.Model.Roles;
 import com.example.ApiProject.Repository.PatientRepository;
 import com.example.ApiProject.Repository.RolesRepository;
 import com.example.ApiProject.Service.PatientService;
@@ -26,9 +27,6 @@ public class PatientServiceImpl  implements PatientService {
     @Override
     public Patient createPatient(PatientDto patientDto) {
 
-       // Roles roles = rolesRepo.findById(patientDto.getRoleId()).orElse(null);
-       // if(roles == null) throw new ApplicationContextException(" attention le role que vous avez selectionnez n'existe pas");
-
         Patient addPatient = new Patient();
 
         addPatient.setFirst_name(patientDto.getFirst_name());
@@ -39,11 +37,15 @@ public class PatientServiceImpl  implements PatientService {
 
         addPatient.setLogin(patientDto.getLogin());
 
+        addPatient.setEmail(patientDto.getEmail());
+
         addPatient.setMdPasse(patientDto.getPassword());
 
         addPatient.setPhone_number(patientDto.getPhone_number());
 
-       // addPatient.setRoles(roles);
+        Roles roles = rolesRepo.findByName("Patient").get();
+
+        addPatient.setRoles(roles);
 
         patientRepo.save(addPatient);
 

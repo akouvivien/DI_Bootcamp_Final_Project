@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class SpecialityHospitalDto {
+public class SpecialityHospitalDoctorDto {
 
     private Long id;
 

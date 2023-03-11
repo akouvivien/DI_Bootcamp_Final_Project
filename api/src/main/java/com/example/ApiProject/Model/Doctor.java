@@ -21,6 +21,7 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Doctor extends Users implements Serializable {
 
+//@Column(unique=true)
  private String Matricule ;
 
  private boolean doctor_status;
@@ -36,5 +37,5 @@ public class Doctor extends Users implements Serializable {
     // a revoir la relation
     @JsonIdentityReference(alwaysAsId = false)
     @OneToMany( mappedBy = "doctor", fetch = FetchType.LAZY)
-    private List<SpecialityHospital> specialityhospital;
+    private List<SpecialityHospitalDoctor> specialityhospital;
 }

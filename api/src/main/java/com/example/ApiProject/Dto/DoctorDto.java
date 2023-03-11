@@ -17,7 +17,7 @@ public class DoctorDto {
 
     private String last_name;
 
-    private String adresse;
+    private String address;
 
     private String email;
 
@@ -26,8 +26,6 @@ public class DoctorDto {
     private String login;
 
     private String password;
-
-    //private  Long roleId;
 
     private boolean doctor_status;
 

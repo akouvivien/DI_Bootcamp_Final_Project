@@ -10,6 +10,12 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { httpService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { DoctorComponent } from './components/shared/doctors/doctor.component';
+import { DoctorListComponent } from './components/shared/doctors/doctor-list/doctor-list.component';
+import { LayoutDoctorComponent } from './pages/layout-doctor/layout-doctor.component';
+import { HospitalComponent } from './components/shared/hospitals/hospital/hospital.component';
+import { HospitalListComponent } from './components/shared/hospitals/hospital-list/hospital-list.component';
+import { LayoutHospitalComponent } from './pages/layout-hospital/layout-hospital.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     RegisterComponent,
     FooterComponent,
     LayoutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DoctorComponent,
+    DoctorListComponent,
+    LayoutDoctorComponent,
+    HospitalComponent,
+    HospitalListComponent,
+    LayoutHospitalComponent
 
   ],
   imports: [

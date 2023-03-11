@@ -2,6 +2,7 @@ import { httpService } from './../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+
+  users! : User
 
 
   constructor(
@@ -34,12 +37,17 @@ export class LoginComponent implements OnInit {
       this.httpService.login(this.loginForm.value).subscribe({
         next:(response :any) =>{
 
-  //TODO a gerer la redirection apres le temps definit
+        // redirige vers la page principale
 
-          setTimeout(() => {this.route.navigate(["/register"])}, 3000);
+          setTimeout(() => {this.route.navigate(["/layout"])}, 3000);
 
+          this.users = response as User;
+
+          localStorage.setItem("user", JSON.stringify(this.users));
         }
+
     });
+
     console.log(this.loginForm.value)
 
   }

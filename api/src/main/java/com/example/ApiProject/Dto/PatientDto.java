@@ -15,15 +15,13 @@ public class PatientDto {
 
     private String last_name;
 
-   // private Date Birthday;
-
     private String address;
 
     private String login;
 
     private String password;
 
-   // private  Long roleId;
+    private String email;
 
     private String phone_number;
 }

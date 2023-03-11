@@ -54,6 +54,7 @@ public class CityServiceimpl  implements CityService {
         return cityrepo.save(cityToUpdate);
     }
 
+
     @Override
     public void deleteCityId(Long id) {
 
@@ -79,4 +80,5 @@ public class CityServiceimpl  implements CityService {
         cityrepo.deleteAll();
 
     }
+
 }

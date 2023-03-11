@@ -1,8 +1,8 @@
 package com.example.ApiProject.Controller;
 
-import com.example.ApiProject.Dto.SpecialityHospitalDto;
-import com.example.ApiProject.Model.SpecialityHospital;
-import com.example.ApiProject.Service.SpecialityHospitalService;
+import com.example.ApiProject.Dto.SpecialityHospitalDoctorDto;
+import com.example.ApiProject.Model.SpecialityHospitalDoctor;
+import com.example.ApiProject.Service.SpecialityHospitalDoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,16 +14,16 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/specialityHospitalDoctor")
-public class SpecialityHospitalController {
+@RequestMapping("/specialityhospitaldoctor")
+public class SpecialityHospitalDoctorController {
 
         @Autowired
-        SpecialityHospitalService specialityHospitalService;
+        SpecialityHospitalDoctorService specialityHospitalService;
 
         @GetMapping("")
-        public ResponseEntity<List<SpecialityHospital>> getALLSpecialityHospitalDoctor(){
+        public ResponseEntity<List<SpecialityHospitalDoctor>> getALLSpecialityHospitalDoctor(){
 
-            List<SpecialityHospital> list = specialityHospitalService.getSpecialityHospitals() ;
+            List<SpecialityHospitalDoctor> list = specialityHospitalService.getSpecialityHospitals() ;
 
             return new ResponseEntity<>(list, HttpStatus.OK);
 
@@ -31,26 +31,26 @@ public class SpecialityHospitalController {
 
         @GetMapping("/{id}")
 
-        public ResponseEntity<SpecialityHospital> getSpecialityHospitalDoctorById(@PathVariable("id") Long id) {
+        public ResponseEntity<SpecialityHospitalDoctor> getSpecialityHospitalDoctorById(@PathVariable("id") Long id) {
 
-            Optional<SpecialityHospital> specialityHospitalDoctorId =  specialityHospitalService.getSpecialityHospitalId(id);
+            Optional<SpecialityHospitalDoctor> specialityHospitalDoctorId =  specialityHospitalService.getSpecialityHospitalId(id);
 
             return new ResponseEntity<>(specialityHospitalDoctorId.get(), HttpStatus.OK);
         }
 
         @PostMapping("")
-        public ResponseEntity<String> createSpecialityHospitalDoctor(@Validated @RequestBody SpecialityHospitalDto specialityHospitalDto) {
+        public ResponseEntity<String> createSpecialityHospitalDoctor(@Validated @RequestBody SpecialityHospitalDoctorDto specialityHospitalDoctorDto) {
 
-            specialityHospitalService.createSpecialityHospital(specialityHospitalDto);
+            specialityHospitalService.createSpecialityHospital(specialityHospitalDoctorDto);
 
             return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.NOT_FOUND);
         }
 
         @PutMapping("/{id}")
         //modification via l'id
-        public ResponseEntity<SpecialityHospital> updateSpecialityHospitalDoctor(@PathVariable("id") Long id, @RequestBody SpecialityHospitalDto specialityHospitalDto) {
+        public ResponseEntity<SpecialityHospitalDoctor> updateSpecialityHospitalDoctor(@PathVariable("id") Long id, @RequestBody SpecialityHospitalDoctorDto specialityHospitalDoctorDto) {
 
-            SpecialityHospital newUpdateSpecialityHospital = specialityHospitalService.updateSpecialityHospital(id, specialityHospitalDto);
+            SpecialityHospitalDoctor newUpdateSpecialityHospital = specialityHospitalService.updateSpecialityHospital(id, specialityHospitalDoctorDto);
 
             return new ResponseEntity<>(newUpdateSpecialityHospital, HttpStatus.OK);
         }

@@ -2,7 +2,6 @@ package com.example.ApiProject.Model;
 
 import com.example.ApiProject.Enums.SessionType;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;

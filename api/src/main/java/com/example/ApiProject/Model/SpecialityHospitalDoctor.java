@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Table(name = "service_hospital")
-public class SpecialityHospital implements Serializable {
+public class SpecialityHospitalDoctor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

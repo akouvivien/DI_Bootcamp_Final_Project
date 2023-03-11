@@ -21,3 +21,4 @@ public class HospitalDto {
 
     private Long etablissementCategoryId;
 }
+

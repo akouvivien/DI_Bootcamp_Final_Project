@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
   <div class="row no-gutters min-h-fullscreen bg-white">
     <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(./../../../../assets/img/gallery/11.jpg)"  data-overlay="5">
@@ -92,7 +92,7 @@
             <label for="adresse">adresse</label>
             <input type="text" class="form-control" id="adresse" formControlName="adresse">
             <div *ngIf="!registerForm.controls['adresse'].valid  &&  (registerForm.controls['adresse'].touched || registerForm.controls['adresse'].dirty)" class="messageError">
-              <p class="text-danger">votre login  est obligatoire!</p>
+              <p class="text-danger">votre adresse svp!</p>
             </div>
 
           </div>

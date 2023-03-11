@@ -22,4 +22,6 @@ public interface CityService {
     List<City> getCities();
 
     void deleteCities();
+
+
 }
