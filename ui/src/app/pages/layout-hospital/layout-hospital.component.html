@@ -1,1 +1,37 @@
-<p>layout-hospital works!</p>
+<!-- add doctor -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+
+      <app-hospital-list 
+
+      [hospitalList]="hospitalList" 
+      
+      [municipalityList]="municipalityList"
+      
+      [categoryList]="categoryList"  >
+      
+    </app-hospital-list>
+      
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+
+      <app-hospital 
+
+      (hospitalListOutput)="getHospitalListFromHospitalComponent($event)"
+
+      (categoryListOutput)="getCategoryListFromHospitalComponent($event)"
+
+      (municipalityListOutput)="getMunicipalityListFromHospitalComponent($event)">
+    
+    </app-hospital>
+
+    </div>
+
+
+</div>

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Validated
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/contry")
 

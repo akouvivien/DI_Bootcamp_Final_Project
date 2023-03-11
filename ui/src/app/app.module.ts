@@ -10,7 +10,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { httpService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DoctorComponent } from './components/shared/doctors/doctor.component';
+import { DoctorComponent } from './components/shared/doctors/doctor/doctor.component';
 import { DoctorListComponent } from './components/shared/doctors/doctor-list/doctor-list.component';
 import { LayoutDoctorComponent } from './pages/layout-doctor/layout-doctor.component';
 import { HospitalComponent } from './components/shared/hospitals/hospital/hospital.component';

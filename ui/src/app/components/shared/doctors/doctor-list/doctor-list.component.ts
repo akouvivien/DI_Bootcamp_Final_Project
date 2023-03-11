@@ -10,4 +10,5 @@ export class DoctorListComponent {
 
   //recois la valeur de doctors list en provenance de l'autre composant
   @Input() doctorList!: Doctor[];
+
 }

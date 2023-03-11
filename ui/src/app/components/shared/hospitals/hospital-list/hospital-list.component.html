@@ -1,1 +1,63 @@
-<p>hospital-list works!</p>
+  <div class="row h-100 pl-50">
+
+
+    <div class="col-lg-8 align-center">
+      <div class="card">
+        <h4 class="card-title"><strong>List of Hospital</strong></h4>
+
+        <div class="card-body">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th> Name</th>
+                <th> Adresse</th>
+                <th>Municipalité</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody   >
+              <tr *ngFor=" let items of hospitalList let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{items.name}}</td>
+                <td>{{items.adresse}}</td>
+                <td>{{items.status}}</td>
+                <td>{{items.municipalityId}}</td>
+                <td>{{items.etablissementCategoryId}}</td>
+                <td>
+                  <button class="btn btn-outline-danger"> supprimer</button>
+                  <button class="btn btn-outline-primary"> modifier</button>
+                </td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+
+          <nav>
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#">
+                  <span class="ti-arrow-left"></span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <span class="ti-arrow-right"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </div>
+</div>
+

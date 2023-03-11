@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Validated
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/patient")
 

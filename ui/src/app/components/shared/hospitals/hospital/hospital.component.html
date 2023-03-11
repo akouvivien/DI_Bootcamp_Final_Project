@@ -2,88 +2,58 @@
 <div class="container-fluid">
 
   <div class="px-80 py-30">
-    <h4>enregistrement des doctors</h4>
+    <h4>enregistrement des Hopitaux</h4>
 
     <form  [formGroup]="hospitalForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
       <div class="form-group">
 
-        <label for="first_name">first_name</label>
-        <input type="text" class="form-control" id="first_name" formControlName="first_name">
-        <div *ngIf="!doctorForm.controls['first_name'].valid  &&  (doctorForm.controls['first_name'].touched || doctorForm.controls['first_name'].dirty)" class="messageError">
-          <p class="text-danger">votre first_name est obligatoire!</p>
+        <label for="first_name">Hospital_name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="!hospitalForm.controls['name'].valid  &&  (hospitalForm.controls['name'].touched || hospitalForm.controls['name'].dirty)" class="messageError">
+          <p class="text-danger">veillez renseignez le nom sil vous plait!</p>
         </div>
       </div>
 
       <div class="form-group">
 
 
-        <label for="last_name">last_name</label>
-        <input type="text" class="form-control" id="last_name" formControlName="last_name">
-        <div *ngIf="!doctorForm.controls['last_name'].valid  &&  (doctorForm.controls['last_name'].touched || doctorForm.controls['last_name'].dirty)" class="messageError">
-          <p class="text-danger">votre last_name est obligatoire!</p>
+        <label for="adresse">Hospital_adresse</label>
+        <input type="text" class="form-control" id="adresse" formControlName="adresse">
+        <div *ngIf="!hospitalForm.controls['adresse'].valid  &&  (hospitalForm.controls['adresse'].touched || hospitalForm.controls['adresse'].dirty)" class="messageError">
+          <p class="text-danger">veillez renseignez l'adresse sil vous plait!</p>
         </div>
       </div>
 
-      <div class="form-group">
-
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
-        <div *ngIf="!doctorForm.controls['email'].valid  &&  (doctorForm.controls['email'].touched || doctorForm.controls['email'].dirty)" class="messageError">
-          <p class="text-danger">votre email est obligatoire!</p>
-        </div>
+      <label for="adresse">Disponibility</label>
+      <select  type="text" class="form-control" id="adresse"formControlName="adresse">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <div *ngIf="!hospitalForm.controls['adresse'].valid  &&  (hospitalForm.controls['adresse'].touched || hospitalForm.controls['adresse'].dirty)" class="messageError">
+        <p class="text-danger">veillez renseignez l'adresse sil vous plait!</p>
       </div>
-
-      <div class="form-group">
-
-        <label for="login">login</label>
-        <input type="text" class="form-control" id="login" formControlName="login">
-        <div *ngIf="!doctorForm.controls['login'].valid  &&  (doctorForm.controls['login'].touched || doctorForm.controls['login'].dirty)" class="messageError">
-          <p class="text-danger">votre login  est obligatoire!</p>
-        </div>
-
-      </div>
-
-      <div class="form-group">
-
-        <input type="password" class="form-control" id="password" formControlName="password">
-        <label for="mdPasse">Mot de passe</label>
-        <div *ngIf="!doctorForm.controls['password'].valid  &&  (doctorForm.controls['password'].touched || doctorForm.controls['password'].dirty)" class="messageError">
-          <p class="text-danger">le mote de passe est obligatoire!</p>
-        </div>
-
-      </div>
-
-      <div class="form-group">
-
-
-        <label for="phone_number">phone_number</label>
-        <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
-        <div *ngIf="!doctorForm.controls['phone_number'].valid  &&  (doctorForm.controls['phone_number'].touched || doctorForm.controls['phone_number'].dirty)" class="messageError">
-          <p class="text-danger">le numero  est obligatoire!</p>
-        </div>
-      </div>
-
 
 
       <div class="form-group">
 
-        <label for="address">adresse</label>
-        <input type="text" class="form-control" id="address" formControlName="address">
-        <div *ngIf="!doctorForm.controls['adresse'].valid  &&  (doctorForm.controls['adresse'].touched || doctorForm.controls['adresse'].dirty)" class="messageError">
-          <p class="text-danger">votre adresse svp!</p>
+        <label for="municipalityId">Municipality of hospital</label>
+        <select class="form-control" id="municipalityId" formControlName="municipalityId" for="municipalityId" >
+          <option class="form-control" id="municipalityId" formControlName="municipalityId" *ngFor="let items of municipalityList">{{ items.id }}</option>
+        </select>
+        <div *ngIf="!hospitalForm.controls['municipalityId'].valid  &&  (hospitalForm.controls['municipalityId'].touched || hospitalForm.controls['municipalityId'].dirty)" class="messageError">
+          <p class="text-danger">veillez selectionner une municipalité!</p>
         </div>
-
       </div>
 
       <div class="form-group">
-
-        <label for="Matricule">Matricule</label>
-        <input type="text" class="form-control" id="Matricule" formControlName="Matricule">
-        <div *ngIf="!doctorForm.controls['Matricule'].valid  &&  (doctorForm.controls['Matricule'].touched || doctorForm.controls['Matricule'].dirty)" class="messageError">
-          <p class="text-danger">votre Matricule svp!</p>
+        <label for="etablissementCategoryId">Category of hospitality</label>
+        <select class="form-control" id="etablissementCategoryId" formControlName="etablissementCategoryId" for="etablissementCategoryId">
+          <option class="form-control" id="etablissementCategoryId" formControlName="etablissementCategoryId"  *ngFor="let items of categoryList">{{ items.id }}</option>
+        </select>
+        <div *ngIf="!hospitalForm.controls['municipalityId'].valid  &&  (hospitalForm.controls['municipalityId'].touched || hospitalForm.controls['municipalityId'].dirty)" class="messageError">
+          <p class="text-danger">veillez selectionner une categorie!</p>
         </div>
-
       </div>
       <br>
       <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>

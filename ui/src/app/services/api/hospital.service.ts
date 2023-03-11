@@ -1,6 +1,7 @@
 import { url_path } from 'src/app/constant/constant';
 import { Hospital } from './../../interfaces/hospital';
 import { HttpService } from "./api.service";
+import { Injectable } from '@angular/core';
 
 
 @Injectable({
@@ -20,11 +21,11 @@ export class HospitalService {
   }
 
   getHospitals() {
-   return this.httpService.get(url_path.DOCTOR_BASE);
+   return this.httpService.get(url_path.HOSPITAL_BASE);
   }
 
   deleteHospital(id : string) {
-    return this.httpService.delete(`${url_path.DOCTOR_BASE}/${id}`);
+    return this.httpService.delete(`${url_path.HOSPITAL_BASE}/${id}`);
   }
 
 }

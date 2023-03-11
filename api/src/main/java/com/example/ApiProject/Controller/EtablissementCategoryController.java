@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 @Validated
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/category")
 public class EtablissementCategoryController {
