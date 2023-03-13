@@ -1,0 +1,28 @@
+<!-- add doctor -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-8 " data-overlay="2" >
+
+      <app-contry-list
+
+      [contryList]="contryList">
+
+      </app-contry-list>
+
+    </div>
+
+
+
+    <div class="col-4  align-self-center">
+
+      <app-contry
+      (contryListOutput)=" getContryListFromContryComponent($event)">
+
+    </app-contry>
+
+    </div>
+
+
+</div>

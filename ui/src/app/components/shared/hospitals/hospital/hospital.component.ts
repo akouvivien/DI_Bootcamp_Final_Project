@@ -54,6 +54,8 @@ export class HospitalComponent {
   ngOnInit(): void {
   //actualisation du tableau des hopitaux
     this.getallHospitals();
+    this.getallMunicipality();
+    this.getallCategory()
 
   //add Hospital
       this.hospitalForm= this.fb.group({
@@ -71,8 +73,6 @@ export class HospitalComponent {
       });
   }
 
-
-  
 //recuperation de la liste des hopitaux
 getallHospitals(){
 
@@ -99,8 +99,6 @@ getallHospitals(){
 
 }
 
-
-
 //enregistrement d'un nouvel hopital
 onSubmit(){
 
@@ -113,7 +111,7 @@ onSubmit(){
     },
     error: error => {
 
-      console.error("Erreur lors de l'enregistrement d'un nouveau doctor!", error);
+      console.error("Erreur lors de l'enregistrement d'un nouvel hopital!", error);
 
     }
   })

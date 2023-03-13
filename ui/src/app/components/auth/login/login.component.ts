@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     private fb:FormBuilder,
     private httpService : httpService,
     private route : Router
+    // private _save : StorageService
   ){}
 
 
@@ -37,18 +38,23 @@ export class LoginComponent implements OnInit {
       this.httpService.login(this.loginForm.value).subscribe({
         next:(response :any) =>{
 
-        // redirige vers la page principale
-
-          setTimeout(() => {this.route.navigate(["/layout"])}, 3000);
-
           this.users = response as User;
 
-          localStorage.setItem("user", JSON.stringify(this.users));
+          console.log(this.users)
+
+        // redirige vers la page principale
+        setTimeout(() => {this.route.navigate(["/layout"])}, 3000);
+
+        },
+        error: error => {
+
+          console.error("Erreur lors de la recuperation des des informations !", error);
+
         }
 
     });
 
-    console.log(this.loginForm.value)
+
 
   }
 

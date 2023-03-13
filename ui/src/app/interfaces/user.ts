@@ -13,6 +13,8 @@ export interface User {
 
    login : string ,
 
-   adresse : string
+   adresse : string,
+
+   roles: number
 
 }

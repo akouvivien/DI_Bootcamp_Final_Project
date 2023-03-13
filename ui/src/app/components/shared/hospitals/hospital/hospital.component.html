@@ -1,4 +1,4 @@
-<!-- add doctor -->
+<!-- add Hospital -->
 <div class="container-fluid">
 
   <div class="px-80 py-30">
@@ -25,13 +25,13 @@
         </div>
       </div>
 
-      <label for="adresse">Disponibility</label>
-      <select  type="text" class="form-control" id="adresse"formControlName="adresse">
+      <label for="status">Disponibility</label>
+      <select  type="text" class="form-control" id="status"formControlName="status">
         <option value="true">true</option>
         <option value="false">false</option>
       </select>
-      <div *ngIf="!hospitalForm.controls['adresse'].valid  &&  (hospitalForm.controls['adresse'].touched || hospitalForm.controls['adresse'].dirty)" class="messageError">
-        <p class="text-danger">veillez renseignez l'adresse sil vous plait!</p>
+      <div *ngIf="!hospitalForm.controls['status'].valid  &&  (hospitalForm.controls['status'].touched || hospitalForm.controls['status'].dirty)" class="messageError">
+        <p class="text-danger">veillez renseignez le status sil vous plait!</p>
       </div>
 
 
@@ -39,7 +39,7 @@
 
         <label for="municipalityId">Municipality of hospital</label>
         <select class="form-control" id="municipalityId" formControlName="municipalityId" for="municipalityId" >
-          <option class="form-control" id="municipalityId" formControlName="municipalityId" *ngFor="let items of municipalityList">{{ items.id }}</option>
+          <option  *ngFor="let items of municipalityList" value ="{{ items.id }}">{{ items.name }}</option>
         </select>
         <div *ngIf="!hospitalForm.controls['municipalityId'].valid  &&  (hospitalForm.controls['municipalityId'].touched || hospitalForm.controls['municipalityId'].dirty)" class="messageError">
           <p class="text-danger">veillez selectionner une municipalité!</p>
@@ -49,9 +49,9 @@
       <div class="form-group">
         <label for="etablissementCategoryId">Category of hospitality</label>
         <select class="form-control" id="etablissementCategoryId" formControlName="etablissementCategoryId" for="etablissementCategoryId">
-          <option class="form-control" id="etablissementCategoryId" formControlName="etablissementCategoryId"  *ngFor="let items of categoryList">{{ items.id }}</option>
+          <option *ngFor="let items of categoryList" value ="{{ items.id }}">{{ items.name }}</option>
         </select>
-        <div *ngIf="!hospitalForm.controls['municipalityId'].valid  &&  (hospitalForm.controls['municipalityId'].touched || hospitalForm.controls['municipalityId'].dirty)" class="messageError">
+        <div *ngIf="!hospitalForm.controls['etablissementCategoryId'].valid  &&  (hospitalForm.controls['etablissementCategoryId'].touched || hospitalForm.controls['etablissementCategoryId'].dirty)" class="messageError">
           <p class="text-danger">veillez selectionner une categorie!</p>
         </div>
       </div>

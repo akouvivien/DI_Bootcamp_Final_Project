@@ -3,15 +3,15 @@
 
   <div class="row no-gutters min-h-fullscreen bg-white">
 
-    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+    <div class="col-8 " data-overlay="2" >
 
       <app-doctor-list [doctorList]="doctorList"></app-doctor-list>
-      
+
     </div>
 
 
 
-    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+    <div class="col-4  align-self-center">
 
       <app-doctor (doctorListOutput)="getDoctorListFromDoctorComponent($event)"></app-doctor>
 

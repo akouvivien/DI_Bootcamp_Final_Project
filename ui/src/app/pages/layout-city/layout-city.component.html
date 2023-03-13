@@ -1,0 +1,27 @@
+<!-- add city -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-8 " data-overlay="2" >
+
+      <app-city-list
+      [cityList]="cityList"
+
+      [contryList]="contryList">
+      </app-city-list>
+
+    </div>
+
+    <div class="col-4  align-self-center">
+
+      <app-city
+      (cityListOutput)="getcityListFromCityComponent($event)"
+
+      (contryListOutput)="getContryListFromCityComponent($event)">
+    </app-city>
+
+    </div>
+
+
+</div>

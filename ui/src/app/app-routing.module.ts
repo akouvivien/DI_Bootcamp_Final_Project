@@ -1,20 +1,28 @@
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { LayoutDoctorComponent } from './pages/layout-doctor/layout-doctor.component';
-import { LayoutHospitalComponent } from './pages/layout-hospital/layout-hospital.component';
-import { HospitalComponent } from './components/shared/hospitals/hospital/hospital.component';
 
 const routes: Routes = [
-  {path:"", redirectTo:"login", pathMatch:"full"},
-  {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent},
-  {path:"layout", component:LayoutComponent},
-  {path:"doctor",component:LayoutDoctorComponent},
-  {path:"hospital",component:LayoutHospitalComponent},
-  {path:"h",component:HospitalComponent}
+  {
+    path:'authentification',
+    loadChildren: () => import('./components/auth/auth.module').then(m=>m.AuthModule)
+  },
+
+  {
+    path:'layout',
+    loadChildren: () => import('./pages/layout.module').then(m=>m.LayoutModule)
+
+  },
+
+  {
+    path:'',
+    redirectTo:'authentification',
+    pathMatch: 'full'
+  },
+
+  { path:'**',component:NotFoundComponent }
+
+
 ];
 
 

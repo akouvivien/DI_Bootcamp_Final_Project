@@ -50,6 +50,11 @@ registerForm!: FormGroup;
 
          setTimeout(() => {this.route.navigate(["/login"])}, 3000);
 
+      },
+      error: error => {
+
+        console.error("Erreur lors de la recuperation des des informations !", error);
+
       }
  });
 
