@@ -1,0 +1,27 @@
+<!-- add doctor -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-8 " data-overlay="2" >
+
+      <app-category-list
+
+      [categoryList]="categoryList">
+
+      </app-category-list>
+
+    </div>
+
+
+    <div class="col-4  align-self-center">
+
+      <app-category
+      (categoryListOutput)=" getCategoryListFromCategoryComponent($event)">
+
+    </app-category>
+
+    </div>
+
+
+</div>

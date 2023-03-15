@@ -24,6 +24,13 @@ import { AppointementsComponent } from '../components/shared/appointements/appoi
 import { LayoutAppointementsComponent } from './layout-appointements/layout-appointements.component';
 import { MunicipalityListComponent } from '../components/shared/municipalities/municipality-list/municipality-list.component';
 import { MunicipalityComponent } from '../components/shared/municipalities/municipality/municipality.component';
+import { RoleListComponent } from '../components/shared/roles/role-list/role-list.component';
+import { RoleComponent } from '../components/shared/roles/role/role.component';
+import { LayoutRoleComponent } from './layout-role/layout-role.component';
+import { CategoryListComponent } from '../components/shared/categories/category-list/category-list.component';
+import { CategoryComponent } from '../components/shared/categories/category/category.component';
+import { LayoutCategoryComponent } from './layout-category/layout-category.component';
+import { LayoutAssignementsComponent } from './layout-assignements/layout-assignements.component';
 
 
 @NgModule({
@@ -35,6 +42,9 @@ import { MunicipalityComponent } from '../components/shared/municipalities/munic
     LayoutContryComponent,
     LayoutMunicipalityComponent,
     LayoutAppointementsComponent,
+    LayoutRoleComponent,
+    LayoutCategoryComponent,
+    LayoutAssignementsComponent,
     DoctorComponent,
     DoctorListComponent,
     HospitalComponent,
@@ -46,7 +56,11 @@ import { MunicipalityComponent } from '../components/shared/municipalities/munic
     AppointementsComponent,
     AppointementsListComponent,
     MunicipalityComponent,
-    MunicipalityListComponent
+    MunicipalityListComponent,
+    RoleComponent,
+    RoleListComponent,
+    CategoryComponent,
+    CategoryListComponent
   ],
   imports: [
     CommonModule,

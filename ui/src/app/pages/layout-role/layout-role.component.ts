@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Roles } from 'src/app/interfaces/roles';
 
 @Component({
   selector: 'app-layout-role',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-role.component.css']
 })
 export class LayoutRoleComponent {
+
+ rolesList : Roles[] = [];
+
+  ngOnInit() {
+    this.rolesList
+  }
+
+
+  getRolesListFromRolesComponent(event: Roles[]) {
+    this.rolesList = event;
+  }
+
 
 }

@@ -29,6 +29,9 @@ export const url_path = {
   //category etablissement
   CATEGORY_BASE:'category',
 
+    // roles
+    ROLE_BASE:'roles',
+
   //appointements ou prise de rendez vous
   APPOINTEMENTS_BASE:'appointements',
 

@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { httpService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
-import { MunicipalityComponent } from './components/shared/municipalities/municipality/municipality.component';
-import { MunicipalityListComponent } from './components/shared/municipalities/municipality-list/municipality-list.component';
+import { AssignationComponent } from './components/shared/assignations/assignation/assignation.component';
+import { AssignationListComponent } from './components/shared/assignations/assignation-list/assignation-list.component';
 
 
 
@@ -17,6 +17,10 @@ import { MunicipalityListComponent } from './components/shared/municipalities/mu
   declarations: [
     AppComponent,
     FooterComponent,
+    AssignationComponent,
+    AssignationListComponent
+
+ 
 
   ],
   imports: [

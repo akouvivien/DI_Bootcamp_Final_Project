@@ -11,7 +11,6 @@ import { Speciality } from 'src/app/interfaces/speciality';
 })
 export class LayoutAppointementsComponent {
 
-
   hospitalList: Hospital[] = [];
 
   patientsList : Patient[] = [];
@@ -32,11 +31,9 @@ export class LayoutAppointementsComponent {
 
   }
 
-
   getHospitalListFromHospitalComponent(event: Hospital[]) {
     this.hospitalList = event;
   }
-
 
   getPatientListFromAppointementsComponent(event: Patient[]) {
     this.patientsList = event;

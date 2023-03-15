@@ -1,0 +1,41 @@
+<!-- <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" > -->
+
+  <div class="row h-100 pl-50">
+
+    <!-- |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+    | Pagination
+    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+    ! -->
+    <div class="col-lg-8 align-center">
+      <div class="card">
+        <h4 class="card-title"><strong>List of Assignemnts</strong></h4>
+
+        <div class="card-body">
+
+          <table class="table">
+
+            <tbody   >
+              <tr *ngFor=" let items of assignementList let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td {{items.hospitalId}}></td>
+                <td {{items.patientId}}></td>
+                <td {{items.specialityId}}></td>
+                <td>
+                  <a  class="btn"><i class='fas fa-eye view'></i></a>
+                  <a  class="btn"><i class="fa fa-edit edit"></i></a>
+                  <button  class="btn"><i class='fas fa-trash-alt delete'></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td *ngIf="assignementList.length == 0" colspan="6">No assignements Found</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- </div> -->

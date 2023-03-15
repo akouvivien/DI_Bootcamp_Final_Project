@@ -1,1 +1,26 @@
-<p>layout-role works!</p>
+<!-- add roles -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-8 " data-overlay="2" >
+
+      <app-role-list
+
+      [rolesList]="rolesList" >
+
+      </app-role-list>
+
+    </div>
+
+    <div class="col-4  align-self-center">
+
+      <app-role
+      (rolesListOutput)=" getRolesListFromRolesComponent($event)" >
+
+    </app-role>
+
+    </div>
+
+
+</div>

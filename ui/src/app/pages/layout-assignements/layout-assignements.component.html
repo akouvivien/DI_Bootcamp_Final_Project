@@ -1,0 +1,43 @@
+<!-- add doctor -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+
+      <app-assignement-list
+
+      [hospitalList]="hospitalList"
+
+      [assignementList]="assignementList"
+
+      [specialityList]="specialityList"
+
+      [doctorList]="doctorListList" >
+
+
+
+    </app-assignement-list>
+
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+
+      <app-assignement
+
+      (hospitalListOutput)="getHospitalListFromAssignementsComponent($event)"
+
+      (specialityListOutput)="getSpecialityListFromAssignementsComponent($event)"
+
+      (assignementListOutput)="getAssignementsListFromAssignementsComponent($event)"
+
+      (doctorListOutput)="getDoctorListFromAppointementsComponent($event)">
+
+    </app-assignement>
+
+    </div>
+
+
+</div>

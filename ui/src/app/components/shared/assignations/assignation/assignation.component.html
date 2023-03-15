@@ -1,0 +1,53 @@
+<!-- add villes -->
+<div class="container-fluid">
+
+  <div class="px-80 py-30">
+    <h4>enregistrement des assignements</h4>
+
+    <form  [formGroup]="assignementForm" (ngSubmit)="onSubmit()"class="form-type-material">
+
+
+  <div class="form-group">
+
+    <label for="hospitalId">Hospital</label>
+    <select class="form-control" id="hospitalId" formControlName="hospitalId" for="hospitalId" >
+      <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+    </select>
+    <div *ngIf="!assignementForm.controls['hospitalId'].valid  &&  (assignementForm.controls['hospitalId'].touched || assignementForm.controls['hospitalId'].dirty)" class="messageError">
+      <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
+    </div>
+
+</div>
+
+
+    <div class="form-group">
+
+      <label for="specialityId">speciality</label>
+      <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" >
+        <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+      </select>
+      <div *ngIf="!assignementForm.controls['specialityId'].valid  &&  (assignementForm.controls['specialityId'].touched || assignementForm.controls['specialityId'].dirty)" class="messageError">
+        <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+      </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="doctorId">doctors</label>
+        <select class="form-control" id="doctorId" formControlName="doctorId" for="doctorId" >
+          <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.name }}</option>
+        </select>
+        <div *ngIf="!assignementForm.controls['doctorId'].valid  &&  (assignementForm.controls['doctorId'].touched || assignementForm.controls['doctorId'].dirty)" class="messageError">
+          <p class="text-danger">veillez selectioner le doctor sil vous plait!</p>
+        </div>
+  
+        </div>
+
+      <br>
+      <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+    </form>
+
+    <hr class="w-30px">
+  </div>
