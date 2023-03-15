@@ -1,9 +1,7 @@
 export interface Appointements {
-  id : number,
+   id : number,
 
-  hospitalId : number,
-
-   password : string,
+   hospitalId : number,
 
    patientId : number,
 

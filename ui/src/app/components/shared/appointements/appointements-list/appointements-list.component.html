@@ -8,22 +8,19 @@
     ! -->
     <div class="col-lg-8 align-center">
       <div class="card">
-        <h4 class="card-title"><strong>List of Contry</strong></h4>
+        <h4 class="card-title"><strong>List of Appointements</strong></h4>
 
         <div class="card-body">
 
           <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-              </tr>
-            </thead>
+
             <tbody   >
-              <tr *ngFor=" let items of contryList let i = index">
+              <tr *ngFor=" let items of appointementList let i = index">
                 <th scope="row">{{i + 1}}</th>
-                <td>{{items.id}}</td>
-                <td>{{items.name}}</td>
+                <td {{items.hospitalId}}></td>
+                <td {{items.patientId}}></td>
+                <td {{items.specialityId}}></td>
+                <td {{items.date}}></td>
                 <td>
                   <a  class="btn"><i class='fas fa-eye view'></i></a>
                   <a  class="btn"><i class="fa fa-edit edit"></i></a>
@@ -31,7 +28,7 @@
                 </td>
               </tr>
               <tr>
-                <td *ngIf="contryList.length == 0" colspan="6">No contry Found</td>
+                <td *ngIf="appointementList.length == 0" colspan="6">No appointements Found</td>
               </tr>
             </tbody>
           </table>

@@ -9,10 +9,10 @@ import { Contry } from 'src/app/interfaces/contry';
 })
 export class CityListComponent {
 
-    //recois la list des villes
+    //recoit la list des villes
     @Input() cityList!:City[];
 
-    //recois la list des contry
+    //recoit la list des contry
     @Input() contryList!:Contry[];
 
     

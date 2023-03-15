@@ -1,9 +1,9 @@
 <!-- Sidebar -->
     <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
       <header class="sidebar-header">
-        <a class="logo-icon" href="index.html"><img src="assets/img/logo-icon-light.png" alt="logo icon"></a>
+        <a class="logo-icon" href="index.html"><img src="./../../../assets/img/logo-icon-light.png" alt="logo icon"></a>
         <span class="logo">
-          <a href="index.html"><img src="assets/img/logo-light.png" alt="logo"></a>
+          <a href="index.html"><img src="./../../../assets/img/logo-light.png" alt="logo"></a>
         </span>
         <span class="sidebar-toggle-fold"></span>
       </header>
@@ -20,7 +20,7 @@
             </a>
           </li>
           <!-- afficher tous les elements pour le patient -->
-          <!-- <ng-container *ngIf="userInfo == 1"> -->
+          <!-- <ng-container *ngIf="user.roles.id == 1"> -->
 
             <li class="menu-item">
               <a class="menu-link" href="samples/support/index.html" target="_blank">
@@ -31,31 +31,28 @@
 
           <!-- </ng-container> -->
           <!-- afficher tous les elements pour le doctor -->
-          <!-- <ng-container *ngIf="userInfo == 2"> -->
+          <!-- <ng-container *ngIf="user.roles.id != 2"> -->
           <li  class="menu-item">
             <a class="menu-link" href="#" routerLink="/layout/doctor">
-              <span class="icon fa fa-tv"></span>
+              <span class="dot"></span>
               <span class="title">doctor operation</span>
-              <span class="arrow"></span>
             </a>
           </li>
           <!-- </ng-container> -->
 
             <!-- afficher tous les elements pour l'adminitrateur -->
-            <!-- <ng-container *ngIf="userInfo. == 3" > -->
-                <li  class="menu-item">
-                  <a class="menu-link" href="#" routerLink="/layout/hospital">
-                    <span class="icon fa fa-tv"></span>
-                    <span class="title">doctor operation</span>
-                    <span class="arrow"></span>
+            <!-- <ng-container  > -->
+                <li class="menu-item">
+                  <a class="menu-link" href="#" routerLink="/layout/city">
+                    <span class="dot"></span>
+                    <span class="title">city operation</span>
                   </a>
                 </li>
 
                 <li class="menu-item">
-                  <a class="menu-link" href="#" routerLink="/layout/city">
-                    <span class="icon fa fa-tv"></span>
-                    <span class="title">city operation</span>
-                    <span class="arrow"></span>
+                  <a class="menu-link" href="#" routerLink="/layout/contry">
+                    <span class="dot"></span>
+                    <span class="title">Contry operation</span>
                   </a>
                 </li>
 
@@ -66,9 +63,21 @@
                   </a>
                 </li>
 
+                <li class="menu-item">
+                  <a class="menu-link" routerLink="/layout/appointements">
+                    <span class="dot"></span>
+                    <span class="title">appointements operation</span>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a class="menu-link" routerLink="/layout/municipality">
+                    <span class="dot"></span>
+                    <span class="title">municipality operation</span>
+                  </a>
+                </li>
+
                 <!-- </ng-container> -->
-
-
         </ul>
       </nav>
     </aside>

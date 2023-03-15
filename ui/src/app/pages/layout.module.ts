@@ -1,3 +1,4 @@
+import { LayoutMunicipalityComponent } from './layout-municipality/layout-municipality.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,13 @@ import { DoctorListComponent } from '../components/shared/doctors/doctor-list/do
 import { DoctorComponent } from '../components/shared/doctors/doctor/doctor.component';
 import { HospitalListComponent } from '../components/shared/hospitals/hospital-list/hospital-list.component';
 import { HospitalComponent } from '../components/shared/hospitals/hospital/hospital.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { DataTablesModule } from 'angular-datatables';
+import { AppointementsListComponent } from '../components/shared/appointements/appointements-list/appointements-list.component';
+import { AppointementsComponent } from '../components/shared/appointements/appointements/appointements.component';
+import { LayoutAppointementsComponent } from './layout-appointements/layout-appointements.component';
+import { MunicipalityListComponent } from '../components/shared/municipalities/municipality-list/municipality-list.component';
+import { MunicipalityComponent } from '../components/shared/municipalities/municipality/municipality.component';
 
 
 @NgModule({
@@ -26,6 +33,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     LayoutHospitalComponent,
     LayoutCityComponent,
     LayoutContryComponent,
+    LayoutMunicipalityComponent,
+    LayoutAppointementsComponent,
     DoctorComponent,
     DoctorListComponent,
     HospitalComponent,
@@ -33,7 +42,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CityComponent,
     CityListComponent,
     ContryComponent,
-    ContryListComponent
+    ContryListComponent,
+    AppointementsComponent,
+    AppointementsListComponent,
+    MunicipalityComponent,
+    MunicipalityListComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +54,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     HttpClientModule,
     LayoutRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DataTablesModule
   ]
 })
 export class LayoutModule { }

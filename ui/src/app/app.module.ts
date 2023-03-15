@@ -6,6 +6,11 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { httpService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
+import { MunicipalityComponent } from './components/shared/municipalities/municipality/municipality.component';
+import { MunicipalityListComponent } from './components/shared/municipalities/municipality-list/municipality-list.component';
+
+
 
 
 @NgModule({
@@ -19,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
 
   ],
   providers: [httpService],

@@ -3,18 +3,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Contry } from 'src/app/interfaces/contry';
 import { ContryService } from 'src/app/services/api/contry.service';
+// import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-contry',
   templateUrl: './contry.component.html',
-  styleUrls: ['./contry.component.css']
+  styleUrls: ['./contry.component.css'],
+  // providers :[NgbModalConfig, NgbModal]
 })
 export class ContryComponent {
 
     //liste des pays
     contryList:Contry[] = [];
 
-    
+
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des pays
     @Output() contryListOutput: EventEmitter<Contry[]> = new EventEmitter<Contry[]>();
@@ -23,8 +25,13 @@ export class ContryComponent {
 
       private _contry: ContryService,
       private fb:FormBuilder,
-      private route : Router) {  }
+      private route : Router
+      // , private modalService: NgbModal
+      ) {  }
 
+      // openLg(content) {
+      //   this.modalService.open(content, { size: 'lg' });
+      // }
 
     //formulaire
     contryForm!: FormGroup;

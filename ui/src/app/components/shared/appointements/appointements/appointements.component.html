@@ -1,0 +1,74 @@
+<!-- add villes -->
+<div class="container-fluid">
+
+  <div class="px-80 py-30">
+    <h4>enregistrement des rendez vous</h4>
+
+    <form  [formGroup]="appointementForm" (ngSubmit)="onSubmit()"class="form-type-material">
+
+
+  <div class="form-group">
+
+    <label for="hospitalId">Hospital</label>
+    <select class="form-control" id="hospitalId" formControlName="hospitalId" for="hospitalId" >
+      <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+    </select>
+    <div *ngIf="!appointementForm.controls['hospitalId'].valid  &&  (appointementForm.controls['hospitalId'].touched || appointementForm.controls['hospitalId'].dirty)" class="messageError">
+      <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
+    </div>
+
+</div>
+
+
+
+<!-- <div class="form-group">
+
+  <label for="patientId">patient</label>
+
+  selection du patient
+   </div> -->
+
+
+
+   <!-- <div class="form-group">
+
+    <label for="patientId">patient</label>
+    <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
+      assigner l'utilisateur
+      <option  *ngFor="let items of user" value ="{{ items.id }}">{{ items.name }}</option>
+    </select>
+    <div *ngIf="!appointementForm.controls['patientId'].valid  &&  (appointementForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
+      <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
+    </div>
+
+</div> -->
+
+
+   <div class="form-group">
+
+    <label for="specialityId">speciality</label>
+    <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" >
+      <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+    </select>
+    <div *ngIf="!appointementForm.controls['specialityId'].valid  &&  (appointementForm.controls['specialityId'].touched || appointementForm.controls['specialityId'].dirty)" class="messageError">
+      <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+    </div>
+
+</div>
+
+
+      <div class="form-group">
+
+        <label for="date">heure</label>
+        <input type="date" class="form-control" id="date" formControlName="date">
+        <div *ngIf="!appointementForm.controls['date'].valid  &&  (appointementForm.controls['date'].touched || appointementForm.controls['date'].dirty)" class="messageError">
+          <p class="text-danger">veillez selectionnez une heure s'il vous plait!</p>
+        </div>
+      </div>
+
+      <br>
+      <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+    </form>
+
+    <hr class="w-30px">
+  </div>

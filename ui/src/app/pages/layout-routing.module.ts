@@ -6,25 +6,20 @@ import { LayoutContryComponent } from './layout-contry/layout-contry.component';
 import { LayoutDoctorComponent } from './layout-doctor/layout-doctor.component';
 import { LayoutHospitalComponent } from './layout-hospital/layout-hospital.component';
 import { LayoutComponent } from './layout/layout.component';
-import { DoctorListComponent } from '../components/shared/doctors/doctor-list/doctor-list.component';
-import { DoctorComponent } from '../components/shared/doctors/doctor/doctor.component';
+import { LayoutAppointementsComponent } from './layout-appointements/layout-appointements.component';
+import { LayoutMunicipalityComponent } from './layout-municipality/layout-municipality.component';
+
 
 
 const routes: Routes = [
 {path:'', component:LayoutComponent, children:[
   {path:'doctor',component:LayoutDoctorComponent},
-  {path:'hospital',component:LayoutHospitalComponent, children: [
+  {path:'hospital',component:LayoutHospitalComponent},
+  {path:'city',component:LayoutCityComponent},
+  {path:'contry',component:LayoutContryComponent},
+  {path:'appointements',component:LayoutAppointementsComponent},
+  {path:'municipality',component:LayoutMunicipalityComponent}
 
-
-  ]},
-  {path:'city',component:LayoutCityComponent, children: [
-
-
-  ]},
-  {path:'contry',component:LayoutContryComponent, children: [
-
-
-  ]},
 ]}
 
 ];
@@ -32,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    
   ],
   exports :[RouterModule]
 

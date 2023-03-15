@@ -1,0 +1,44 @@
+<!-- add municipality -->
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    +    
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">enregistrement des Hopitaux</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4></h4>
+  
+          <form  [formGroup]="municipality" (ngSubmit)="onSubmit()"class="form-type-material">
+      
+          
+              <div class="form-floating mb-1 form-group">
+                <input  type="text" class="form-control" id="name" formControlName="name"  placeholder="municipality_name">
+                <label for="name">municipality_name</label>
+                <div *ngIf="!municipality.controls['name'].valid  &&  (municipality.controls['name'].touched || municipality.controls['name'].dirty)" class="messageError">
+                  <p class="text-danger">veillez renseignez le nom sil vous plait!</p>
+                </div>
+              </div>
+    
+            <div class="form-group">
+      
+              <label for="cityId">city of municipality</label>
+              <select class="form-control" id="cityId" formControlName="cityId" for="cityId" >
+                <option  *ngFor="let items of cityList" value ="{{ items.id }}">{{ items.name }}</option>
+              </select>
+              <div *ngIf="!municipality.controls['cityId'].valid  &&  (municipality.controls['cityId'].touched || municipality.controls['cityId'].dirty)" class="messageError">
+                <p class="text-danger">veillez selectionner une ville!</p>
+              </div>
+            </div>
+            <button class="btn btn-bold btn-block btn-primary align-items-end" type="submit">Sauvegarde</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

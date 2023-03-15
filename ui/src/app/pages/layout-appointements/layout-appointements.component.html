@@ -1,0 +1,43 @@
+<!-- add doctor -->
+<div class="container-fluid">
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
+
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+
+      <app-appointements-list
+
+      [hospitalList]="hospitalList"
+
+      [patientsList]="patientsList"
+
+      [specialityList]="specialityList"
+
+      [appointementList]="appointementList" >
+
+
+
+    </app-appointements-list>
+
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+
+      <app-appointements
+
+      (hospitalListOutput)="getHospitalListFromHospitalComponent($event)"
+
+      (specialityListOutput)="getSpecialityListFromAppointementsComponent($event)"
+
+      (appointementListOutput)="getAppointementsListFromAppointementsComponent($event)"
+
+      (patientsListOutput)="getPatientListFromAppointementsComponent($event)">
+
+    </app-appointements>
+
+    </div>
+
+
+</div>

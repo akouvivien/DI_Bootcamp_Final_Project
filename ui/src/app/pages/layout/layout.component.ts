@@ -1,6 +1,7 @@
+import { environnement } from './../../environnements/environnement';
 import { Component, OnInit } from '@angular/core';
-import { environnement } from 'src/app/environnements/environnement';
-// import { UserService } from 'src/app/services/storage/user.service';
+import { User } from 'src/app/interfaces/user';
+
 
 
 @Component({
@@ -10,13 +11,15 @@ import { environnement } from 'src/app/environnements/environnement';
 })
 export class LayoutComponent  {
 
-  // userInfo : any
+   user!:User
 
   ngOnInit(): void {
+      let json = localStorage.getItem(environnement.APIKEY);
+      if (json != null) {
+        let user:User = JSON.parse(json) as User;
+        console.log(user.roles.id)
 
-  //  this.userInfo = this._localstorage;
-  //  console.log(this.userInfo )
-
+        }
    }
 
 

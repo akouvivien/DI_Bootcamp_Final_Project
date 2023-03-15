@@ -1,3 +1,5 @@
+import { Roles } from "./roles";
+
 export interface User {
   id : number,
 
@@ -15,6 +17,6 @@ export interface User {
 
    adresse : string,
 
-   roles: number
+   roles: Roles
 
 }

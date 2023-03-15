@@ -2,6 +2,7 @@ import { httpService } from './../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { environnement } from 'src/app/environnements/environnement';
 import { User } from 'src/app/interfaces/user';
 
 @Component({
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
         next:(response :any) =>{
 
           this.users = response as User;
+          
+          localStorage.setItem(environnement.APIKEY,JSON.stringify(this.users));
 
           console.log(this.users)
 
