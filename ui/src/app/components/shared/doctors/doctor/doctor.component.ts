@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Doctor } from 'src/app/interfaces/doctor';
 import { DoctorService } from 'src/app/services/api/doctor.service';
 
 @Component({
@@ -12,11 +11,11 @@ import { DoctorService } from 'src/app/services/api/doctor.service';
 export class DoctorComponent implements OnInit {
 
   // la liste des doctors
-  doctorList:Doctor[] = [];
+  doctorList: any = [];
 
 
    //L'event qui sera retourné au parent et informera sur l'etat de la liste des doctors
-   @Output() doctorListOutput: EventEmitter<Doctor[]> = new EventEmitter<Doctor[]>();
+   @Output() doctorListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
    //formulaire
@@ -61,9 +60,11 @@ getalldoctors(){
     next: (response: any)=>{
 
       // affecte a doctorist la liste des docteurs venu de l'api
-      this.doctorList = response as Doctor[];
+      this.doctorList = response ;
 
       // affiche  dans la console la liste des doctors
+
+      console.log("la liste des doctors envoyer")
       console.log(this.doctorList)
 
       //Renvoi de la liste au composant enfant

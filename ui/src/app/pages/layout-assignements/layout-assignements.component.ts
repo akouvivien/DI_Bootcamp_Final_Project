@@ -1,9 +1,7 @@
 import { Doctor } from 'src/app/interfaces/doctor';
 import { Component } from '@angular/core';
-import { Appointements } from 'src/app/interfaces/appointements';
 import { Assignements } from 'src/app/interfaces/assignements';
 import { Hospital } from 'src/app/interfaces/hospital';
-import { Patient } from 'src/app/interfaces/patient';
 import { Speciality } from 'src/app/interfaces/speciality';
 
 @Component({
@@ -13,40 +11,50 @@ import { Speciality } from 'src/app/interfaces/speciality';
 })
 export class LayoutAssignementsComponent {
 
-  hospitalList: Hospital[] = [];
+  hospitalList: any = [];
 
-  assignementList : Assignements[] = [];
+  assignementList : any = [];
 
-  specialityList : Speciality[] = [];
+  specialityList : any = [];
 
-  doctorList : Doctor[] = [];
+  doctorList : any = [];
+
 
   ngOnInit() {
+    this.doctorList,
 
     this.hospitalList,
 
     this.specialityList,
 
     this.assignementList
-
+    console.log("retour appel api assignement dans le layout")
+    console.log(this.assignementList)
+    console.log(this.specialityList)
 
   }
 
   getHospitalListFromAssignementsComponent(event: Hospital[]) {
+    console.log("l'hospital dans le layout retour")
+    console.log(event)
     this.hospitalList = event;
   }
 
-  getDoctorListFromAppointementsComponent(event: Doctor[]) {
+  getDoctorListFromAssignementsComponent(event: Doctor[]) {
+    console.log("l'doctor dans le layout retour")
+    console.log(event)
     this.doctorList = event;
   }
 
   getSpecialityListFromAssignementsComponent(event: Speciality[]) {
+    console.log("l'speciality dans le layout retour")
+    console.log(event)
     this.specialityList = event;
   }
 
-  getAssignementsListFromAssignementsComponent(event: Assignements[]) {
+  getAssignementsListFromAssignementsComponent(event: any) {
+    console.log("l'assignements dans le layout retour")
     this.assignementList = event;
   }
-
 
 }

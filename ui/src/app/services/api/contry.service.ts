@@ -24,7 +24,7 @@ export class ContryService {
    return this.httpService.get(url_path.CONTRY_BASE);
   }
 
-  deleteContry(id : string) {
+  deleteContry(id : number) {
     return this.httpService.delete(`${url_path.CONTRY_BASE}/${id}`);
   }
 

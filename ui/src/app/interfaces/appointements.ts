@@ -1,11 +1,15 @@
+import { Hospital } from './hospital';
+import { Patient } from './patient';
+import { Speciality } from './speciality';
+
 export interface Appointements {
    id : number,
 
-   hospitalId : number,
+   hospital : Hospital,
 
-   patientId : number,
+   patient : Patient,
 
-   specialityId : number,
+   speciality : Speciality,
 
    date : string
 

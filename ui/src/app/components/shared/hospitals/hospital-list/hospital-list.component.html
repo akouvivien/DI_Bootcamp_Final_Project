@@ -17,8 +17,8 @@
       <td>{{items.name}}</td>
       <td>{{items.adresse}}</td>
       <td>{{items.status}}</td>
-      <td>{{items.municipalityId}}</td>
-      <td>{{items.etablissementCategoryId}}</td>
+      <td>{{items.municipality.name}}</td>
+      <td>{{items.etablissementCategory.category}}</td>
       <td>
         <a  class="btn bg-primary"><i class='fas fa-eye view'></i></a>
         <a  class="btn"><i class="fa fa-edit edit"></i></a>
@@ -45,7 +45,7 @@
         </div>
         <div class="modal-body">
           <h4></h4>
-<!-- 
+<!--
           <form  [formGroup]="hospitalForm" (ngSubmit)="updateHospital()"class="form-type-material">
 
 

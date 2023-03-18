@@ -40,13 +40,12 @@ export class LoginComponent implements OnInit {
         next:(response :any) =>{
 
           this.users = response as User;
-          
+
           localStorage.setItem(environnement.APIKEY,JSON.stringify(this.users));
 
           console.log(this.users)
-
-        // redirige vers la page principale
-        setTimeout(() => {this.route.navigate(["/layout"])}, 3000);
+          this.route.navigate(["/layout"])
+        alert("vous etes connectez")
 
         },
         error: error => {

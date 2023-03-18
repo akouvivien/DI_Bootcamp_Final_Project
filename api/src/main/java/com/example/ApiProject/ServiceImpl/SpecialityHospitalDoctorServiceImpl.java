@@ -45,7 +45,7 @@ public class SpecialityHospitalDoctorServiceImpl implements SpecialityHospitalDo
         //selectionner un doctor
         Doctor doctor = doctorRepo.findById(specialityHospitalDoctorDto.getDoctorId()).orElse(null);
 
-        if(doctor == null) throw new ApplicationContextException("la specialité selectionnée n'existe pas");
+        if(doctor == null) throw new ApplicationContextException("la docteur selectionné n'existe pas");
 
 
         // assigner un docteur a un hopital et a  une specialité

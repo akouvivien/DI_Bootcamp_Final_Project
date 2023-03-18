@@ -1,93 +1,185 @@
-<!-- Sidebar -->
-    <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
-      <header class="sidebar-header">
-        <a class="logo-icon" href="index.html"><img src="./../../../assets/img/logo-icon-light.png" alt="logo icon"></a>
-        <span class="logo">
-          <a href="index.html"><img src="./../../../assets/img/logo-light.png" alt="logo"></a>
-        </span>
-        <span class="sidebar-toggle-fold"></span>
-      </header>
-
-      <nav class="sidebar-navigation">
-        <ul class="menu">
-
-          <li class="menu-category">Preview</li>
-
-          <li class="menu-item">
-            <a class="menu-link" href="dashboard/index.html">
-              <span class="icon fa fa-home"></span>
-              <span class="title">Dashboard</span>
-            </a>
-          </li>
-          <!-- afficher tous les elements pour le patient -->
-          <!-- <ng-container *ngIf="user.roles.id == 1"> -->
-
-            <li class="menu-item">
-              <a class="menu-link" href="samples/support/index.html" target="_blank">
-                <span class="dot"></span>
-                <span class="title">Support System</span>
-              </a>
-            </li>
-
-          <!-- </ng-container> -->
-          <!-- afficher tous les elements pour le doctor -->
-          <!-- <ng-container *ngIf="user.roles.id != 2"> -->
-          <li  class="menu-item">
-            <a class="menu-link" href="#" routerLink="/layout/doctor">
-              <span class="dot"></span>
-              <span class="title">doctor operation</span>
-            </a>
-          </li>
-          <!-- </ng-container> -->
-
-            <!-- afficher tous les elements pour l'adminitrateur -->
-            <!-- <ng-container  > -->
-                <li class="menu-item">
-                  <a class="menu-link" href="#" routerLink="/layout/city">
-                    <span class="dot"></span>
-                    <span class="title">city operation</span>
-                  </a>
-                </li>
-
-                <li class="menu-item">
-                  <a class="menu-link" href="#" routerLink="/layout/contry">
-                    <span class="dot"></span>
-                    <span class="title">Contry operation</span>
-                  </a>
-                </li>
-
-                <li class="menu-item">
-                  <a class="menu-link" routerLink="/layout/hospital">
-                    <span class="dot"></span>
-                    <span class="title">hospital operation</span>
-                  </a>
-                </li>
-
-                <li class="menu-item">
-                  <a class="menu-link" routerLink="/layout/appointements">
-                    <span class="dot"></span>
-                    <span class="title">appointements operation</span>
-                  </a>
-                </li>
-
-                <li class="menu-item">
-                  <a class="menu-link" routerLink="/layout/municipality">
-                    <span class="dot"></span>
-                    <span class="title">municipality operation</span>
-                  </a>
-                </li>
-
-                <li class="menu-item">
-                  <a class="menu-link" routerLink="/layout/role">
-                    <span class="dot"></span>
-                    <span class="title">role operation</span>
-                  </a>
-                </li>
 
 
-                <!-- </ng-container> -->
-        </ul>
-      </nav>
-    </aside>
-<!-- END Sidebar -->
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="row">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+
+      <li class="nav-item mt-5" style="border: 1px solid blue; border-radius: 10px;">
+        <a class="nav-link active" aria-current="page" href="#">
+          <span data-feather="home"><i class="fa fa-home"></i></span>
+          Dashboard
+        </a>
+      </li>
+        <ng-container *ngIf="user.roles.name=='Doctor'">
+      <li class="nav-item">
+        <a class="nav-link " href="#" routerLink="/layout/doctor" >
+          <span><i class="fa fa-home"></i></span>
+          doctors operation
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" routerLink="/layout/city">
+          City
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"routerLink="/layout/contry" >
+          <span data-feather="users"></span>
+          Contry
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"routerLink="/layout/hospital">
+          <span data-feather="bar-chart-2"></span>
+          Hospital
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/appointements">
+          <span data-feather="layers"></span>
+          Appointements
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/municipality">
+          <span data-feather="layers"></span>
+          municipality
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/assignements">
+          <span data-feather="layers"></span>
+          affectation
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/role">
+          <span data-feather="layers"></span>
+          Roles
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/speciality">
+          <span data-feather="layers"></span>
+          Speciality
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/category">
+          <span data-feather="layers"></span>
+          category
+        </a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="user.roles.name=='Patient'">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/appointements">
+          <span data-feather="layers"></span>
+          Appointements
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/appointements">
+          <span data-feather="layers"></span>
+          notifiaction .......
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/city">
+          <span data-feather="layers"></span>
+          city
+        </a>  
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/hospitalview">
+          <span data-feather="layers"></span>
+          hospital
+        </a>  
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/municipality">
+          <span data-feather="layers"></span>
+          municipality
+        </a>  
+      </li>
+
+
+    </ng-container>
+
+    <ng-container  *ngIf="user.roles.name=='Doctor'">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/appointements">
+          <span data-feather="layers"></span>
+          Appointements
+        </a>
+
+        
+      </li>
+
+    </ng-container>
+    </ul>
+  </div>
+</nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+</main>
+</div>
+</div>
+
+
+

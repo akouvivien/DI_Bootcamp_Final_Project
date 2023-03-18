@@ -1,3 +1,4 @@
+import { ContryService } from 'src/app/services/api/contry.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Contry } from 'src/app/interfaces/contry';
 
@@ -11,13 +12,41 @@ export class ContryListComponent  implements OnInit{
     @Input() contryList!:Contry[];
 
 
-    // dtOptions: DataTables.Settings={};
+    constructor(
+      private _contry: ContryService
+  ){}
+  ngOnInit(): void {
+    this.delete
+  }
 
-    ngOnInit(): void {
-      // this.dtOptions = {
-      //   pagingType: 'full_numbers',
-      //   pageLength: 10,
-      //   processing: true
-      // };
-    }
+
+
+  delete(id: number){
+    this._contry.deleteContry(id).subscribe({
+      next:(response :any) =>{
+      },
+      error: error => {
+        console.error("Erreur lors de la suppression des pays!", error);
+      }
+
+    })
+    window.location.reload()
+
+  }
+
+  update(element: Contry){
+    this._contry.updateContry(element).subscribe({
+      next:(response :any) =>{
+
+      },
+      error: error => {
+        console.error("Erreur lors de la mise a jour des pays!", error);
+      }
+
+    })
+    window.location.reload()
+
+  }
+
+
 }

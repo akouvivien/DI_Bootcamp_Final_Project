@@ -11,6 +11,7 @@ import { Speciality } from 'src/app/interfaces/speciality';
 import { SpecialityService } from 'src/app/services/api/speciality.service';
 import { User } from 'src/app/interfaces/user';
 import { environnement } from 'src/app/environnements/environnement';
+import { UserService } from 'src/app/services/storage/user.services';
 
 @Component({
   selector: 'app-appointements',
@@ -21,31 +22,31 @@ export class AppointementsComponent {
 
     // recuperation  de l'utilisateur
         user!:User
+
     //liste des rdv
-    appointementList:Appointements[] = [];
+    appointementList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat des rdv
-    @Output() appointementListOutput: EventEmitter<Appointements[]> = new EventEmitter<Appointements[]>();
+    @Output() appointementListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     //liste des hopitaux
-    hospitalList:Hospital[] = [];
+    hospitalList:any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des category
-    @Output() hospitalListOutput: EventEmitter<Hospital[]> = new EventEmitter<Hospital[]>();
+    @Output() hospitalListOutput: EventEmitter<any> = new EventEmitter<any>();
 
-    //liste des Patients
-    patientsList:Patient[] = [];
+    //user
+    patientsList : any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Patients
-    @Output() patientsListOutput: EventEmitter<Patient[]> = new EventEmitter<Patient[]>();
+    @Output() patientsOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
     //liste des specialités
-    specialityList:Speciality[] = [];
+    specialityList: any= [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Patients
-    @Output() specialityListOutput: EventEmitter<Speciality[]> = new EventEmitter<Speciality[]>();
-
+    @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
     constructor(
@@ -54,9 +55,9 @@ export class AppointementsComponent {
       private _hospital: HospitalService,
       private _patient : PatientService,
       private _speciality :  SpecialityService,
+      private _local : UserService,
       private fb:FormBuilder,
       private route : Router
-      // , private modalService: NgbModal
       ) {  }
 
 
@@ -65,18 +66,23 @@ export class AppointementsComponent {
 
    ngOnInit(): void {
 //recuperration du patient connecter
+
+  // this.user = this._local.getUser()
+
+  console.log(this.user)
+
     let json = localStorage.getItem(environnement.APIKEY);
       if (json != null) {
-        let user:User = JSON.parse(json) as User;
-        console.log(user)
+        this.user = JSON.parse(json) as User;
+        console.log(this.user.roles.name)
 
         }
 
    //actualisation
      this.getallAppointements();
      this.getALLHospitals(),
-     this.getALLPatients();
      this.getALLSpecialitys(),
+     this.getALLPatients()
 
    //add appointements
        this.appointementForm= this.fb.group({
@@ -90,6 +96,7 @@ export class AppointementsComponent {
         date : [``,Validators.required]
 
        });
+
    }
 
     // insertion des rdv dans la bd
@@ -107,8 +114,6 @@ console.log(this.appointementForm.value)
 
 }
 
-
-
    getallAppointements(){
 
       this._appointements.getAppointements().subscribe({
@@ -116,14 +121,13 @@ console.log(this.appointementForm.value)
         next: (response: any)=>{
 
           // affecte a appointementList la liste des appointement venu de l'api
-          this.appointementList = response as Appointements[];
+          this.appointementList = response ;
 
           // affiche  dans la console la liste des appointement
           console.log(this.appointementList)
 
           //Renvoi de la liste au composant enfant
           this.appointementListOutput.emit(this.appointementList);
-
 
       },
           error: error => {
@@ -143,7 +147,7 @@ getALLHospitals(){
     next: (response: any)=>{
 
       // affecte a HospitalList la liste des appointement venu de l'api
-      this.hospitalList = response as Hospital[];
+      this.hospitalList = response ;
 
       // affiche  dans la console la liste des appointement
       console.log(this.hospitalList)
@@ -160,24 +164,23 @@ getALLHospitals(){
 
 }
 
-
 //***************patient**************** */
 
 getALLPatients(){
-
+  console.log("la liste des patients dans l'api")
   this._patient.getPatients().subscribe({
 
     next: (response: any)=>{
 
       // affecte a HospitalList la liste des appointement venu de l'api
-      this.patientsList = response as Patient[];
+      this.patientsList = response  ;
 
       // affiche  dans la console la liste des appointement
+      console.log("la liste des patients")
       console.log(this.patientsList)
 
       //Renvoi de la liste au composant enfant
-      this.patientsListOutput.emit(this.patientsList);
-
+      this.patientsOutput.emit(this.patientsList);
 
   },
       error: error => {
@@ -199,7 +202,7 @@ getALLSpecialitys(){
     next: (response: any)=>{
 
       // affecte a specialityList la liste des speciality venu de l'api
-      this.specialityList = response as Speciality[];
+      this.specialityList = response ;
 
       // affiche  dans la console la liste des speciality
       console.log(this.specialityList)

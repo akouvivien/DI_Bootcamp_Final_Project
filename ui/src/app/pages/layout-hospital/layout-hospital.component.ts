@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutHospitalComponent implements OnInit {
 
 
-  hospitalList: Hospital[] = [];
+  // hospitalList: any = [];
 
   categoryList : Category[] = [];
 
@@ -19,7 +19,7 @@ export class LayoutHospitalComponent implements OnInit {
 
   ngOnInit() {
 
-    this.hospitalList,
+
 
     this.categoryList,
 
@@ -27,9 +27,10 @@ export class LayoutHospitalComponent implements OnInit {
   }
 
 
-  getHospitalListFromHospitalComponent(event: Hospital[]) {
-    this.hospitalList = event;
-  }
+  // getHospitalListFromHospitalComponent(event: any) {
+  //   console.log("la liste des hopitaux")
+  //   this.hospitalList = event;
+  // }
 
   getCategoryListFromHospitalComponent(event: Category[]) {
     this.categoryList = event;

@@ -23,7 +23,7 @@ export class RolesService {
    return this.httpService.get(url_path.ROLE_BASE);
   }
 
-  deleteRole(id : string) {
+  deleteRole(id : number) {
     return this.httpService.delete(`${url_path.ROLE_BASE}/${id}`);
   }
 

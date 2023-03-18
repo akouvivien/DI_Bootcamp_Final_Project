@@ -24,8 +24,10 @@ export class SpecialityService {
    return this.httpService.get(url_path.SPECIALITY_BASE);
   }
 
-  deleteSpeciality(id : string) {
+  deleteSpeciality(id : number) {
     return this.httpService.delete(`${url_path.SPECIALITY_BASE}/${id}`);
   }
+
+  
 
 }

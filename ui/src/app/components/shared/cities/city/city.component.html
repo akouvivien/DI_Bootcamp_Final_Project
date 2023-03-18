@@ -1,14 +1,13 @@
-<!-- add villes -->
-<div class="container-fluid">
 
-  <div class="px-80 py-30">
-    <h4>enregistrement des villes</h4>
+<div class="card" style="width:18rem;" *ngIf="user.roles.name=='Admin'" >
+  <div class="card-body">
+    <h4>renseignez une ville</h4>
 
     <form  [formGroup]="cityForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
       <div class="form-group">
 
-        <label for="first_name">City_name</label>
+        <label for="name">City_name</label>
         <input type="text" class="form-control" id="name" formControlName="name">
         <div *ngIf="!cityForm.controls['name'].valid  &&  (cityForm.controls['name'].touched || cityForm.controls['name'].dirty)" class="messageError">
           <p class="text-danger">veillez renseignez le nom sil vous plait!</p>
@@ -17,11 +16,11 @@
 
       <div class="form-group">
 
-        <label for="contryid">Contry</label>
-        <select class="form-control" id="contryid" formControlName="contryid" for="contryid" >
+        <label for="contryId">Contry</label>
+        <select class="form-control" id="contryId" formControlName="contryId" for="contryId" >
           <option  *ngFor="let items of contryList" value ="{{ items.id }}">{{ items.name }}</option>
         </select>
-        <div *ngIf="!cityForm.controls['contryid'].valid  &&  (cityForm.controls['contryid'].touched || cityForm.controls['contryid'].dirty)" class="messageError">
+        <div *ngIf="!cityForm.controls['contryId'].valid  &&  (cityForm.controls['contryId'].touched || cityForm.controls['contryid'].dirty)" class="messageError">
           <p class="text-danger">veillez renseignez la ville sil vous plait!</p>
         </div>
 
@@ -30,6 +29,9 @@
       <br>
       <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
     </form>
-
-    <hr class="w-30px">
   </div>
+</div>
+
+
+
+  

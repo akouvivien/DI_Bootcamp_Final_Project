@@ -1,8 +1,9 @@
 import { Appointements } from 'src/app/interfaces/appointements';
 import { Component } from '@angular/core';
 import { Hospital } from 'src/app/interfaces/hospital';
-import { Patient } from 'src/app/interfaces/patient';
 import { Speciality } from 'src/app/interfaces/speciality';
+import { User } from 'src/app/interfaces/user';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   selector: 'app-layout-appointements',
@@ -11,13 +12,13 @@ import { Speciality } from 'src/app/interfaces/speciality';
 })
 export class LayoutAppointementsComponent {
 
-  hospitalList: Hospital[] = [];
+  hospitalList: any= [];
 
-  patientsList : Patient[] = [];
+  patientsList: any = [];
 
-  specialityList : Speciality[] = [];
+  specialityList : any = [];
 
-  appointementList : Appointements[] = [];
+  appointementList : any = [];
 
   ngOnInit() {
 
@@ -31,19 +32,19 @@ export class LayoutAppointementsComponent {
 
   }
 
-  getHospitalListFromHospitalComponent(event: Hospital[]) {
+  getHospitalListFromHospitalComponent(event: any) {
     this.hospitalList = event;
   }
 
-  getPatientListFromAppointementsComponent(event: Patient[]) {
+  getPatientListFromAppointementsComponent(event: any) {
     this.patientsList = event;
   }
 
-  getSpecialityListFromAppointementsComponent(event: Speciality[]) {
+  getSpecialityListFromAppointementsComponent(event: any) {
     this.specialityList = event;
   }
 
-  getAppointementsListFromAppointementsComponent(event: Appointements[]) {
+  getAppointementsListFromAppointementsComponent(event: any) {
     this.appointementList = event;
   }
 

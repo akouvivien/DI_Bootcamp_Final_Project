@@ -37,12 +37,12 @@
 
         <label for="doctorId">doctors</label>
         <select class="form-control" id="doctorId" formControlName="doctorId" for="doctorId" >
-          <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.name }}</option>
+          <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.first_name }}</option>
         </select>
         <div *ngIf="!assignementForm.controls['doctorId'].valid  &&  (assignementForm.controls['doctorId'].touched || assignementForm.controls['doctorId'].dirty)" class="messageError">
           <p class="text-danger">veillez selectioner le doctor sil vous plait!</p>
         </div>
-  
+
         </div>
 
       <br>
@@ -51,3 +51,8 @@
 
     <hr class="w-30px">
   </div>
+
+
+  <!-- <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" > -->
+
+    

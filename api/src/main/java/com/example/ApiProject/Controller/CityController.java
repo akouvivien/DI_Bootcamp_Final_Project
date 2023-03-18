@@ -63,9 +63,9 @@ public class CityController {
 
     @PutMapping("/{id}")
     //modification via l'id
-    public ResponseEntity<City> updateCityId(@PathVariable("id") Long id, @RequestBody CityDto cityDto)
+    public ResponseEntity<City> updateCityId(@PathVariable("id") long id, CityDto cityDto)
     {
-        City newUpdateCity = cityService.updateCity(id, cityDto);
+        City newUpdateCity = cityService.updateCity(id,cityDto);
 
         return new ResponseEntity<>(newUpdateCity, HttpStatus.OK);
     }
@@ -94,6 +94,7 @@ public class CityController {
     public ResponseEntity<HttpStatus> deleteAllCity() {
 
             cityService.deleteCities();
+            
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }

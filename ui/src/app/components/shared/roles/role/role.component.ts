@@ -15,8 +15,6 @@ export class RoleComponent {
     //liste des roles
     rolesList:Roles[] = [];
 
-
-
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Roles
     @Output() rolesListOutput: EventEmitter<Roles[]> = new EventEmitter<Roles[]>();
 
@@ -31,6 +29,7 @@ export class RoleComponent {
     rolesForm!: FormGroup;
 
    ngOnInit(): void {
+    
    //actualisation des roles
      this.getallRoles();
 

@@ -1,1 +1,27 @@
-<p>layout-speciality works!</p>
+<!-- add speciality -->
+<div class="container-fluid">
+  <h1> Speciality </h1>
+  
+  <div class="row ">
+
+    <div class="col-8 " data-overlay="2" >
+
+      <app-speciality-list
+
+      [specialityList]="specialityList">
+
+      </app-speciality-list>
+
+    </div>
+
+    <div class="col-4  align-self-center">
+
+      <app-speciality
+      (specialityListOutput)=" getSpecialityListFromSpecialityComponent($event)">
+
+    </app-speciality>
+
+    </div>
+
+
+</div>

@@ -1,6 +1,6 @@
 <!-- add doctor -->
 <div class="container-fluid">
-
+  <h1 > hospital </h1>
   <div class="row bg-white">
 
     <div class="col-3  ">
@@ -8,8 +8,6 @@
     </div>
     <div class="col-9  mt-100" data-overlay="2">
       <app-hospital 
-
-      (hospitalListOutput)="getHospitalListFromHospitalComponent($event)"
   
       (categoryListOutput)="getCategoryListFromHospitalComponent($event)"
   
@@ -18,8 +16,6 @@
     </app-hospital>
 
     <app-hospital-list 
-
-    [hospitalList]="hospitalList" 
     
     [municipalityList]="municipalityList"
     

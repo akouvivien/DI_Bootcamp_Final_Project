@@ -18,9 +18,9 @@
 
           <div class="form-group">
 
-            <label for="first_name">category_name</label>
-            <input type="text" class="form-control" id="name" formControlName="name">
-            <div *ngIf="!categoryForm.controls['name'].valid  &&  (categoryForm.controls['name'].touched || categoryForm.controls['name'].dirty)" class="messageError">
+            <label for="category">category_name</label>
+            <input type="text" class="form-control" id="category" formControlName="category">
+            <div *ngIf="!categoryForm.controls['category'].valid  &&  (categoryForm.controls['category'].touched || categoryForm.controls['category'].dirty)" class="messageError">
               <p class="text-danger">veillez renseignez le nom de la categorie sil vous plait!</p>
             </div>
           </div>

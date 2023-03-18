@@ -25,7 +25,7 @@ export class CityService {
    return this.httpService.get(url_path.CITY_BASE);
   }
 
-  deleteCity(id : string) {
+  deleteCity(id : number) {
     return this.httpService.delete(`${url_path.CITY_BASE}/${id}`);
   }
 

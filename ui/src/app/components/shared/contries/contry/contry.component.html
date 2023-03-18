@@ -1,40 +1,23 @@
-<!-- add villes -->
+<div class="card" style="width:18rem;">
+  <div class="card-body">
+    <form  [formGroup]="contryForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  + roles
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">enregistrement des pays</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form  [formGroup]="contryForm" (ngSubmit)="onSubmit()"class="form-type-material">
-
-          <div class="form-group">
+      <div class="form-group">
     
-            <label for="first_name">contry_name</label>
-            <input type="text" class="form-control" id="name" formControlName="name">
-            <div *ngIf="!contryForm.controls['name'].valid  &&  (contryForm.controls['name'].touched || contryForm.controls['name'].dirty)" class="messageError">
-              <p class="text-danger">veillez renseignez le nom du pays sil vous plait!</p>
-            </div>
-          </div>
+        <label for="first_name">name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="!contryForm.controls['name'].valid  &&  (contryForm.controls['name'].touched || contryForm.controls['name'].dirty)" class="messageError">
+          <p class="text-danger">veillez renseignez le nom du pays sil vous plait!</p>
+        </div>
+      </div>
     
-          <br>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
+      <br>
+      <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+    </form>
   </div>
 </div>
+
+
     
 
 

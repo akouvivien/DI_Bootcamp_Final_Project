@@ -25,7 +25,7 @@ export class MunicipalityService {
    return this.httpService.get(url_path.MUNICIPALITY_BASE);
   }
 
-  deleteHospital(id : string) {
+  deleteHMunicipality(id : number) {
     return this.httpService.delete(`${url_path.MUNICIPALITY_BASE}/${id}`);
   }
 

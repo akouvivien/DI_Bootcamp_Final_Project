@@ -1,11 +1,6 @@
-<!-- <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" > -->
-
   <div class="row h-100 pl-50">
 
-    <!-- |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Pagination
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    ! -->
+
     <div class="col-lg-8 align-center">
       <div class="card">
         <h4 class="card-title"><strong>List of Category</strong></h4>
@@ -22,7 +17,7 @@
             <tbody   >
               <tr *ngFor=" let items of categoryList let i = index">
                 <th scope="row">{{i + 1}}</th>
-                <td>{{items.name}}</td>
+                <td>{{items.category}}</td>
                 <td>
                   <a  class="btn"><i class='fas fa-eye view'></i></a>
                   <a  class="btn"><i class="fa fa-edit edit"></i></a>
@@ -41,4 +36,3 @@
     </div>
 </div>
 
-<!-- </div> -->

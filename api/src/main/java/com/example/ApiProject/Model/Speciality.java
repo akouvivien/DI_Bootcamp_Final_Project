@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -33,15 +34,18 @@ public class Speciality   implements Serializable {
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createAt;
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date updatedAt;
 
-// a revoir la relation
+    // a revoir la relation
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "speciality", fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "speciality", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SpecialityHospitalDoctor> specialityhospital;
 
 }

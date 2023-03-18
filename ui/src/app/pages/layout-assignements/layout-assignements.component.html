@@ -1,11 +1,24 @@
 <!-- add doctor -->
+
+
+
 <div class="container-fluid">
 
   <div class="row no-gutters min-h-fullscreen bg-white">
 
-    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+    <app-assignation class="col-md-6 col-lg-5 col-xl-4 align-self-center"
 
-      <app-assignement-list
+    (hospitalListOutput)="getHospitalListFromAssignementsComponent($event)"
+
+    (specialityListOutput)="getSpecialityListFromAssignementsComponent($event)"
+
+    (assignementlListOutput)="getAssignementsListFromAssignementsComponent($event)"
+
+    (doctorListOutput)="getDoctorListFromAssignementsComponent($event)">
+
+  </app-assignation>
+
+      <app-assignation-list class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2"
 
       [hospitalList]="hospitalList"
 
@@ -13,31 +26,8 @@
 
       [specialityList]="specialityList"
 
-      [doctorList]="doctorListList" >
+      [doctorList]="doctorList" >
 
-
-
-    </app-assignement-list>
+    </app-assignation-list>
 
     </div>
-
-
-
-    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
-
-      <app-assignement
-
-      (hospitalListOutput)="getHospitalListFromAssignementsComponent($event)"
-
-      (specialityListOutput)="getSpecialityListFromAssignementsComponent($event)"
-
-      (assignementListOutput)="getAssignementsListFromAssignementsComponent($event)"
-
-      (doctorListOutput)="getDoctorListFromAppointementsComponent($event)">
-
-    </app-assignement>
-
-    </div>
-
-
-</div>

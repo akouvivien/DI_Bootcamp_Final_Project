@@ -1,6 +1,7 @@
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { IsConnectedGuard } from './guard/is-guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
 
   {
     path:'layout',
-    loadChildren: () => import('./pages/layout.module').then(m=>m.LayoutModule)
+    loadChildren: () => import('./pages/layout.module').then(m=>m.LayoutModule),
+    canActivate:[IsConnectedGuard]
 
   },
 

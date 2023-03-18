@@ -1,8 +1,5 @@
-import { Patient } from './../../../../interfaces/patient';
 import { Component, Input } from '@angular/core';
-import { Appointements } from 'src/app/interfaces/appointements';
-import { Hospital } from 'src/app/interfaces/hospital';
-import { Speciality } from 'src/app/interfaces/speciality';
+
 
 @Component({
   selector: 'app-appointements-list',
@@ -11,12 +8,12 @@ import { Speciality } from 'src/app/interfaces/speciality';
 })
 export class AppointementsListComponent {
 
-  @Input() appointementList!:Appointements[];
+  @Input() appointementList:any = [];
 
-  @Input() patientsList!:Patient[];
+  @Input() patientsList: any = [];
 
-  @Input() specialityList!:Speciality[];
+  @Input() specialityList:any = [];
 
-  @Input() hospitalList!:Hospital[];
+  @Input() hospitalList: any = [];
 
 }

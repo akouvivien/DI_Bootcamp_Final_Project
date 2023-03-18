@@ -1,5 +1,6 @@
 <!-- add doctor -->
 <div class="container-fluid">
+  <h1> Vos reservations</h1>
 
   <div class="row no-gutters min-h-fullscreen bg-white">
 
@@ -9,12 +10,11 @@
 
       [hospitalList]="hospitalList"
 
-      [patientsList]="patientsList"
+      [patientsList]="patientsList" 
 
       [specialityList]="specialityList"
 
       [appointementList]="appointementList" >
-
 
 
     </app-appointements-list>
@@ -33,7 +33,7 @@
 
       (appointementListOutput)="getAppointementsListFromAppointementsComponent($event)"
 
-      (patientsListOutput)="getPatientListFromAppointementsComponent($event)">
+      (patientsOutput)="getPatientListFromAppointementsComponent($event)">
 
     </app-appointements>
 

@@ -8,6 +8,6 @@ import { Category } from 'src/app/interfaces/category';
 })
 export class CategoryListComponent {
 
-  @Input() categoryList!:Category[];
+  @Input() categoryList:any=[];
 
 }

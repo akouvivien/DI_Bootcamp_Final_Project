@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { environnement } from 'src/app/environnements/environnement';
 import { City } from 'src/app/interfaces/city';
 import { Contry } from 'src/app/interfaces/contry';
 import { Municipality } from 'src/app/interfaces/municipality';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-layout-municipality',
@@ -20,13 +22,14 @@ export class LayoutMunicipalityComponent {
     this.cityList,
 
     this.municipalityList
-  }
+  
+}
 
-  getcityListFromMunicipalityComponent(event: City[]) {
+  getcityListFromMunicipalityComponent(event: any) {
     this.cityList = event;
   }
 
-  getMunicipalityListFromMunicipalityComponent(event: Municipality[]) {
+  getMunicipalityListFromMunicipalityComponent(event: any) {
     this.municipalityList = event;
   }
 

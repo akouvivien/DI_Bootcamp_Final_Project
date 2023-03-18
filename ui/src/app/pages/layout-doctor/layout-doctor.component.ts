@@ -8,15 +8,19 @@ import { Doctor } from 'src/app/interfaces/doctor';
 })
 export class LayoutDoctorComponent implements OnInit {
 
-  
-  doctorList: Doctor[] = [];
+
+  doctorList: any = [];
 
   ngOnInit() {
     this.doctorList
+    console.log("list des doctorsssssssssssssssssss layout ")
+    console.log(this.doctorList)
   }
 
 
-  getDoctorListFromDoctorComponent(event: Doctor[]) {
+  getDoctorListFromDoctorComponent(event: any) {
+    console.log("list dans l'envoyeur layout ")
+    console.log(event)
     this.doctorList = event;
   }
 

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.io.Serializable;
@@ -22,20 +23,23 @@ import java.util.List;
 public class Doctor extends Users implements Serializable {
 
 //@Column(unique=true)
- private String Matricule ;
+    private String Matricule ;
 
- private boolean doctor_status;
+    private boolean doctor_status;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createAt;
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date updatedAt;
 
     // a revoir la relation
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "doctor", fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "doctor", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SpecialityHospitalDoctor> specialityhospital;
 }

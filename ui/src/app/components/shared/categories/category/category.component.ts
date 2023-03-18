@@ -13,12 +13,12 @@ export class CategoryComponent {
 
 
     //liste des category
-    categoryList:Category[] = [];
+    categoryList:any= [];
 
 
 
     //L'event qui sera retourné au parent et informera sur l'etat  category
-    @Output() categoryListOutput: EventEmitter<Category[]> = new EventEmitter<Category[]>();
+    @Output() categoryListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(
 
@@ -37,7 +37,7 @@ export class CategoryComponent {
    //add category
        this.categoryForm= this.fb.group({
 
-        name : [``,Validators.required]
+        category : [``,Validators.required]
 
        });
    }
@@ -66,7 +66,7 @@ getallCategory(){
         next: (response: any)=>{
 
           // affecte a categorylist la liste des roles venu de l'api
-          this.categoryList = response as Category[];
+          this.categoryList = response ;
 
           // affiche  dans la console la liste des category
           console.log(this.categoryList)

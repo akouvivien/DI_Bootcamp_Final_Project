@@ -1,23 +1,28 @@
-import { Component, Input } from '@angular/core';
-import { Assignements } from 'src/app/interfaces/assignements';
-import { Doctor } from 'src/app/interfaces/doctor';
-import { Hospital } from 'src/app/interfaces/hospital';
-import { Speciality } from 'src/app/interfaces/speciality';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-assignation-list',
   templateUrl: './assignation-list.component.html',
   styleUrls: ['./assignation-list.component.css']
 })
-export class AssignationListComponent {
+export class AssignationListComponent implements OnInit {
 
+  @Input() assignementList:any =[];
 
-  @Input() assignementList!:Assignements[];
+  @Input() specialityList:any = [];
 
-  @Input() specialityList!:Speciality[];
+  @Input() hospitalList:any = [];
 
-  @Input() hospitalList!:Hospital[];
+  @Input() doctorList:any =[];
 
-  @Input() doctorList!:Doctor[];
+  constructor() {
 
+  }
+  ngOnInit(): void {
+    console.log("assignement dans la liste")
+    console.log(this.assignementList)
+
+    console.log("assignement dans la specialite")
+    console.log(this.specialityList)
+  }
 }

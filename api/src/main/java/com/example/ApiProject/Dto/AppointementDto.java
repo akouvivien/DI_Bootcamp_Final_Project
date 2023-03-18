@@ -13,7 +13,15 @@ import lombok.NoArgsConstructor;
 public class AppointementDto {
    
 	private Long id;
-    
+
+    // private Long contryId;
+
+    // private Long cityId;
+
+    // private Long  municipaliityId;
+
+    // private Long categoryId
+
     private Long hospitalId;
     
     private Long patientId;

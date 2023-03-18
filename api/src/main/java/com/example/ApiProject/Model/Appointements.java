@@ -4,6 +4,7 @@ import lombok.*;
 import javax.persistence.*;
 
 import com.example.ApiProject.Enums.StatusAppointements;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 
@@ -23,7 +24,8 @@ public class Appointements implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable = false)
     private Long id;
-   
+
+    @Column(columnDefinition="timestamp")
     private Date date;
 
     @ManyToOne
@@ -41,12 +43,13 @@ public class Appointements implements Serializable {
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createAt;
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date updatedAt;
-
 
     public Appointements(StatusAppointements statusAppointements) {
         this.statusAppointements = statusAppointements;

@@ -3,7 +3,7 @@
 
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  +    
+  +
 </button>
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -17,8 +17,8 @@
         <h4></h4>
 
         <form  [formGroup]="hospitalForm" (ngSubmit)="onSubmit()"class="form-type-material">
-    
-        
+
+
             <div class="form-floating mb-1 form-group">
               <input  type="text" class="form-control" id="name" formControlName="name"  placeholder="hopital_name">
               <label for="name">hopital_name</label>
@@ -26,16 +26,16 @@
                 <p class="text-danger">veillez renseignez le nom sil vous plait!</p>
               </div>
             </div>
-    
+
           <div class="form-floating mb-1 form-group">
-    
+
             <input type="text" class="form-control" id="adresse" formControlName="adresse"  placeholder="hopital_name">
             <label for="adresse">hopital_adresse</label>
             <div *ngIf="!hospitalForm.controls['adresse'].valid  &&  (hospitalForm.controls['adresse'].touched || hospitalForm.controls['adresse'].dirty)" class="messageError">
               <p class="text-danger">veillez renseignez l'adresse sil vous plait!</p>
             </div>
           </div>
-    
+
           <label for="status">Disponibility</label>
           <select  type="text" class="form-control" id="status"formControlName="status">
             <option value="true">true</option>
@@ -44,10 +44,10 @@
           <div *ngIf="!hospitalForm.controls['status'].valid  &&  (hospitalForm.controls['status'].touched || hospitalForm.controls['status'].dirty)" class="messageError">
             <p class="text-danger">veillez renseignez le status sil vous plait!</p>
           </div>
-    
-    
+
+
           <div class="form-group">
-    
+
             <label for="municipalityId">Municipality of hospital</label>
             <select class="form-control" id="municipalityId" formControlName="municipalityId" for="municipalityId" >
               <option  *ngFor="let items of municipalityList" value ="{{ items.id }}">{{ items.name }}</option>
@@ -56,11 +56,11 @@
               <p class="text-danger">veillez selectionner une municipalité!</p>
             </div>
           </div>
-    
+
           <div class="form-group">
             <label for="etablissementCategoryId">Category of hospitality</label>
             <select class="form-control" id="etablissementCategoryId" formControlName="etablissementCategoryId" for="etablissementCategoryId">
-              <option *ngFor="let items of categoryList" value ="{{ items.id }}">{{ items.name }}</option>
+              <option *ngFor="let items of categoryList" value ="{{ items.id }}">{{ items.category }}</option>
             </select>
             <div *ngIf="!hospitalForm.controls['etablissementCategoryId'].valid  &&  (hospitalForm.controls['etablissementCategoryId'].touched || hospitalForm.controls['etablissementCategoryId'].dirty)" class="messageError">
               <p class="text-danger">veillez selectionner une categorie!</p>

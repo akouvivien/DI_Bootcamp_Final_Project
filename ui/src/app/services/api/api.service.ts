@@ -20,8 +20,12 @@ export class HttpService {
     return this.http.post(`${environnement.BASE_URL}${parameter.endpoint}`,parameter.data, {headers : this.httpHeader()} );
   }
 
-  put(parameter : Required<{endpoint : string , data : any}>) {
-    return this.http.put(`${environnement.BASE_URL}${parameter.endpoint}`, parameter.data,{headers : this.httpHeader()});
+  getId(parameter : Required<{endpoint : string , data : any}> ) {
+    return this.http.post(`${environnement.BASE_URL}${parameter.endpoint}`,parameter.data, {headers : this.httpHeader()} );
+  }
+
+  put(parameter : Required<{endpoint : string ,data : any}>) {
+    return this.http.put(`${environnement.BASE_URL}${parameter.endpoint}` ,parameter.data,{headers : this.httpHeader()});
   }
 
   delete(endpoint : string) {

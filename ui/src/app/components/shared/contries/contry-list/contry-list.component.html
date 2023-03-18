@@ -1,45 +1,41 @@
-<!-- <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" > -->
 
-  <div class="row h-100 pl-50">
-
-    <!-- |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Pagination
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    ! -->
-    <div class="col-lg-8 align-center">
+<div class="row">
+  <div *ngFor="let element of contryList" class="col-md-4">
       <div class="card">
-        <h4 class="card-title"><strong>List of Contry</strong></h4>
-
+        <div class="card-header">Contry</div>
         <div class="card-body">
-
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-              </tr>
-            </thead>
-            <tbody   >
-              <tr *ngFor=" let items of contryList let i = index">
-                <th scope="row">{{i + 1}}</th>
-                <td>{{items.id}}</td>
-                <td>{{items.name}}</td>
-                <td>
-                  <a  class="btn"><i class='fas fa-eye view'></i></a>
-                  <a  class="btn"><i class="fa fa-edit edit"></i></a>
-                  <button  class="btn"><i class='fas fa-trash-alt delete'></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td *ngIf="contryList.length == 0" colspan="6">No contry Found</td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-
+          <p> name  :{{element.name}}</p>
+        </div>
+        <div class="card-footer">
+          <button  type="button" (click)="delete(element.id)" class=" btn  btn-danger me-2">- </button>
+          <button  type="button" (click)="update(element)" class=" btn  btn-danger"> O</button>
         </div>
       </div>
     </div>
-</div>
+  </div>
 
-<!-- </div> -->
+
+
+<!-- <table class="table">
+  <thead class="table-success">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody   >
+    <tr *ngFor=" let items of contryList let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{items.name}}</td>
+      <td>
+        <a  class="btn"><i class='fas fa-eye view'></i></a>
+        <a  class="btn"><i class="fa fa-edit edit"></i></a>
+        <button  class="btn"><i class='fas fa-trash-alt delete'></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td *ngIf="contryList.length == 0" colspan="6">No contry Found</td>
+    </tr>
+  </tbody>
+</table> -->
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

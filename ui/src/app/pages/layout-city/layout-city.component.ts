@@ -9,7 +9,7 @@ import { Contry } from 'src/app/interfaces/contry';
 })
 export class LayoutCityComponent {
 
-  cityList: City[] = [];
+  cityList: any = [];
 
   contryList : Contry[] = [];
 
@@ -20,11 +20,11 @@ export class LayoutCityComponent {
     this.contryList
   }
 
-  getcityListFromCityComponent(event: City[]) {
+  getcityListFromCityComponent(event: any) {
     this.cityList = event;
   }
 
-  getContryListFromCityComponent(event: Contry[]) {
+  getContryListFromCityComponent(event: any) {
     this.contryList = event;
   }
 

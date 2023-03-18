@@ -1,3 +1,4 @@
+import { User } from 'src/app/interfaces/user';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import { Contry } from 'src/app/interfaces/contry';
 import { Doctor } from 'src/app/interfaces/doctor';
 import { CityService } from 'src/app/services/api/city.api.service';
 import { ContryService } from 'src/app/services/api/contry.service';
+import { environnement } from 'src/app/environnements/environnement';
 
 @Component({
   selector: 'app-city',
@@ -15,9 +17,9 @@ import { ContryService } from 'src/app/services/api/contry.service';
 export class CityComponent {
 
     // la liste des villes
-    cityList:City[] = [];
+    cityList: any = [];
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des villes
-    @Output() cityListOutput: EventEmitter<City[]> = new EventEmitter<City[]>();
+    @Output() cityListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     //liste des pays
     contryList:Contry[] = [];
@@ -25,7 +27,7 @@ export class CityComponent {
     @Output() contryListOutput: EventEmitter<Contry[]> = new EventEmitter<Contry[]>();
 
 
-
+    user!:User
     //formulaire
     cityForm!: FormGroup;
 
@@ -38,6 +40,11 @@ export class CityComponent {
 
 
    ngOnInit(): void {
+
+    let json = localStorage.getItem(environnement.APIKEY);
+    if (json != null) {
+      this.user = JSON.parse(json) as User;
+      }
    //actualisation du villes
      this.getallcities();
      //actualisation des pays
@@ -48,7 +55,7 @@ export class CityComponent {
 
         name : [``,Validators.required],
 
-        contryid : [``,Validators.required]
+        contryId : [``,Validators.required]
 
        });
    }
@@ -61,7 +68,7 @@ export class CityComponent {
      next: (response: any)=>{
 
        // affecte a doctorist la liste des villes venu de l'api
-       this.cityList = response as City[];
+       this.cityList = response ;
 
        // affiche  dans la console la liste des villes
        console.log(this.cityList)

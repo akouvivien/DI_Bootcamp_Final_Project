@@ -8,14 +8,14 @@ import { Category } from 'src/app/interfaces/category';
 })
 export class LayoutCategoryComponent {
 
-  categoryList : Category[] = [];
+  categoryList : any = [];
 
   ngOnInit() {
     this.categoryList
   }
 
 
-  getCategoryListFromCategoryComponent(event: Category[]) {
+  getCategoryListFromCategoryComponent(event: any) {
     this.categoryList = event;
   }
 

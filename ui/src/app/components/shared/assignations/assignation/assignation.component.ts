@@ -20,31 +20,29 @@ export class AssignationComponent {
 
 
     //liste des affectations
-    assignementlList:Assignements[] = [];
+    assignementlList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des affectations
-    @Output() assignementlListOutput: EventEmitter<Assignements[]> = new EventEmitter<Assignements[]>();
+    @Output() assignementlListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     //liste des hopitaux
-    hospitalList:Hospital[] = [];
+    hospitalList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des category
-    @Output() hospitalListOutput: EventEmitter<Hospital[]> = new EventEmitter<Hospital[]>();
+    @Output() hospitalListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     //liste des specialités
-    specialityList:Speciality[] = [];
+    specialityList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Patients
-    @Output() specialityListOutput: EventEmitter<Speciality[]> = new EventEmitter<Speciality[]>();
+    @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
     //liste des doctors
-    doctorList:Doctor[] = [];
+    doctorList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Patients
-    @Output() doctorListOutput: EventEmitter<Doctor[]> = new EventEmitter<Doctor[]>();
-
-
+    @Output() doctorListOutput: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(
       private _hospital: HospitalService,
@@ -66,6 +64,7 @@ export class AssignationComponent {
      this.getallAssignements();
      this.getALLHospitals(),
      this.getALLSpecialitys(),
+     this.getALLDoctors()
 
    //add appointements
        this.assignementForm= this.fb.group({
@@ -80,15 +79,18 @@ export class AssignationComponent {
    }
 
     // effectuer des assignements dans la bd
+
  onSubmit(){
-  this._assign.createAssign(this.assignementForm.value).subscribe({
-    next:(response :any) =>{
-      this.getallAssignements();
-    },
-    error: error => {
-      console.error("Erreur lors de l'enregistrement des assignements!", error);
-    }
-  })
+
+    this._assign.createAssign(this.assignementForm.value).subscribe({
+      next:(response :any) =>{
+        this.getallAssignements();
+
+      },
+      error: error => {
+        console.error("Erreur lors de l'enregistrement des assignements!", error);
+      }
+    })
 
 console.log(this.assignementForm.value)
 
@@ -103,7 +105,7 @@ getallAssignements(){
         next: (response: any)=>{
 
           // affecte a assignementlList la liste des assignements venue de l'api
-          this.assignementlList = response as Assignements[];
+          this.assignementlList = response ;
 
           // affiche  dans la console la liste des assignement
           console.log(this.assignementlList)
@@ -130,7 +132,7 @@ getALLHospitals(){
     next: (response: any)=>{
 
       // affecte a HospitalList la liste des appointement venu de l'api
-      this.hospitalList = response as Hospital[];
+      this.hospitalList = response ;
 
       // affiche  dans la console la liste des appointement
       console.log(this.hospitalList)
@@ -157,7 +159,7 @@ getALLSpecialitys(){
     next: (response: any)=>{
 
       // affecte a specialityList la liste des speciality venu de l'api
-      this.specialityList = response as Speciality[];
+      this.specialityList = response;
 
       // affiche  dans la console la liste des speciality
       console.log(this.specialityList)
@@ -169,6 +171,34 @@ getALLSpecialitys(){
   },
       error: error => {
         console.error("Erreur lors de la recuperation des ,specialités!", error);
+      }
+    })
+
+}
+
+
+
+//*******doctors */
+
+getALLDoctors(){
+
+  this._doctor.getDoctors().subscribe({
+
+    next: (response: any)=>{
+
+      // affecte a specialityList la liste des speciality venu de l'api
+      this.doctorList = response ;
+
+      // affiche  dans la console la liste des speciality
+      console.log(this.doctorList)
+
+      //Renvoi de la liste au composant enfant
+      this.doctorListOutput.emit(this.doctorList);
+
+
+  },
+      error: error => {
+        console.error("Erreur lors de la recuperation des ,doctors!", error);
       }
     })
 

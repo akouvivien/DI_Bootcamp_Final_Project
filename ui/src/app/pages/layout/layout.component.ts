@@ -16,8 +16,8 @@ export class LayoutComponent  {
   ngOnInit(): void {
       let json = localStorage.getItem(environnement.APIKEY);
       if (json != null) {
-        let user:User = JSON.parse(json) as User;
-        console.log(user.roles.id)
+        this.user= JSON.parse(json) as User;
+        console.log(this.user.roles.name)
 
         }
    }

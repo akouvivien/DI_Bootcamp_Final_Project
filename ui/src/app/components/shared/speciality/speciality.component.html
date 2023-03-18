@@ -1,0 +1,25 @@
+<div class="card" style="width:18rem;">
+    <div class="card-body">
+      <form  [formGroup]="specialitytForm" (ngSubmit)="onSubmit()"class="form-type-material">
+  
+        <div class="form-group">
+      
+          <label for="first_name">name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+          <div *ngIf="!specialitytForm.controls['name'].valid  &&  (specialitytForm.controls['name'].touched || specialitytForm.controls['name'].dirty)" class="messageError">
+            <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+          </div>
+        </div>
+      
+        <br>
+        <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+      </form>
+    </div>
+  </div>
+  
+  
+      
+  
+  
+  
+  

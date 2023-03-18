@@ -44,8 +44,22 @@ public class AppointementServiceImpl implements AppointementsService {
 	@Override
 	public Appointements createAppointement(AppointementDto appointemetDto) {
 
-		        Patient patient = patientRepo.findById(appointemetDto.getPatientId()).orElse(null);
-		        if(patient == null) throw new ApplicationContextException("ce patient n'existe pas");
+				 // selectionner un pays
+
+				 Patient patient = patientRepo.findById(appointemetDto.getPatientId()).orElse(null);
+				 if(patient == null) throw new ApplicationContextException("ce patient n'existe pas");
+
+		        // Contry contry  = contryRepo.findById(appointemetDto.getContryId()).orElse(null);
+		        // if(patient == null) throw new ApplicationContextException("ce pays n'existe pas");
+
+				// City city  = cityRepo.findById(appointemetDto.getCityId()).orElse(null);
+		        // if(patient == null) throw new ApplicationContextException("cette la ville n'existe pas");
+
+				// Municipality municipality  = municipalityRepo.findById(appointemetDto.getMunicipalityId()).orElse(null);
+		        // if(patient == null) throw new ApplicationContextException("la municipalitée  n'existe pas");
+
+				// EtablissementCategory category  = etablissementcategoryRepo.findById(appointemetDto.getcategoryId()).orElse(null);
+		        // if(patient == null) throw new ApplicationContextException("la category selectionner  n'existe pas");
 
 		        Hospital hospital = hospitalRepo.findById(appointemetDto.getHospitalId()).orElse(null);
 				if(hospital == null) throw new ApplicationContextException("l'hopital selectionner n'existe pas");
@@ -62,7 +76,8 @@ public class AppointementServiceImpl implements AppointementsService {
 		        addAppointment.setHospital(hospital);
 		        addAppointment.setPatient(patient);
 		        addAppointment.setDate(appointemetDto.getDate());
-				// TODO a verifier
+				
+				// ajoute un status
 				addAppointment.setStatusAppointements(StatusAppointements.PENDING);
 				
 		        appoRepo.save(addAppointment);

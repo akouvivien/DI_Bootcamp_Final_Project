@@ -3,6 +3,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,16 +32,20 @@ public class Contry  implements  Serializable{
     @NotBlank(message = "Le champ name de la ville ne peut etre vide")
     @Column(length = 100)
     private String name;
+
     @JsonIdentityReference(alwaysAsId = false)
     @OneToMany(mappedBy = "contry",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<City> city ;
 
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createAt;
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date updatedAt;
 }

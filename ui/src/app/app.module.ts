@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { httpService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
-import { AssignationComponent } from './components/shared/assignations/assignation/assignation.component';
-import { AssignationListComponent } from './components/shared/assignations/assignation-list/assignation-list.component';
+import { SpecialityComponent } from './components/shared/speciality/speciality.component';
+import { SpecialityListComponent } from './components/shared/speciality-list/speciality-list.component';
 
 
 
@@ -16,12 +16,7 @@ import { AssignationListComponent } from './components/shared/assignations/assig
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    AssignationComponent,
-    AssignationListComponent
-
- 
-
+    FooterComponent
   ],
   imports: [
     BrowserModule,

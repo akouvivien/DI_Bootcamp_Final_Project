@@ -41,11 +41,11 @@ public class AppointementsController {
         }
 
     @PostMapping("")
-    public ResponseEntity<String> createAppointements(@Validated @RequestBody AppointementDto appointementdto) {
+    public ResponseEntity<Appointements> createAppointements(@Validated @RequestBody AppointementDto appointementdto) {
 
         appoService.createAppointement(appointementdto);
 
-        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(appoService.createAppointement(appointementdto),HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/{id}")

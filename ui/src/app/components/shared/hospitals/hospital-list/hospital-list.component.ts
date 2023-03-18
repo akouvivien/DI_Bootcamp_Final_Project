@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Category } from 'src/app/interfaces/category';
 import { Hospital } from 'src/app/interfaces/hospital';
@@ -10,10 +10,10 @@ import { HospitalService } from 'src/app/services/api/hospital.service';
   templateUrl: './hospital-list.component.html',
   styleUrls: ['./hospital-list.component.css']
 })
-export class HospitalListComponent {
+export class HospitalListComponent implements OnInit {
 
   //recois la list des hopitaux
-  @Input() hospitalList!:Hospital[];
+  hospitalList : any = [];
 
   //recois la  des categories
   @Input() categoryList!:Category[];
@@ -22,50 +22,44 @@ export class HospitalListComponent {
   @Input()  municipalityList!:Municipality[];
 
 
-  // hopitalToupdate : Hospital = {
-  //   id:,
+  constructor(
 
-  //   name :"" ,
+    private fb:FormBuilder,
+    private _service : HospitalService
 
-  //   adresse:"",
+    ) { }
+  ngOnInit(): void {
+    this.getallHospitals();
+  }
 
-  //   status:,
 
-  //   municipalityId:,
+    //recuperation de la liste des hopitaux
+getallHospitals(){
 
-  //   etablissementCategoryId:
-  // }
+  this._service.getHospitals().subscribe({
 
-  // constructor(
+    next: (response: any)=>{
 
-  //   private fb:FormBuilder,
-  //   private _service : HospitalService
+      // affecte a doctorist la liste des Hopitaux venu de l'api
+      this.hospitalList = response;
 
-  //   ) { }
+      // affiche  dans la console la liste des hopitaux
+      console.log("les hopitaux")
+      console.log(this.hospitalList)
 
-  //  //formulaire
-  //  hospitalForm!: FormGroup;
+      //Renvoi de la liste au composant enfant
+      // this.hospitalListOutput.emit(this.hospitalList);
 
-  //  edit(items : any){
-  //   this.hopitalToupdate=items;
-  //  }
+  },
+      error: error => {
 
-  //  updateHospital(){
+        console.error("Erreur lors de la recuperation des des informations !", error);
 
-  //   this._service.updateHospital(this.hopitalToupdate).subscribe({
-  
-  //     next: (response: any)=>{
-  
-  //       console.log(response)
-  
-  //   },
-  //       error: error => {
-  
-  //         console.error("Erreur lors de la recuperation des des informations !", error);
-  
-  //       }
-  //     })
-  
-  // }
+      }
+    })
+
+}
+
+
 
 }

@@ -22,7 +22,7 @@ export class DoctorService {
    return this.httpService.get(url_path.DOCTOR_BASE);
   }
 
-  deleteDoctor(id : string) {
+  deleteDoctor(id : number) {
     return this.httpService.delete(`${url_path.DOCTOR_BASE}/${id}`);
   }
 

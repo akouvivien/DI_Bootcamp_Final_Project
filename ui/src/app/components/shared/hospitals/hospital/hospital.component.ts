@@ -16,10 +16,10 @@ import { MunicipalityService } from 'src/app/services/api/municipality.service';
 export class HospitalComponent {
 
         // la liste des hopitaux
-        hospitalList:Hospital[] = [];
+        hospitalList: any = [];
 
         //L'event qui sera retourné au parent et informera sur l'etat de la liste des hopitaux
-        @Output() hospitalListOutput: EventEmitter<Hospital[]> = new EventEmitter<Hospital[]>();
+        // @Output() hospitalListOutput: EventEmitter<any> = new EventEmitter<any>();
 
         //liste des categories
         categoryList:Category[] = [];
@@ -38,7 +38,7 @@ export class HospitalComponent {
 
   constructor(
     private _hospital : HospitalService ,
-    
+
     private _category : CategoryService,
 
     private _municipality : MunicipalityService,
@@ -53,7 +53,7 @@ export class HospitalComponent {
 
   ngOnInit(): void {
   //actualisation du tableau des hopitaux
-    this.getallHospitals();
+    // this.getallHospitals();
     this.getallMunicipality();
     this.getallCategory()
 
@@ -63,41 +63,42 @@ export class HospitalComponent {
         name :  [``,Validators.required,],
 
         adresse:[``,Validators.required],
-        
+
         status:'',
-        
+
         municipalityId:[``,Validators.required],
-        
+
         etablissementCategoryId:[``,Validators.required]
 
       });
   }
 
-//recuperation de la liste des hopitaux
-getallHospitals(){
+// //recuperation de la liste des hopitaux
+// getallHospitals(){
 
-  this._hospital.getHospitals().subscribe({
+//   this._hospital.getHospitals().subscribe({
 
-    next: (response: any)=>{
+//     next: (response: any)=>{
 
-      // affecte a doctorist la liste des Hopitaux venu de l'api
-      this.hospitalList = response as Hospital[];
+//       // affecte a doctorist la liste des Hopitaux venu de l'api
+//       this.hospitalList = response;
 
-      // affiche  dans la console la liste des hopitaux
-      console.log(this.hospitalList)
+//       // affiche  dans la console la liste des hopitaux
+//       console.log("les hopitaux")
+//       console.log(this.hospitalList)
 
-      //Renvoi de la liste au composant enfant
-      this.hospitalListOutput.emit(this.hospitalList);
+//       //Renvoi de la liste au composant enfant
+//       this.hospitalListOutput.emit(this.hospitalList);
 
-  },
-      error: error => {
+//   },
+//       error: error => {
 
-        console.error("Erreur lors de la recuperation des des informations !", error);
+//         console.error("Erreur lors de la recuperation des des informations !", error);
 
-      }
-    })
+//       }
+//     })
 
-}
+// }
 
 //enregistrement d'un nouvel hopital
 onSubmit(){
@@ -106,7 +107,7 @@ onSubmit(){
 
     next:(response :any) =>{
 
-      this.getallHospitals();
+      // this.getallHospitals();
 
     },
     error: error => {
@@ -134,6 +135,7 @@ getallMunicipality(){
       this.municipalityList = response as Municipality[];
 
       // affiche  dans la console la liste des hopitaux
+      console.log("municipalité")
       console.log(this.municipalityList)
 
       //Renvoi de la liste au composant enfant

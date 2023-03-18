@@ -31,6 +31,11 @@ import { CategoryListComponent } from '../components/shared/categories/category-
 import { CategoryComponent } from '../components/shared/categories/category/category.component';
 import { LayoutCategoryComponent } from './layout-category/layout-category.component';
 import { LayoutAssignementsComponent } from './layout-assignements/layout-assignements.component';
+import { AssignationListComponent } from '../components/shared/assignations/assignation-list/assignation-list.component';
+import { AssignationComponent } from '../components/shared/assignations/assignation/assignation.component';
+import { LayoutSpecialityComponent } from './layout-speciality/layout-speciality.component';
+import { SpecialityListComponent } from '../components/shared/speciality-list/speciality-list.component';
+import { SpecialityComponent } from '../components/shared/speciality/speciality.component';
 
 
 @NgModule({
@@ -60,7 +65,12 @@ import { LayoutAssignementsComponent } from './layout-assignements/layout-assign
     RoleComponent,
     RoleListComponent,
     CategoryComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    AssignationComponent,
+    AssignationListComponent,
+    LayoutSpecialityComponent,
+    SpecialityComponent,
+    SpecialityListComponent
   ],
   imports: [
     CommonModule,
