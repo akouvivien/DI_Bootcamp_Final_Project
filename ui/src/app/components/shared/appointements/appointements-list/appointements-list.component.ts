@@ -16,4 +16,6 @@ export class AppointementsListComponent {
 
   @Input() hospitalList: any = [];
 
+  @Input() doctorList: any = [];
+
 }

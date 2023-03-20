@@ -20,6 +20,8 @@ export class LayoutAppointementsComponent {
 
   appointementList : any = [];
 
+  doctorList:  any = [];
+
   ngOnInit() {
 
     this.hospitalList,
@@ -28,7 +30,10 @@ export class LayoutAppointementsComponent {
 
     this.specialityList,
 
-    this.appointementList
+    this.appointementList,
+
+    this.doctorList
+
 
   }
 
@@ -46,6 +51,10 @@ export class LayoutAppointementsComponent {
 
   getAppointementsListFromAppointementsComponent(event: any) {
     this.appointementList = event;
+  }
+
+  getDoctorsListFromAppointementsComponent(event: any) {
+    this.doctorList = event;
   }
 
 }

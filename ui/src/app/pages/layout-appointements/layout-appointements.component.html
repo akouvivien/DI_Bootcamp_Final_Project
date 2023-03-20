@@ -1,43 +1,45 @@
 <!-- add doctor -->
 <div class="container-fluid">
-  <h1> Vos reservations</h1>
+  <h1>reservations</h1>
 
   <div class="row no-gutters min-h-fullscreen bg-white">
 
-    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" data-overlay="2" >
+    <app-appointements
+
+    (hospitalListOutput)="getHospitalListFromHospitalComponent($event)"
+
+    (specialityListOutput)="getSpecialityListFromAppointementsComponent($event)"
+
+    (appointementListOutput)="getAppointementsListFromAppointementsComponent($event)"
+
+    (patientsOutput)="getPatientListFromAppointementsComponent($event)">
+
+
+    (doctorListOutput)="getDoctorsListFromAppointementsComponent($event)">
+  </app-appointements>
+
+  </div>
+
+
+  <div class="row no-gutters min-h-fullscreen bg-white">
 
       <app-appointements-list
 
       [hospitalList]="hospitalList"
 
-      [patientsList]="patientsList" 
+      [patientsList]="patientsList"
 
       [specialityList]="specialityList"
+
+      [doctorList]="doctorList"
 
       [appointementList]="appointementList" >
 
 
     </app-appointements-list>
 
-    </div>
+  </div>
 
-
-
-    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
-
-      <app-appointements
-
-      (hospitalListOutput)="getHospitalListFromHospitalComponent($event)"
-
-      (specialityListOutput)="getSpecialityListFromAppointementsComponent($event)"
-
-      (appointementListOutput)="getAppointementsListFromAppointementsComponent($event)"
-
-      (patientsOutput)="getPatientListFromAppointementsComponent($event)">
-
-    </app-appointements>
-
-    </div>
 
 
 </div>

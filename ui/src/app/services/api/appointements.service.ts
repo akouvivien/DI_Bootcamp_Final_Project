@@ -19,7 +19,7 @@ export class AppointementService {
   updateAppointement(appointement : Appointements) {
     return this.httpService.put({endpoint : url_path.APPOINTEMENTS_BASE,data : appointement});
   }
-
+ 
   getAppointements() {
    return this.httpService.get(url_path.APPOINTEMENTS_BASE);
   }
@@ -27,5 +27,19 @@ export class AppointementService {
   deleteAppointement(id : string) {
     return this.httpService.delete(`${url_path.APPOINTEMENTS_BASE}/${id}`);
   }
+
+
+  ShearchByPatient(appointement : Appointements) {
+    return this.httpService.post({endpoint :  url_path.APPOINTEMENTS_PATIENT,data : appointement});
+   }
+
+
+   ShearchByPatientAndHospital(appointement : Appointements) {
+    return this.httpService.post({endpoint :  url_path.APPOINTEMENTS_PATIENT_HOSPITAL,data : appointement});
+   }
+
+   ShearchByHospital(appointement : Appointements) {
+    return this.httpService.post({endpoint :  url_path.APPOINTEMENTS_HOSPITAL,data : appointement});
+   }
 
 }

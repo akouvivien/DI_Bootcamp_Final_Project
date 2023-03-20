@@ -25,8 +25,7 @@ import java.util.List;
 public class Patient extends Users  implements Serializable {
 
     @JsonIdentityReference(alwaysAsId = false)
-
-    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Appointements> appointemnts;
 

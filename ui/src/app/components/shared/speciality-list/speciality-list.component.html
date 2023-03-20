@@ -1,5 +1,22 @@
+<div class="row mb-2">
+  <div *ngFor="let element of specialityList" class="col-md-4">
+      <div class="card">
+        <div class="card-header">Roles</div>
+        <div class="card-body">
+          <p> name  :{{element.name}}</p>
+        </div>
+        <div class="card-footer">
+          <!-- <button  type="button" (click)="delete(element.id)" class=" btn  btn-danger me-2">- </button> -->
+          <!-- <button  type="button" (click)="update(element)" class=" btn  btn-danger"> O</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
 
-<table class="table">
+
+
+<!-- <table class="table">
   <thead class="table-success">
     <tr>
       <th>#</th>
@@ -20,5 +37,5 @@
       <td *ngIf="specialityList.length == 0" colspan="6">No contry Found</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

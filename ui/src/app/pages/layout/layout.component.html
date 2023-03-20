@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-secondary bg.opacity-30">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
 
 <div class="container-fluid">
 <div class="row">
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse bg-secondary">
   <div class="position-sticky pt-3">
     <ul class="nav flex-column">
 
@@ -38,7 +38,7 @@
           Dashboard
         </a>
       </li>
-        <ng-container *ngIf="user.roles.name=='Doctor'">
+        <ng-container *ngIf="user.roles.name=='Admin'">
       <li class="nav-item">
         <a class="nav-link " href="#" routerLink="/layout/doctor" >
           <span><i class="fa fa-home"></i></span>
@@ -104,10 +104,19 @@
           category
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/statistique">
+          <span data-feather="layers"></span>
+          Statistique
+        </a>
+      </li>
+
+
     </ng-container>
 
     <ng-container *ngIf="user.roles.name=='Patient'">
-      
+
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/appointements">
           <span data-feather="layers"></span>
@@ -118,7 +127,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/appointements">
           <span data-feather="layers"></span>
-          notifiaction .......
+          notifiaction  en cours .......
         </a>
       </li>
 
@@ -126,21 +135,21 @@
         <a class="nav-link" href="#" routerLink="/layout/city">
           <span data-feather="layers"></span>
           city
-        </a>  
+        </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/hospitalview">
           <span data-feather="layers"></span>
           hospital
-        </a>  
+        </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/municipality">
           <span data-feather="layers"></span>
           municipality
-        </a>  
+        </a>
       </li>
 
 
@@ -152,8 +161,13 @@
           <span data-feather="layers"></span>
           Appointements
         </a>
+      </li>
 
-        
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/appointements">
+          <span data-feather="layers"></span>
+          ces differents assignements en cours
+        </a>
       </li>
 
     </ng-container>

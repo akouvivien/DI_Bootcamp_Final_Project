@@ -69,11 +69,11 @@ export class AssignationComponent {
    //add appointements
        this.assignementForm= this.fb.group({
 
-        hospitalId : [``,Validators.required],
+        hospital : [``,Validators.required],
 
-        doctorId :[``,Validators.required],
+        doctor :[``,Validators.required],
 
-        specialityId : [``,Validators.required]
+        speciality : [``,Validators.required]
 
        });
    }

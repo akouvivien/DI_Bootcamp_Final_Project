@@ -15,6 +15,7 @@ import { LayoutSpecialityComponent } from './layout-speciality/layout-speciality
 import { CityListComponent } from '../components/shared/cities/city-list/city-list.component';
 import { HospitalListComponent } from '../components/shared/hospitals/hospital-list/hospital-list.component';
 import { MunicipalityListComponent } from '../components/shared/municipalities/municipality-list/municipality-list.component';
+import { StatistiquesComponent } from '../components/shared/stat/statistiques/statistiques.component';
 
 const routes: Routes = [
 {path:'', component:LayoutComponent, children:[
@@ -24,8 +25,9 @@ const routes: Routes = [
   {path:'cityview',component:CityListComponent},
   {path:'municipalityview',component:MunicipalityListComponent},
   {path:'hospitalview',component:HospitalListComponent},
+  {path:'statistique',component:StatistiquesComponent},
   {path:'city',component:LayoutCityComponent, children:[
-    
+
 ]},
   {path:'contry',component:LayoutContryComponent},
   {path:'appointements',component:LayoutAppointementsComponent},

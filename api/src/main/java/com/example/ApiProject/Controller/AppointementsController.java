@@ -2,6 +2,9 @@ package com.example.ApiProject.Controller;
 
 import com.example.ApiProject.Dto.AppointementDto;
 import com.example.ApiProject.Model.Appointements;
+import com.example.ApiProject.Model.Patient;
+import com.example.ApiProject.Model.Doctor;
+import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Service.AppointementsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +48,7 @@ public class AppointementsController {
 
         appoService.createAppointement(appointementdto);
 
-        return new ResponseEntity<>(appoService.createAppointement(appointementdto),HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(appoService.createAppointement(appointementdto),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -59,7 +62,7 @@ public class AppointementsController {
 
     @DeleteMapping("/{id}")
 
-    public ResponseEntity<String> deleteAppointements(@Validated @RequestBody  @PathVariable("id") long id) {
+    public ResponseEntity<String> deleteAppointements(@Validated @RequestBody  @PathVariable("id") Long id) {
 
         appoService.DeleteAppointementId(id);
 
@@ -75,15 +78,30 @@ public class AppointementsController {
             return new ResponseEntity<>("L'ensemble des données a éte effacer avec succes !",HttpStatus.NO_CONTENT);
 
     }
+//a rectifier
+    @PostMapping("/getpatient")
 
-    // @GetMapping("/{date}")
-    
-    // public ResponseEntity<Appointements> findByDate(@Validated @RequestBody  @PathVariable("date")  string  date ) {
+    public ResponseEntity<List<Appointements>> shearchPatient(@RequestBody Patient patient) {
 
-    //     Optional<Appointements> appointementsDate =  appoService.getAppointementId(date);
+        return new ResponseEntity<>(appoService.getbyNameInAppointements(patient),HttpStatus.OK);
 
-    //     return new ResponseEntity<>(appointementsDate.get(), HttpStatus.OK);
+    }
+
+    // @PostMapping("/get")
+
+    // public ResponseEntity<List<Appointements>> shearchByPatientHospital(@RequestBody AppointementDto appointementDto) {
+
+    //     return new ResponseEntity<>(appoService.getbyPatientAndHospital(appointementDto),HttpStatus.OK);
+
     // }
 
+
+    @PostMapping("/gethospital")
+
+    public ResponseEntity<List<Appointements>> shearchByHospital(@RequestBody Hospital hospital) {
+
+        return new ResponseEntity<>(appoService.getbyHospital(hospital),HttpStatus.OK);
+
+    }
 
 }

@@ -30,12 +30,12 @@ public class Municipality implements Serializable {
 
     @NotNull(message = "Le champ name de la municipalité est obligatoire")
     @NotBlank(message = "Le champ name de la municipalité ne peut etre vide")
-    @Column(length = 100)
+    @Column(length = 100, unique= true)
     private String name;
 
 
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "municipality",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "municipality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Hospital> hospitals ;
 

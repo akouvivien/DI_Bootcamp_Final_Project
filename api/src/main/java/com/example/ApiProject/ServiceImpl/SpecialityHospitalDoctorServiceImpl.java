@@ -59,7 +59,6 @@ public class SpecialityHospitalDoctorServiceImpl implements SpecialityHospitalDo
 
         spehosdocRepo.save(addSpecialityHospitalDoctor);
 
-
         return addSpecialityHospitalDoctor;
     }
 

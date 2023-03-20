@@ -21,13 +21,13 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Roles  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(unique = true)
     @NotNull(message = "Le champ name de la specialité est obligatoire")
     @NotBlank(message = "Le champ name de la specialité ne peut etre vide")
     private String name;
@@ -41,7 +41,7 @@ public class Roles  implements Serializable {
     private Date updatedAt;
 
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "roles", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "roles",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Users> users;
 

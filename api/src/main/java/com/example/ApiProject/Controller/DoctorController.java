@@ -48,7 +48,7 @@ public class DoctorController {
 
         doctorService.CreateDoctor(doctorDto);
 
-        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -75,7 +75,17 @@ public class DoctorController {
     public ResponseEntity<HttpStatus> deleteAllDoctors() {
 
         doctorService.deleteDoctors();
+
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
+    }
+
+    @PostMapping("/getbyspeciality")
+    //enregistrement des données
+    public ResponseEntity<String> getBySpeciality(@Validated @RequestBody Speciality speciality) {
+
+        doctorService.getDoctorsbySpeciality(speciality);
+
+        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.OK);
     }
 }

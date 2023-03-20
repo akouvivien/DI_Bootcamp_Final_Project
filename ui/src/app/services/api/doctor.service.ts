@@ -26,4 +26,9 @@ export class DoctorService {
     return this.httpService.delete(`${url_path.DOCTOR_BASE}/${id}`);
   }
 
+
+  searchBySpeciality(doctor : Doctor) {
+    return this.httpService.post({endpoint : url_path.DOCTOR_SPECIALITY,data : doctor});
+   }
+
 }

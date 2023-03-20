@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
 
         //verifie si l'utilisateur existe deja
         Boolean usersLogin = usersRepo.existsByLogin(signUpDto.getLogin());
-        if (usersLogin) throw new ApplicationContextException("ce utilisateur existe deja");
+        if (usersLogin) throw new ApplicationContextException("le login est deja utiliser ");
 
          // verifie l'email dans la bd
          Boolean usersemail = usersRepo.existsByEmail(signUpDto.getEmail());
@@ -48,6 +48,8 @@ public class UserDetailsServiceImpl implements UsersDetailsService {
         patient.setLast_name(signUpDto.getLast_name());
 
         patient.setLogin(signUpDto.getLogin());
+
+        patient.setEmail(signUpDto.getEmail());
 
         patient.setMdPasse(signUpDto.getPassword());
 

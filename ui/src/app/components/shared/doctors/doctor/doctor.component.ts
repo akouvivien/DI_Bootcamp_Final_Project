@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorService } from 'src/app/services/api/doctor.service';
+import { SpecialityService } from 'src/app/services/api/speciality.service';
 
 @Component({
   selector: 'app-doctor',
@@ -18,10 +19,17 @@ export class DoctorComponent implements OnInit {
    @Output() doctorListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
+   specialityList : any = []
+
+    //L'event qui sera retourné au parent et informera sur l'etat de la liste des specialités
+   @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
+
+
    //formulaire
   doctorForm!: FormGroup;
 
   constructor(private _doctor : DoctorService ,
+    private _speciality : SpecialityService,
     private fb:FormBuilder,
     private route : Router) {  }
 
@@ -29,6 +37,7 @@ export class DoctorComponent implements OnInit {
   ngOnInit(): void {
   //actualisation du docteur
     this.getalldoctors();
+    this.getallSpecialities()
 
   //add doctor
       this.doctorForm= this.fb.group({
@@ -47,7 +56,9 @@ export class DoctorComponent implements OnInit {
 
         address : [``,Validators.required],
 
-        matricule: [``,Validators.required]
+        Matricule: [``,Validators.required],
+
+        speciality: [``,Validators.required]
 
       });
   }
@@ -78,6 +89,32 @@ getalldoctors(){
     })
 
 }
+// **************liste des specialités*******************
+
+getallSpecialities(){
+
+  this._speciality.getSpeciality().subscribe({
+
+    next: (response: any)=>{
+
+      // affecte a specialityList la liste des speciality venu de l'api
+      this.specialityList = response ;
+
+      // affiche  dans la console la liste des speciality
+      console.log(this.specialityList)
+
+      //Renvoi de la liste au composant enfant
+      this.specialityListOutput.emit(this.specialityList);
+
+
+  },
+      error: error => {
+        console.error("Erreur lors de la recuperation des ,specialités!", error);
+      }
+    })
+
+}
+
 
 
 

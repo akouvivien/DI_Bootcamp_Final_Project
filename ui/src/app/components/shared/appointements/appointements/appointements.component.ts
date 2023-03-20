@@ -12,6 +12,7 @@ import { SpecialityService } from 'src/app/services/api/speciality.service';
 import { User } from 'src/app/interfaces/user';
 import { environnement } from 'src/app/environnements/environnement';
 import { UserService } from 'src/app/services/storage/user.services';
+import { DoctorService } from 'src/app/services/api/doctor.service';
 
 @Component({
   selector: 'app-appointements',
@@ -49,31 +50,47 @@ export class AppointementsComponent {
     @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
+      // la liste des doctors
+  doctorList: any = [];
+
+
+  //L'event qui sera retourné au parent et informera sur l'etat de la liste des doctors
+  @Output() doctorListOutput: EventEmitter<any> = new EventEmitter<any>();
+
+
+
     constructor(
 
       private _appointements: AppointementService,
       private _hospital: HospitalService,
       private _patient : PatientService,
       private _speciality :  SpecialityService,
+      private _doctor : DoctorService,
       private _local : UserService,
       private fb:FormBuilder,
       private route : Router
       ) {  }
 
 
-    //formulaire
-    appointementForm!: FormGroup;
+//formulaire
+appointementForm!: FormGroup;
+
+//formulaire pour recherche par patient
+    appointementPaForm!:FormGroup;
+
+//formulaire pour recherche hopital
+appointementHoForm!:FormGroup
 
    ngOnInit(): void {
 //recuperration du patient connecter
 
-  // this.user = this._local.getUser()
 
   console.log(this.user)
 
     let json = localStorage.getItem(environnement.APIKEY);
       if (json != null) {
         this.user = JSON.parse(json) as User;
+        console.log("local storage")
         console.log(this.user.roles.name)
 
         }
@@ -82,22 +99,49 @@ export class AppointementsComponent {
      this.getallAppointements();
      this.getALLHospitals(),
      this.getALLSpecialitys(),
-     this.getALLPatients()
+     this.getALLPatients(),
+     this.getalldoctors(),
 
-   //add appointements
+
+   //  creation de rdv  ou appointements
        this.appointementForm= this.fb.group({
+
+        // cityId : [``,Validators.required],
+
+        // municipaliityId : [``,Validators.required],
+        
+        // categoryId : [``,Validators.required],
 
         hospitalId : [``,Validators.required],
 
         patientId :[``,Validators.required],
+
+        doctorId :[``,Validators.required],
 
         specialityId : [``,Validators.required],
 
         date : [``,Validators.required]
 
        });
+ 
+
+// rechercher par rapport au patient
+       this.appointementPaForm= this.fb.group({
+
+        id :[``,Validators.required],
+
+       });
+
+
+    // rechercher par rapport a lhopital
+   this.appointementHoForm= this.fb.group({
+
+      id :[``,Validators.required],
+
+      });
 
    }
+
 
     // insertion des rdv dans la bd
  onSubmit(){
@@ -114,6 +158,83 @@ console.log(this.appointementForm.value)
 
 }
 
+//***************liste des doctors************* */
+
+getalldoctors(){
+
+  //recuperation de la liste des doctors
+
+this._doctor.getDoctors().subscribe({
+next: (response: any)=>{
+
+ // affecte a doctorist la liste des docteurs venu de l'api
+ this.doctorList = response ;
+
+ // affiche  dans la console la liste des doctors
+
+ console.log("la liste des doctors envoyer")
+ console.log(this.doctorList)
+
+ //Renvoi de la liste au composant enfant
+ this.doctorListOutput.emit(this.doctorList);
+
+
+},
+ error: error => {
+   console.error("Erreur lors de la recuperation des des informations !", error);
+ }
+})
+
+}
+
+
+
+//***** recherche par la patient ***********************//
+    // insertion des rdv dans la bd
+    onSubmit2(){
+      this._appointements.ShearchByPatient(this.appointementPaForm.value).subscribe({
+        next:(response :any) =>{
+          console.log("recherche par patient")
+          this.getallAppointements()
+          this.appointementList = response ;
+          console.log(this.appointementList)
+
+        //Renvoi de la liste au composant enfant
+          this.appointementListOutput.emit(this.appointementList);
+        },
+        error: error => {
+          console.error("consultation de la liste de recherche par patient  a rencontré un soucis!", error);
+        }
+      })
+    
+    console.log(this.appointementPaForm.value)
+    
+    }
+
+//***** recherche par hopital  ***********************//
+    // insertion des rdv dans la bd
+    onSubmit3(){
+      this._appointements.ShearchByHospital(this.appointementHoForm.value).subscribe({
+        next:(response :any) =>{
+          console.log("recherche par hopital")
+          this.getallAppointements()
+          this.appointementList = response ;
+          console.log(this.appointementList)
+
+        //Renvoi de la liste au composant enfant
+          this.appointementListOutput.emit(this.appointementList);
+        },
+        error: error => {
+          console.error("consultation de la liste de recherche par hopital a rencontré un soucis!", error);
+        }
+      })
+    
+    console.log(this.appointementPaForm.value)
+    
+    }
+
+
+    //***********liste de tous les rdv */
    getallAppointements(){
 
       this._appointements.getAppointements().subscribe({
@@ -138,7 +259,7 @@ console.log(this.appointementForm.value)
 
 
 }
-//***************hospital**************** */
+//*************** liste de tous les hospitaux**************** */
 
 getALLHospitals(){
 
@@ -164,7 +285,7 @@ getALLHospitals(){
 
 }
 
-//***************patient**************** */
+//*************** liste de tous les patient**************** */
 
 getALLPatients(){
   console.log("la liste des patients dans l'api")

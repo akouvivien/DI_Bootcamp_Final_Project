@@ -1,5 +1,7 @@
+import { Speciality } from "./speciality";
+
 export interface  Doctor {
-  
+
     id:number,
 
     first_name: string,
@@ -16,7 +18,8 @@ export interface  Doctor {
 
     password:string,
 
-    doctor_status: boolean,
+    Matricule: string,
 
-    matricule: string
+    speciality: Speciality
+
 }

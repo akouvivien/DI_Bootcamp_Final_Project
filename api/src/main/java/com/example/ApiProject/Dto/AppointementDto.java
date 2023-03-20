@@ -14,8 +14,6 @@ public class AppointementDto {
    
 	private Long id;
 
-    // private Long contryId;
-
     // private Long cityId;
 
     // private Long  municipaliityId;
@@ -23,6 +21,8 @@ public class AppointementDto {
     // private Long categoryId
 
     private Long hospitalId;
+
+    private Long doctorId;
     
     private Long patientId;
     

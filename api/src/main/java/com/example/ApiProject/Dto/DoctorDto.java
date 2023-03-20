@@ -31,4 +31,6 @@ public class DoctorDto {
 
     private String Matricule;
 
+    private Long speciality;
+
 }

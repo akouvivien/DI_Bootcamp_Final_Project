@@ -1,68 +1,165 @@
-<!-- add rendez vous -->
 
-<ng-container >
-  
-</ng-container>
+<div class="row">
 
-<div class="container-fluid">
 
-      <div class="card" style="width:18rem;">
-        <div class="card-body">
-          <form  [formGroup]="appointementForm" (ngSubmit)="onSubmit()"class="form-type-material">
+  <div class="col">
+    <div class="card" style="width:18rem;">
+      <div class="card-body">
+        <h5 class="card-title">prendre un rdv</h5>
+          <div class="modal-body">
 
-            <div class="form-group">
-              <label for="hospitalId">Hospital</label>
-              <select class="form-control" id="hospitalId" formControlName="hospitalId" >
-                <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+            <form  [formGroup]="appointementForm" (ngSubmit)="onSubmit()"class="form-type-material">
+             
+              <div class="form-group">
+                <label for="hospitalId">Hospital</label>
+                <select class="form-control" id="hospitalId" formControlName="hospitalId" >
+                  <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+                </select>
+                <div *ngIf="!appointementForm.controls['hospitalId'].valid  &&  (appointementForm.controls['hospitalId'].touched || appointementForm.controls['hospitalId'].dirty)" class="messageError">
+                  <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
+                </div>
+            </div>
+
+            <div class="form-group" *ngIf="user.roles.name == 'Admin'">
+              <label for="patientId">patient</label>
+              <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
+                <option  *ngFor="let items of patientsList" value ="{{ items.id }}">{{ items.first_name }}</option>
               </select>
-              <div *ngIf="!appointementForm.controls['hospitalId'].valid  &&  (appointementForm.controls['hospitalId'].touched || appointementForm.controls['hospitalId'].dirty)" class="messageError">
-                <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
-              </div>
-          </div>
-
-          <div class="form-group" *ngIf="user.roles.name == 'Admin'">
-            <label for="patientId">patient</label>
-            <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
-              <option  *ngFor="let items of patientsList" value ="{{ items.id }}">{{ items.first_name }}</option>
-            </select>
-            <div *ngIf="!appointementForm.controls['patientId'].valid  &&  (appointementForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
-              <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
-            </div>
-          </div>
-
-          <div class="form-group" *ngIf="user.roles.name == 'Patient'">
-            <label for="patientId">patient</label>
-            <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
-            <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
-              <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }} {{ user.adresse }} </option>
-            </select>
-            <div *ngIf="!appointementForm.controls['patientId'].valid  &&  (appointementForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
-              <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
-            </div>
-          </div>
-
-        <div class="form-group" >
-          <label for="specialityId">speciality</label>
-          <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" >
-            <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
-          </select>
-          <div *ngIf="!appointementForm.controls['specialityId'].valid  &&  (appointementForm.controls['specialityId'].touched || appointementForm.controls['specialityId'].dirty)" class="messageError">
-            <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
-          </div>
-        </div>
-
-            <div class="form-group">
-
-              <label for="date">heure</label>
-              <input type="datetime-local" class="form-control" id="date" formControlName="date">
-              <div *ngIf="!appointementForm.controls['date'].valid  &&  (appointementForm.controls['date'].touched || appointementForm.controls['date'].dirty)" class="messageError">
-                <p class="text-danger">veillez selectionnez une heure s'il vous plait!</p>
+              <div *ngIf="!appointementForm.controls['patientId'].valid  &&  (appointementForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
+                <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
               </div>
             </div>
 
-            <br>
-            <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
-          </form>
+            <div class="form-group" *ngIf="user.roles.name == 'Patient'">
+              <label for="patientId">patient</label>
+              <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
+              <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
+                <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }} {{ user.adresse }} </option>
+              </select>
+              <div *ngIf="!appointementForm.controls['patientId'].valid  &&  (appointementForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
+                <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <label for="specialityId">speciality</label>
+              <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" >
+                <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+              </select>
+              <div *ngIf="!appointementForm.controls['specialityId'].valid  &&  (appointementForm.controls['specialityId'].touched || appointementForm.controls['specialityId'].dirty)" class="messageError">
+                <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <label for="doctorId">Doctor</label>
+              <select class="form-control" id="doctorId" formControlName="doctorId" for="doctorId" >
+                <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.first_name }}</option>
+              </select>
+              <div *ngIf="!appointementForm.controls['doctorId'].valid  &&  (appointementForm.controls['doctorId'].touched || appointementForm.controls['doctorId'].dirty)" class="messageError">
+                <p class="text-danger">veillez renseignez le doctor sil vous plait!</p>
+              </div>
+            </div>
+
+              <div class="form-group">
+
+                <label for="date">heure</label>
+                <input type="datetime-local" class="form-control" id="date" formControlName="date">
+                <div *ngIf="!appointementForm.controls['date'].valid  &&  (appointementForm.controls['date'].touched || appointementForm.controls['date'].dirty)" class="messageError">
+                  <p class="text-danger">veillez selectionnez une heure s'il vous plait!</p>
+                </div>
+              </div>
+              <br>
+              <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+            </form>
+          </div>
         </div>
       </div>
+
+
+    </div>
+
+
+
+
+
+     <div class="col">
+
+    <div class="card" style="width:18rem;">
+      <div class="card-body">
+        <h5 class="card-title">recherche par patient</h5>
+        <form  [formGroup]="appointementPaForm" (ngSubmit)="onSubmit2()"class="form-type-material">
+
+        <div class="form-group" *ngIf="user.roles.name == 'Admin'">
+          <label for="patientId">patient</label>
+          <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
+            <option  *ngFor="let items of patientsList" value ="{{ items.id }}">{{ items.first_name }}</option>
+          </select>
+          <div *ngIf="!appointementPaForm.controls['patientId'].valid  &&  (appointementPaForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
+            <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="user.roles.name == 'Patient'">
+          <label for="id">patient</label>
+          <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
+          <select class="form-control" id="id" formControlName="id" for="id" >
+            <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }} {{ user.adresse }} </option>
+          </select>
+          <div *ngIf="!appointementPaForm.controls['id'].valid  &&  (appointementPaForm.controls['id'].touched || appointementPaForm.controls['id'].dirty)" class="messageError">
+            <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
+          </div>
+        </div>
+
+          <br>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+        </form>
+      </div>
+    </div>
   </div>
+
+
+
+
+  <div class="col">
+
+    <div class="card" style="width:18rem;">
+      <div class="card-body">
+        <h5 class="card-title">recherche par hopital</h5>
+        <form  [formGroup]="appointementHoForm" (ngSubmit)="onSubmit3()"class="form-type-material">
+
+        <div class="form-group" *ngIf="user.roles.name == 'Admin'">
+          <label for="patientId">patient</label>
+          <select class="form-control" id="patientId" formControlName="patientId" for="patientId" >
+            <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+          </select>
+          <div *ngIf="!appointementPaForm.controls['patientId'].valid  &&  (appointementPaForm.controls['patientId'].touched || appointementForm.controls['patientId'].dirty)" class="messageError">
+            <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="user.roles.name == 'Patient'">
+          <label for="id">patient</label>
+          <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
+          <select class="form-control" id="id" formControlName="id" for="id" >
+            <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+          </select>
+          <div *ngIf="!appointementPaForm.controls['id'].valid  &&  (appointementPaForm.controls['id'].touched || appointementPaForm.controls['id'].dirty)" class="messageError">
+            <p class="text-danger">veillez selectionner un  patient sil vous plait!</p>
+          </div>
+        </div>
+          <br>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+
+
+
+

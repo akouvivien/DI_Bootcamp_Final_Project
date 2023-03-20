@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { SpecialityComponent } from './components/shared/speciality/speciality.component';
 import { SpecialityListComponent } from './components/shared/speciality-list/speciality-list.component';
+import { StatistiquesComponent } from './components/shared/stat/statistiques/statistiques.component';
 
 
 
@@ -16,7 +17,8 @@ import { SpecialityListComponent } from './components/shared/speciality-list/spe
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -79,7 +79,7 @@ public class Users  {
     private Roles roles ;
 
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<SessionUsers> sessionUsers;
 

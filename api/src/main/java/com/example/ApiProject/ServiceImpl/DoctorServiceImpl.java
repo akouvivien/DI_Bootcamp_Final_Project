@@ -3,10 +3,12 @@ import com.example.ApiProject.Dto.DoctorDto;
 import com.example.ApiProject.Model.*;
 import com.example.ApiProject.Repository.DoctorRepository;
 import com.example.ApiProject.Repository.RolesRepository;
+import com.example.ApiProject.Repository.SpecilalityRepository;
 import com.example.ApiProject.Service.DoctorService;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,9 @@ public class DoctorServiceImpl  implements DoctorService {
 
     @Autowired
     RolesRepository rolesRepo;
+
+    @Autowired
+    SpecilalityRepository sprepo;
 
     @Override
     public Doctor CreateDoctor(DoctorDto doctorDto) {
@@ -39,9 +44,15 @@ public class DoctorServiceImpl  implements DoctorService {
 
         Roles roles = rolesRepo.findByName("Doctor").get();
 
+        if(roles == null) throw new ApplicationContextException("le role selectionner n'existe pas");
+
         addDoctor.setRoles(roles);
 
-        addDoctor.setDoctor_status(doctorDto.isDoctor_status());
+        Speciality speciality = sprepo.findById(doctorDto.getSpeciality()).orElse(null);;
+
+        if(speciality == null) throw new ApplicationContextException("la specialité selectionner n'existe pas");
+
+        addDoctor.setRoles(roles);
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
 
@@ -91,5 +102,12 @@ public class DoctorServiceImpl  implements DoctorService {
     public void deleteDoctors() {
 
         doctorRepo.deleteAll();
+    }
+
+    @Override
+    public List<Doctor> getDoctorsbySpeciality(Speciality speciality) {
+
+        return doctorRepo.findAllBySpeciality(speciality);
+        
     }
 }

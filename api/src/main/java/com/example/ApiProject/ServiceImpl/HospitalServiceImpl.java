@@ -51,8 +51,6 @@ public class HospitalServiceImpl implements HospitalService {
 
         addHospital.setEtablissementCategory(etablissementCategory);
 
-        addHospital.setStatus(hospitalDto.isStatus());
-
         hospitalRepository.save(addHospital);
 
         return addHospital;

@@ -28,6 +28,7 @@ export class LayoutAssignementsComponent {
     this.specialityList,
 
     this.assignementList
+    
     console.log("retour appel api assignement dans le layout")
     console.log(this.assignementList)
     console.log(this.specialityList)

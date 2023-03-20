@@ -10,6 +10,7 @@ export class LayoutDoctorComponent implements OnInit {
 
 
   doctorList: any = [];
+  specialityList: any = []
 
   ngOnInit() {
     this.doctorList
@@ -22,6 +23,12 @@ export class LayoutDoctorComponent implements OnInit {
     console.log("list dans l'envoyeur layout ")
     console.log(event)
     this.doctorList = event;
+  }
+
+  getSpecialityistFromDoctorComponent(event: any) {
+    console.log("list dans l'envoyeur layout ")
+    console.log(event)
+    this.specialityList = event;
   }
 
 }

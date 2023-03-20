@@ -13,6 +13,11 @@ export class DoctorListComponent  implements OnInit{
   @Input() doctorList: any = [];
 
 
+  //recois la valeur des specialités list en provenance de l'autre composant
+  @Input() specialityList: any = [];
+  
+
+
 
   constructor(
     private _doctor: DoctorService

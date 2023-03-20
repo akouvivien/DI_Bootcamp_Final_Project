@@ -36,6 +36,7 @@ import { AssignationComponent } from '../components/shared/assignations/assignat
 import { LayoutSpecialityComponent } from './layout-speciality/layout-speciality.component';
 import { SpecialityListComponent } from '../components/shared/speciality-list/speciality-list.component';
 import { SpecialityComponent } from '../components/shared/speciality/speciality.component';
+import { StatistiquesComponent } from '../components/shared/stat/statistiques/statistiques.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { SpecialityComponent } from '../components/shared/speciality/speciality.
     AssignationListComponent,
     LayoutSpecialityComponent,
     SpecialityComponent,
-    SpecialityListComponent
+    SpecialityListComponent,
+    StatistiquesComponent
   ],
   imports: [
     CommonModule,

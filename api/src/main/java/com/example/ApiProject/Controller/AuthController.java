@@ -26,7 +26,7 @@ public class AuthController {
     UsersDetailsService usersDetailsService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody SiginUpDto siginUpDto) {
+    public ResponseEntity<String> registerUser(@RequestBody SiginUpDto siginUpDto) {
 
         usersDetailsService.registerUsers(siginUpDto);
 

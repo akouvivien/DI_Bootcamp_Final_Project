@@ -4,7 +4,6 @@ export interface Hospital {
   id : number,
   name : string
   adresse: string,
-  status:boolean,
-  municipality:Municipality,
+  municipalityId:Municipality,
   etablissementCategoryId:Category
 }

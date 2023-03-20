@@ -26,29 +26,45 @@ public class Hospital implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @NotNull(message = "Le champ name de l'hopital est obligatoire")
     @NotBlank(message = "Le champ name de l'hopital ne peut etre vide")
     private String name;
 
     private String adresse;
 
-    private boolean status;
 
+    //relation rdv
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Appointements> appointemnts;
 
-    // relation a revoir
+    //relation specialité hopital
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<HospitalSpeciality> hospitalspeciality;
+
+    // relation a specialite hopital et docteur
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
     @JsonIgnore
     private List<SpecialityHospitalDoctor> specialityhospital;
 
+    // relation  lian docteur et hopital via une table
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany( mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<HospitalDoctor> hospitaldoctor;
+
+
+     // relation  municipalité
     @ManyToOne()
     @JoinColumn(name = "municipality_id")
     private Municipality municipality ;
 
+    // relation  category
     @ManyToOne()
     @JoinColumn(name = "category_id")
     private EtablissementCategory etablissementCategory ;
@@ -62,7 +78,5 @@ public class Hospital implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
     private Date updatedAt;
-
-
 
 }

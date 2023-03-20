@@ -29,7 +29,8 @@ public class SessionUsers {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @ManyToOne
+    @ManyToOne( )
+    @JoinColumn(name = "users_id")
     private Users users;
 
     public SessionUsers(SessionType sessionType) {

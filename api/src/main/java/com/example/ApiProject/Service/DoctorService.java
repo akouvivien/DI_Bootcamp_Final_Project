@@ -2,6 +2,7 @@ package com.example.ApiProject.Service;
 
 import com.example.ApiProject.Dto.DoctorDto;
 import com.example.ApiProject.Model.Doctor;
+import com.example.ApiProject.Model.Speciality;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public interface DoctorService {
     Optional<Doctor> getDoctorId(Long id);
 
     List<Doctor> getDoctors();
+
+    List<Doctor> getDoctorsbySpeciality(Speciality speciality);
 
     void deleteDoctors();
 }

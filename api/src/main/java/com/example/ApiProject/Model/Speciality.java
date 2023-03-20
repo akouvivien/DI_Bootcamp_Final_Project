@@ -28,9 +28,25 @@ public class Speciality   implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(unique = true)  
     @NotNull(message = "Le champ name de la specialité est obligatoire")
     @NotBlank(message = "Le champ name de la specialité ne peut etre vide")
     private String name;
+
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<SpecialityHospitalDoctor> specialityhospital;
+
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany(mappedBy = "speciality",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<HospitalSpeciality> hospitalspeciality;
+
+    @JsonIdentityReference(alwaysAsId = false)
+    @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Doctor> doctor;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -41,11 +57,5 @@ public class Speciality   implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
     private Date updatedAt;
-
-    // a revoir la relation
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "speciality", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<SpecialityHospitalDoctor> specialityhospital;
 
 }

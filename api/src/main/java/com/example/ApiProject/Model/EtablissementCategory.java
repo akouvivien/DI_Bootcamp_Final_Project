@@ -30,11 +30,11 @@ public class EtablissementCategory {
 
     @NotNull(message = "Le champ categorie est obligatoire")
     @NotBlank(message = "Le champ categorie ne peut etre vide")
-    @Column(length = 100)
+    @Column(length = 100, unique = true)
     private String category;
 
     @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "etablissementCategory",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "etablissementCategory",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Hospital> hospitals ;
 

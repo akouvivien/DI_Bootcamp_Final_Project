@@ -4,7 +4,9 @@ import lombok.*;
 import javax.persistence.*;
 
 import com.example.ApiProject.Enums.StatusAppointements;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.io.Serializable;
 
@@ -15,7 +17,7 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Appointements implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,16 +30,16 @@ public class Appointements implements Serializable {
     @Column(columnDefinition="timestamp")
     private Date date;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", columnDefinition = "VARCHAR")
-    private StatusAppointements statusAppointements;
+    // @Enumerated(EnumType.STRING)
+    // @Column(name = "status", columnDefinition = "VARCHAR")
+    // private StatusAppointements statusAppointements;
     
   
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
@@ -51,7 +53,7 @@ public class Appointements implements Serializable {
     @JsonIgnore
     private Date updatedAt;
 
-    public Appointements(StatusAppointements statusAppointements) {
-        this.statusAppointements = statusAppointements;
-    }
+    // public Appointements(StatusAppointements statusAppointements) {
+    //     this.statusAppointements = statusAppointements;
+    // }
 }
