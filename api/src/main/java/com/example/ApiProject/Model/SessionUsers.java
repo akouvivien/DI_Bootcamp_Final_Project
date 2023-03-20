@@ -2,6 +2,7 @@ package com.example.ApiProject.Model;
 
 import com.example.ApiProject.Enums.SessionType;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class SessionUsers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +30,9 @@ public class SessionUsers {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @ManyToOne( )
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Users users;
 
     public SessionUsers(SessionType sessionType) {

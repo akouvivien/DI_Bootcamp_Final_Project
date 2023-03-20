@@ -1,0 +1,21 @@
+
+#sidebarMenu li {
+
+  border: 1px solid #1e81b0;
+   border-radius: 10px;
+   margin-bottom: 10px;
+   margin-top: 10px;
+
+  }
+
+  #sidebarMenu li:hover{
+  background-color: #1e81b0;
+
+  }
+
+#sidebarMenu a {
+
+  color:white;
+  
+}
+  

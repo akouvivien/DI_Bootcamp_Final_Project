@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "contries")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Contry  implements  Serializable{
 
     @Id
@@ -33,10 +33,10 @@ public class Contry  implements  Serializable{
     @Column(length = 100,unique = true)
     private String name;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "contry",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<City> city ;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "contry",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<City> city ;
 
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)

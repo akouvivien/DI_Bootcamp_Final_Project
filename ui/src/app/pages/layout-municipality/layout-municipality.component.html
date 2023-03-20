@@ -2,18 +2,8 @@
 <div class="container-fluid">
   <h1 > municipality </h1>
     <div class="row no-gutters min-h-fullscreen bg-white">
-  
-      <div class="col-8 " data-overlay="2" >
-  
-        <app-municipality-list
-        [cityList]="cityList"
-  
-        [municipalityList]="municipalityList">
-        </app-municipality-list>
-  
-      </div>
-  
-      <div class="col-4  align-self-center">
+
+      <div class="  align-self-center">
   
         <app-municipality 
         (cityListOutput)="getcityListFromMunicipalityComponent($event)"
@@ -22,6 +12,17 @@
       </app-municipality>
   
       </div>
+  
+      <div  >
+  
+        <app-municipality-list
+        [cityList]="cityList"
+  
+        [municipalityList]="municipalityList">
+        </app-municipality-list>
+  
+      </div>
+
   
   
   </div>

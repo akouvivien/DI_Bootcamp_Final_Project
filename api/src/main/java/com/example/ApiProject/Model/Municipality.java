@@ -4,6 +4,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "municipalities")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Municipality implements Serializable {
 
     @Id
@@ -34,13 +35,14 @@ public class Municipality implements Serializable {
     private String name;
 
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "municipality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Hospital> hospitals ;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "municipality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Hospital> hospitals ;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private City city ;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)

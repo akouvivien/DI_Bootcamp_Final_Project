@@ -2,3 +2,15 @@ h1{
   text-decoration: underline;
   text-align: center
 }
+
+.card{
+  border-radius: 20rem;
+  box-shadow: 10px 5px 5px gray;
+  margin-top: 40px;
+  width: 250px;
+}
+
+.table{
+  box-shadow: 10px 5px 5px gray;
+
+}

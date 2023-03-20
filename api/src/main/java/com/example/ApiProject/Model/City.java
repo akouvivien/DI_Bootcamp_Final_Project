@@ -4,6 +4,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "cities")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class City implements Serializable {
 
     @Id
@@ -33,13 +34,14 @@ public class City implements Serializable {
     @Column(length = 100,unique = true)
     private String name;
 
-    @JsonIdentityReference(alwaysAsId  = false)
-    @OneToMany(mappedBy = "city",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Municipality> Municipality ;
+    // @JsonIdentityReference(alwaysAsId  = false)
+    // @OneToMany(mappedBy = "city",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Municipality> Municipality ;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = " contry_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Contry contry ;
 
 

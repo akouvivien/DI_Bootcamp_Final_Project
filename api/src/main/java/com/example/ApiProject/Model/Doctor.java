@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.io.Serializable;
@@ -21,7 +22,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "doctors")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Doctor extends Users implements Serializable {
 
 
@@ -31,18 +32,19 @@ public class Doctor extends Users implements Serializable {
     private String Matricule ;
 
     // relation hopital, docteur et specialité
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "doctor", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<SpecialityHospitalDoctor> specialityhospital;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany( mappedBy = "doctor", cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<SpecialityHospitalDoctor> specialityhospital;
 
     // relation hopital et docteur
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<HospitalDoctor> hospitaldoctor;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany( mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<HospitalDoctor> hospitaldoctor;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speciality_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Speciality speciality;
 }

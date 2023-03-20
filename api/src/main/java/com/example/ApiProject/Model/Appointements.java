@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.example.ApiProject.Enums.StatusAppointements;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Appointements implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,8 +31,9 @@ public class Appointements implements Serializable {
     @Column(columnDefinition="timestamp")
     private Date date;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Patient patient;
 
     // @Enumerated(EnumType.STRING)
@@ -39,8 +41,9 @@ public class Appointements implements Serializable {
     // private StatusAppointements statusAppointements;
     
   
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Hospital hospital;
 
     @Column(name = "update_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.example.ApiProject.Dto.AssignationDto;
 import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.HospitalSpeciality;
 import com.example.ApiProject.Model.Speciality;
@@ -13,7 +14,7 @@ import com.example.ApiProject.Model.Speciality;
 public interface HospitalSpecialityService {
 
 
-    HospitalSpeciality createHospitalSpeciality(HospitalSpeciality hospitalspeciality);
+    HospitalSpeciality createHospitalSpeciality(AssignationDto assignationDto);
 
     List<HospitalSpeciality> getHospitalSpeciality();
 
@@ -23,7 +24,7 @@ public interface HospitalSpecialityService {
 
     void deleteHospitalSpeciality();
 
-    HospitalSpeciality updateHospitalSpeciality(Long id, HospitalSpeciality hospitalspeciality);
+    HospitalSpeciality updateHospitalSpeciality(Long id, AssignationDto assignationDto);
 
     //recherche par specialite
     List<HospitalSpeciality> getbyspecialities(Speciality speciality);

@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "EtablissementCategories")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class EtablissementCategory {
 
     @Id
@@ -33,10 +33,10 @@ public class EtablissementCategory {
     @Column(length = 100, unique = true)
     private String category;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "etablissementCategory",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Hospital> hospitals ;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "etablissementCategory",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Hospital> hospitals ;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

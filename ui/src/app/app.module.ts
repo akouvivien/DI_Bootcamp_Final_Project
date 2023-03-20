@@ -10,9 +10,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { SpecialityComponent } from './components/shared/speciality/speciality.component';
 import { SpecialityListComponent } from './components/shared/speciality-list/speciality-list.component';
 import { StatistiquesComponent } from './components/shared/stat/statistiques/statistiques.component';
-
-
-
+import { ToastrModule } from 'ngx-toastr/toastr/toastr.module';
 
 @NgModule({
   declarations: [
@@ -26,9 +24,10 @@ import { StatistiquesComponent } from './components/shared/stat/statistiques/sta
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
+    // ToastrModule.forRoot(), // ToastrModule added
 
   ],
+  // exports: [ToastrModule],
   providers: [httpService],
   bootstrap: [AppComponent]
 })

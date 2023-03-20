@@ -13,6 +13,7 @@ import { User } from 'src/app/interfaces/user';
 import { environnement } from 'src/app/environnements/environnement';
 import { UserService } from 'src/app/services/storage/user.services';
 import { DoctorService } from 'src/app/services/api/doctor.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-appointements',
@@ -44,7 +45,7 @@ export class AppointementsComponent {
 
 
     //liste des specialités
-    specialityList: any= [];
+    specialityList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des Patients
     @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
@@ -65,6 +66,7 @@ export class AppointementsComponent {
       private _hospital: HospitalService,
       private _patient : PatientService,
       private _speciality :  SpecialityService,
+      // private toast: ToastrService,
       private _doctor : DoctorService,
       private _local : UserService,
       private fb:FormBuilder,
@@ -91,12 +93,12 @@ appointementHoForm!:FormGroup
       if (json != null) {
         this.user = JSON.parse(json) as User;
         console.log("local storage")
-        console.log(this.user.roles.name)
+        console.log(this.user)
 
         }
 
    //actualisation
-     this.getallAppointements();
+    //  this.getallAppointements();
      this.getALLHospitals(),
      this.getALLSpecialitys(),
      this.getALLPatients(),
@@ -109,7 +111,7 @@ appointementHoForm!:FormGroup
         // cityId : [``,Validators.required],
 
         // municipaliityId : [``,Validators.required],
-        
+
         // categoryId : [``,Validators.required],
 
         hospitalId : [``,Validators.required],
@@ -123,7 +125,7 @@ appointementHoForm!:FormGroup
         date : [``,Validators.required]
 
        });
- 
+
 
 // rechercher par rapport au patient
        this.appointementPaForm= this.fb.group({
@@ -148,9 +150,11 @@ appointementHoForm!:FormGroup
   this._appointements.createAppointement(this.appointementForm.value).subscribe({
     next:(response :any) =>{
       this.getallAppointements();
+      // this.toast.success('votre rendez vous est en cours de traitement')
     },
     error: error => {
       console.error("Erreur lors de l'enregistrement du rendez vous!", error);
+      // this.toast.error("Erreur lors de l'enregistrement du rendez vous")
     }
   })
 
@@ -195,7 +199,6 @@ next: (response: any)=>{
       this._appointements.ShearchByPatient(this.appointementPaForm.value).subscribe({
         next:(response :any) =>{
           console.log("recherche par patient")
-          this.getallAppointements()
           this.appointementList = response ;
           console.log(this.appointementList)
 
@@ -206,9 +209,9 @@ next: (response: any)=>{
           console.error("consultation de la liste de recherche par patient  a rencontré un soucis!", error);
         }
       })
-    
+
     console.log(this.appointementPaForm.value)
-    
+
     }
 
 //***** recherche par hopital  ***********************//
@@ -217,7 +220,6 @@ next: (response: any)=>{
       this._appointements.ShearchByHospital(this.appointementHoForm.value).subscribe({
         next:(response :any) =>{
           console.log("recherche par hopital")
-          this.getallAppointements()
           this.appointementList = response ;
           console.log(this.appointementList)
 
@@ -228,9 +230,9 @@ next: (response: any)=>{
           console.error("consultation de la liste de recherche par hopital a rencontré un soucis!", error);
         }
       })
-    
+
     console.log(this.appointementPaForm.value)
-    
+
     }
 
 
@@ -323,7 +325,7 @@ getALLSpecialitys(){
     next: (response: any)=>{
 
       // affecte a specialityList la liste des speciality venu de l'api
-      this.specialityList = response ;
+      this.specialityList = response;
 
       // affiche  dans la console la liste des speciality
       console.log(this.specialityList)

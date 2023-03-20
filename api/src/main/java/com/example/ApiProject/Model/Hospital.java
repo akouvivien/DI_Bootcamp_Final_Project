@@ -4,6 +4,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "hospitals")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Hospital implements Serializable {
 
     @Id
@@ -35,38 +36,40 @@ public class Hospital implements Serializable {
 
 
     //relation rdv
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Appointements> appointemnts;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Appointements> appointemnts;
 
     //relation specialité hopital
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<HospitalSpeciality> hospitalspeciality;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<HospitalSpeciality> hospitalspeciality;
 
     // relation a specialite hopital et docteur
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<SpecialityHospitalDoctor> specialityhospital;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<SpecialityHospitalDoctor> specialityhospital;
 
     // relation  lian docteur et hopital via une table
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<HospitalDoctor> hospitaldoctor;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany( mappedBy = "hospital",fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<HospitalDoctor> hospitaldoctor;
 
 
      // relation  municipalité
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "municipality_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Municipality municipality ;
 
     // relation  category
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private EtablissementCategory etablissementCategory ;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)

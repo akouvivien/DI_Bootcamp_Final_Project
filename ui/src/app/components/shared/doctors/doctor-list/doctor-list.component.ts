@@ -1,6 +1,7 @@
 import { DoctorService } from 'src/app/services/api/doctor.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor';
+import { Speciality } from 'src/app/interfaces/speciality';
 
 @Component({
   selector: 'app-doctor-list',
@@ -14,8 +15,8 @@ export class DoctorListComponent  implements OnInit{
 
 
   //recois la valeur des specialités list en provenance de l'autre composant
-  @Input() specialityList: any = [];
-  
+  @Input() specialityList: Speciality[] = [];
+
 
 
 

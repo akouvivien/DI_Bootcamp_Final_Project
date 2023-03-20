@@ -5,12 +5,14 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
+import com.example.ApiProject.Dto.AssignationDto;
 import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.HospitalSpeciality;
 import com.example.ApiProject.Model.Speciality;
-import com.example.ApiProject.Repository.HospitalSpecialityRepository;
+import com.example.ApiProject.Repository.*;
 import com.example.ApiProject.Service.HospitalSpecialityService;
 
 @Service
@@ -19,10 +21,33 @@ public class HospitalSpecialityServiceImplem implements HospitalSpecialityServic
     @Autowired
     HospitalSpecialityRepository hospitalspe;
 
+    @Autowired
+    HospitalRepository hospre;
+
+    @Autowired
+    SpecilalityRepository srepo;
+
     @Override
-    public HospitalSpeciality createHospitalSpeciality(HospitalSpeciality hospitalspeciality) {
+    public HospitalSpeciality createHospitalSpeciality(AssignationDto assignationDto) {
     
-        return hospitalspe.save(hospitalspeciality);
+        Hospital hospital = hospre.findById(assignationDto.getHospital()).orElse(null);
+        if(hospital == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
+
+        // Speciality speciality = sperep.findById(assignationDto.getSpeciality()).orElse(null);
+        // if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
+
+        Speciality speciality = srepo.findById(assignationDto.getSpeciality()).orElse(null);
+        if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
+
+
+    
+        // creation une liason entre l'hopital et le medecin
+        HospitalSpeciality addhospitalspeciality = new HospitalSpeciality();
+
+        addhospitalspeciality.setHospital(hospital);
+        addhospitalspeciality.setSpeciality(speciality); 
+        
+        return hospitalspe.save(addhospitalspeciality);
 
     }
 
@@ -54,7 +79,7 @@ public class HospitalSpecialityServiceImplem implements HospitalSpecialityServic
     }
 
     @Override
-    public HospitalSpeciality updateHospitalSpeciality(Long id, HospitalSpeciality hospitalspeciality) {
+    public HospitalSpeciality updateHospitalSpeciality(Long id, AssignationDto assignationDto) {
 
         HospitalSpeciality hs = hospitalspe.findById(id).orElse(null);
 

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.ApiProject.Dto.AssignationDto;
 import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.HospitalSpeciality;
 import com.example.ApiProject.Model.Speciality;
@@ -44,19 +45,19 @@ public class HospitalSpecialityController {
     }
 
     @PostMapping("")
-    public ResponseEntity<HospitalSpeciality> create(@Validated @RequestBody HospitalSpeciality hospitalspeciality) {
+    public ResponseEntity<HospitalSpeciality> create(@Validated @RequestBody AssignationDto assignationDto) {
         try {
-             hospitalSpre.createHospitalSpeciality(hospitalspeciality);
-            return new ResponseEntity<>(hospitalSpre.createHospitalSpeciality(hospitalspeciality), HttpStatus.OK);
+             hospitalSpre.createHospitalSpeciality(assignationDto);
+            return new ResponseEntity<>(hospitalSpre.createHospitalSpeciality(assignationDto), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<HospitalSpeciality> update(@PathVariable("id") Long id, @RequestBody HospitalSpeciality hospitalspeciality) {
+    public ResponseEntity<HospitalSpeciality> update(@PathVariable("id") Long id, @RequestBody AssignationDto assignationDto) {
         try {
-            HospitalSpeciality newUpdateHospitalSpeciality = hospitalSpre.updateHospitalSpeciality(id, hospitalspeciality);
+            HospitalSpeciality newUpdateHospitalSpeciality = hospitalSpre.updateHospitalSpeciality(id, assignationDto);
             return new ResponseEntity<>(newUpdateHospitalSpeciality, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

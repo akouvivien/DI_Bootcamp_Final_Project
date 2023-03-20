@@ -17,6 +17,9 @@ import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.HospitalDoctor;
 import com.example.ApiProject.Service.HospitalDoctorService;
 
+
+@Validated
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/hospitaldoctor")
 public class HospitalDoctorController {
@@ -24,7 +27,7 @@ public class HospitalDoctorController {
     @Autowired
     HospitalDoctorService hospitalDoctorService;
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<List<HospitalDoctor>> findAll() {
 
         try {

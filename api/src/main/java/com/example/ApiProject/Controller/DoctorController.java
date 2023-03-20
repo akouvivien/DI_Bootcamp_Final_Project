@@ -1,6 +1,7 @@
 package com.example.ApiProject.Controller;
 import com.example.ApiProject.Dto.DoctorDto;
 import com.example.ApiProject.Model.Doctor;
+import com.example.ApiProject.Model.Speciality;
 import com.example.ApiProject.Service.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;

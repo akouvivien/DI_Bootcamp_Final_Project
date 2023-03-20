@@ -36,16 +36,6 @@
             </div>
           </div>
 
-          <label for="status">Disponibility</label>
-          <select  type="text" class="form-control" id="status"formControlName="status">
-            <option value="true">true</option>
-            <option value="false">false</option>
-          </select>
-          <div *ngIf="!hospitalForm.controls['status'].valid  &&  (hospitalForm.controls['status'].touched || hospitalForm.controls['status'].dirty)" class="messageError">
-            <p class="text-danger">veillez renseignez le status sil vous plait!</p>
-          </div>
-
-
           <div class="form-group">
 
             <label for="municipalityId">Municipality of hospital</label>

@@ -19,6 +19,8 @@ export class LayoutAssignementsComponent {
 
   doctorList : any = [];
 
+  assignementlSpecialityList: any =[];
+
 
   ngOnInit() {
     this.doctorList,
@@ -28,7 +30,7 @@ export class LayoutAssignementsComponent {
     this.specialityList,
 
     this.assignementList
-    
+
     console.log("retour appel api assignement dans le layout")
     console.log(this.assignementList)
     console.log(this.specialityList)
@@ -55,6 +57,11 @@ export class LayoutAssignementsComponent {
 
   getAssignementsListFromAssignementsComponent(event: any) {
     console.log("l'assignements dans le layout retour")
+    this.assignementlSpecialityList = event;
+  }
+
+  assignementlSpecialityListFromAssignementsComponent(event: any) {
+    console.log("l'speci affect dans le layout retour")
     this.assignementList = event;
   }
 

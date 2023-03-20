@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Speciality } from 'src/app/interfaces/speciality';
 import { DoctorService } from 'src/app/services/api/doctor.service';
 import { SpecialityService } from 'src/app/services/api/speciality.service';
 
@@ -19,10 +20,10 @@ export class DoctorComponent implements OnInit {
    @Output() doctorListOutput: EventEmitter<any> = new EventEmitter<any>();
 
 
-   specialityList : any = []
+   specialityList : Speciality[]= []
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des specialités
-   @Output() specialityListOutput: EventEmitter<any> = new EventEmitter<any>();
+   @Output() specialityListOutput: EventEmitter<Speciality[]> = new EventEmitter<Speciality[]>();
 
 
    //formulaire
@@ -37,7 +38,7 @@ export class DoctorComponent implements OnInit {
   ngOnInit(): void {
   //actualisation du docteur
     this.getalldoctors();
-    this.getallSpecialities()
+    this.getALLSpecialitys()
 
   //add doctor
       this.doctorForm= this.fb.group({
@@ -91,16 +92,19 @@ getalldoctors(){
 }
 // **************liste des specialités*******************
 
-getallSpecialities(){
+
+getALLSpecialitys(){
 
   this._speciality.getSpeciality().subscribe({
 
     next: (response: any)=>{
 
       // affecte a specialityList la liste des speciality venu de l'api
-      this.specialityList = response ;
+      this.specialityList = response as Speciality[];
 
       // affiche  dans la console la liste des speciality
+
+      console.log("la liste des specialité disponible dans le systeme doctor")
       console.log(this.specialityList)
 
       //Renvoi de la liste au composant enfant

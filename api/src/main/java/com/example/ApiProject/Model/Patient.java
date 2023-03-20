@@ -20,14 +20,14 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "patients")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 public class Patient extends Users  implements Serializable {
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Appointements> appointemnts;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Appointements> appointemnts;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

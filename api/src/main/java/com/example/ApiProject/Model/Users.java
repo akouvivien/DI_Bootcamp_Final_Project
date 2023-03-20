@@ -3,6 +3,7 @@ package com.example.ApiProject.Model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Users  {
 
     @Id
@@ -74,14 +75,15 @@ public class Users  {
     private Date updatedAt;
     
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = " role_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Roles roles ;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<SessionUsers> sessionUsers;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "users",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<SessionUsers> sessionUsers;
 
 
 }

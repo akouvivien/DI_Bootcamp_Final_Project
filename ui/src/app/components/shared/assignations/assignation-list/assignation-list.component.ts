@@ -14,6 +14,8 @@ export class AssignationListComponent implements OnInit {
   @Input() hospitalList:any = [];
 
   @Input() doctorList:any =[];
+  
+  @Input() assignementlSpecialityList: any =[];
 
   constructor() {
 

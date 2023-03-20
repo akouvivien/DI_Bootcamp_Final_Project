@@ -14,7 +14,11 @@
 
     (assignementlListOutput)="getAssignementsListFromAssignementsComponent($event)"
 
-    (doctorListOutput)="getDoctorListFromAssignementsComponent($event)">
+    (doctorListOutput)="getDoctorListFromAssignementsComponent($event)"
+    
+    (aassignementlSpecialityListOutput)="assignementlSpecialityListFromAssignementsComponent($event)"
+
+    >
 
   </app-assignation>
 
@@ -27,6 +31,8 @@
       [specialityList]="specialityList"
 
       [doctorList]="doctorList" >
+
+      [assignementlSpecialityList]="assignementlSpecialityList"
 
     </app-assignation-list>
 

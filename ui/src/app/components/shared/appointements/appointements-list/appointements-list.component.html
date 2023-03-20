@@ -1,9 +1,12 @@
 
-    <div class="col-lg-8 align-center">
-      <div class="card">
-        <h4 class="card-title"><strong>vos reservations</strong></h4>
+<ng-container  *ngIf="user.roles.name =='Admin'">
+<div class=" text-center" > bonjour {{user.first_name}} {{user.last_name}} consultez la liste de tous les endez vous du systeme </div>
+</ng-container>
 
-        <div class="card-body">
+<ng-container  *ngIf="user.roles.name =='Patient'">
+  <div  class=" text-center">  bonjour {{user.first_name}} {{user.last_name}}  consultez la liste de  vos rendez vous </div>
+</ng-container>
+
 
           <table class="table">
             <thead>
@@ -31,6 +34,3 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>

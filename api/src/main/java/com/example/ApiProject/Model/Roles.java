@@ -40,9 +40,9 @@ public class Roles  implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "roles",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Users> users;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "roles",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Users> users;
 
 }

@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "specialities")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Speciality   implements Serializable {
 
     @Id
@@ -33,20 +33,20 @@ public class Speciality   implements Serializable {
     @NotBlank(message = "Le champ name de la specialité ne peut etre vide")
     private String name;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<SpecialityHospitalDoctor> specialityhospital;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<SpecialityHospitalDoctor> specialityhospital;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany(mappedBy = "speciality",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<HospitalSpeciality> hospitalspeciality;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany(mappedBy = "speciality",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<HospitalSpeciality> hospitalspeciality;
 
-    @JsonIdentityReference(alwaysAsId = false)
-    @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Doctor> doctor;
+    // @JsonIdentityReference(alwaysAsId = false)
+    // @OneToMany( mappedBy = "speciality",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JsonIgnore
+    // private List<Doctor> doctor;
 
     @Column(name = "create_at",columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

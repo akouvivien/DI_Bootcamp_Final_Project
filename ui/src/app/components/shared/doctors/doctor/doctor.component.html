@@ -75,7 +75,7 @@
 
             <label for="address">adresse</label>
             <input type="text" class="form-control" id="address" formControlName="address">
-            <div *ngIf="!doctorForm.controls['adresse'].valid  &&  (doctorForm.controls['adresse'].touched || doctorForm.controls['adresse'].dirty)" class="messageError">
+            <div *ngIf="!doctorForm.controls['address'].valid  &&  (doctorForm.controls['address'].touched || doctorForm.controls['address'].dirty)" class="messageError">
               <p class="text-danger">votre adresse svp!</p>
             </div>
 

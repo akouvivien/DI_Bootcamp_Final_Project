@@ -89,6 +89,7 @@ user!:User
      this._municipality.createMunicipality(this.municipality.value).subscribe({
        next:(response :any) =>{
          this.getallMunicipality();
+         this.municipality.reset();
        },
        error: error => {
          console.error("Erreur lors de l'enregistrement d'une nouvelle municipalité!", error);

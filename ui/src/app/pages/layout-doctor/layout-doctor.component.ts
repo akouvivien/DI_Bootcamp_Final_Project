@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor';
+import { Speciality } from 'src/app/interfaces/speciality';
 
 @Component({
   selector: 'app-layout-doctor',
@@ -10,7 +11,7 @@ export class LayoutDoctorComponent implements OnInit {
 
 
   doctorList: any = [];
-  specialityList: any = []
+  specialityList: Speciality[]= []
 
   ngOnInit() {
     this.doctorList
@@ -25,7 +26,7 @@ export class LayoutDoctorComponent implements OnInit {
     this.doctorList = event;
   }
 
-  getSpecialityistFromDoctorComponent(event: any) {
+  getSpecialityistFromDoctorComponent(event: Speciality[]) {
     console.log("list dans l'envoyeur layout ")
     console.log(event)
     this.specialityList = event;

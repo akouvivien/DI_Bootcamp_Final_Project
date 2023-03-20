@@ -19,20 +19,21 @@ import com.example.ApiProject.Service.HospitalDoctorService;
 
 @Service
 public class HospitalDoctorServiceImplem  implements HospitalDoctorService{
+    
     @Autowired
     HospitalDoctorRepository hsdrep;
 
-    @Autowired
-    HospitalSpecialityRepository hsp;
+    // @Autowired
+    // HospitalSpecialityRepository hsp;
 
     @Autowired
     HospitalRepository hospre;
 
-    @Autowired
-    SpecilalityRepository sperep;
+    // @Autowired
+    // SpecilalityRepository sperep;
 
-    @Autowired
-    HospitalRepository hosptalrep;
+    // @Autowired
+    // HospitalRepository hosptalrep;
 
     @Autowired
     DoctorRepository docrep;
@@ -44,8 +45,8 @@ public class HospitalDoctorServiceImplem  implements HospitalDoctorService{
         Hospital hospital = hospre.findById(assignationDto.getHospital()).orElse(null);
         if(hospital == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
 
-        Speciality speciality = sperep.findById(assignationDto.getSpeciality()).orElse(null);
-        if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
+        // Speciality speciality = sperep.findById(assignationDto.getSpeciality()).orElse(null);
+        // if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
 
         Doctor doctor = docrep.findById(assignationDto.getDoctor()).orElse(null);
         if(doctor == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
@@ -61,11 +62,11 @@ public class HospitalDoctorServiceImplem  implements HospitalDoctorService{
 
 
         //choisir un hopital et une specialisation
-        HospitalSpeciality Hospitalspeciality = new HospitalSpeciality();
-        Hospitalspeciality.setHospital(hospital);
-        Hospitalspeciality.setSpeciality(speciality);
+        // HospitalSpeciality Hospitalspeciality = new HospitalSpeciality();
+        // Hospitalspeciality.setHospital(hospital);
+        // Hospitalspeciality.setSpeciality(speciality);
 
-        hsp.save(Hospitalspeciality);
+        // hsp.save(Hospitalspeciality);
 
             return  addhospitalDoctor;
     }

@@ -2,28 +2,26 @@
 <div class="container-fluid">
 
   <h1 > city </h1>
+  <div class="row gutters min-h-fullscreen bg-white">
 
-  <div class="row mt-5">
+    <div class="  align-self-center">
 
-    <div class="col-8 ">
-
-      <app-city-list
-      [cityList]="cityList"
-
-      [contryList]="contryList">
-      </app-city-list>
-
-    </div>
-
-    <div class="col-4  align-self-center">
-
-      <app-city
+    <app-city
       (cityListOutput)="getcityListFromCityComponent($event)"
 
       (contryListOutput)="getContryListFromCityComponent($event)">
     </app-city>
 
+    <app-city-list
+    [cityList]="cityList"
+
+    [contryList]="contryList">
+    </app-city-list>
+
     </div>
+
+</div>
+
 
 
 </div>
