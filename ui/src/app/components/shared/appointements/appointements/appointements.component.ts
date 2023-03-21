@@ -1,3 +1,4 @@
+import { Speciality } from 'src/app/interfaces/speciality';
 import { Hospital } from 'src/app/interfaces/hospital';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,7 +8,6 @@ import { AppointementService } from 'src/app/services/api/appointements.service'
 import { Patient } from 'src/app/interfaces/patient';
 import { HospitalService } from 'src/app/services/api/hospital.service';
 import { PatientService } from 'src/app/services/api/patient.service';
-import { Speciality } from 'src/app/interfaces/speciality';
 import { SpecialityService } from 'src/app/services/api/speciality.service';
 import { User } from 'src/app/interfaces/user';
 import { environnement } from 'src/app/environnements/environnement';
@@ -102,7 +102,7 @@ appointementHoForm!:FormGroup
      this.getALLHospitals(),
      this.getALLSpecialitys(),
      this.getALLPatients(),
-     this.getalldoctors(),
+    //  this.getalldoctors(),
 
 
    //  creation de rdv  ou appointements
@@ -164,15 +164,51 @@ console.log(this.appointementForm.value)
 
 //***************liste des doctors************* */
 
-getalldoctors(){
+// getalldoctors(){
 
-  //recuperation de la liste des doctors
+//   //recuperation de la liste des doctors
 
-this._doctor.getDoctors().subscribe({
+// this._doctor.getDoctors().subscribe({
+// next: (response: any)=>{
+
+//  // affecte a doctorist la liste des docteurs venu de l'api
+//  this.doctorList = response ;
+
+//  // affiche  dans la console la liste des doctors
+
+//  console.log("la liste des doctors envoyer")
+//  console.log(this.doctorList)
+
+//  //Renvoi de la liste au composant enfant
+//  this.doctorListOutput.emit(this.doctorList);
+
+
+// },
+//  error: error => {
+//    console.error("Erreur lors de la recuperation des des informations !", error);
+//  }
+// })
+
+// }
+
+
+
+getalldoctorsbySpeciality(speciality: any){
+
+  //recuperation de la liste des doctors selon leurs speialités
+  let specialityget!: Speciality;
+  this.specialityList.forEach((element: Speciality) => {
+      if(element.id== speciality.target.value ) specialityget = element
+  });
+
+  // console.log(specialityget)
+this._doctor.searchBySpeciality(specialityget).subscribe({
 next: (response: any)=>{
 
  // affecte a doctorist la liste des docteurs venu de l'api
  this.doctorList = response ;
+ console.log("liste des docteurs par specialité");
+ console.log(this.doctorList)
 
  // affiche  dans la console la liste des doctors
 
@@ -190,7 +226,6 @@ next: (response: any)=>{
 })
 
 }
-
 
 
 //***** recherche par la patient ***********************//

@@ -1,9 +1,14 @@
 <!-- add doctor -->
 <div class="container-fluid">
-
+<h1>Category</h1>
   <div class="row no-gutters min-h-fullscreen bg-white">
 
-    <div class="col-8 " data-overlay="2" >
+    <app-category
+    (categoryListOutput)=" getCategoryListFromCategoryComponent($event)">
+
+  </app-category>
+
+
 
       <app-category-list
 
@@ -11,15 +16,8 @@
 
       </app-category-list>
 
-    </div>
 
 
-    <div class="col-4  align-self-center">
-
-      <app-category
-      (categoryListOutput)=" getCategoryListFromCategoryComponent($event)">
-
-    </app-category>
 
     </div>
 

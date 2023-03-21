@@ -18,7 +18,7 @@ export interface  Doctor {
 
     password:string,
 
-    Matricule: string,
+    matricule: string,
 
     speciality: Speciality
 

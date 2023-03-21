@@ -5,9 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './assignation-list.component.html',
   styleUrls: ['./assignation-list.component.css']
 })
-export class AssignationListComponent implements OnInit {
-
+export class AssignationListComponent {
+//liste des hopitaux et doctors
   @Input() assignementList:any =[];
+
 
   @Input() specialityList:any = [];
 
@@ -15,16 +16,18 @@ export class AssignationListComponent implements OnInit {
 
   @Input() doctorList:any =[];
   
+
+  //liste des hopitaux et specialité
   @Input() assignementlSpecialityList: any =[];
 
   constructor() {
 
   }
   ngOnInit(): void {
-    console.log("assignement dans la liste")
+    console.log("assignement relation entre hopital et doctor")
     console.log(this.assignementList)
 
-    console.log("assignement dans la specialite")
-    console.log(this.specialityList)
+    console.log("assignement relation entre hopital et la specialite")
+    console.log(this.assignementlSpecialityList)
   }
 }

@@ -35,7 +35,7 @@
           </div>
         </ng-container>
           <br>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Recherchez</button>
         </form>
       </div>
     </div>
@@ -96,11 +96,11 @@
       </div>
     </div>
   </ng-container>
-           
+
 
             <div class="form-group" >
               <label for="specialityId">speciality</label>
-              <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" >
+              <select class="form-control" id="specialityId" formControlName="specialityId" for="specialityId" (change)="getalldoctorsbySpeciality($event)">
                 <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
               </select>
               <div *ngIf="!appointementForm.controls['specialityId'].valid  &&  (appointementForm.controls['specialityId'].touched || appointementForm.controls['specialityId'].dirty)" class="messageError">
@@ -127,7 +127,7 @@
                 </div>
               </div>
               <br>
-              <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+              <button class="btn btn-bold btn-block btn-primary" type="submit">Enregistrez</button>
             </form>
           </div>
         </div>
@@ -172,7 +172,7 @@
       </ng-container>
 
           <br>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Recherchez</button>
         </form>
       </div>
     </div>

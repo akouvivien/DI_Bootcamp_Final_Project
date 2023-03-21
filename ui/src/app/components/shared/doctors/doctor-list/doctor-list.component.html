@@ -1,8 +1,5 @@
-<div class="card">
-
-  <div class="card-body">
     <table class="table">
-      <thead class="table-success">
+      <thead >
         <tr>
           <th>#</th>
           <th>nom</th>
@@ -11,9 +8,10 @@
           <th> telephone</th>
           <th>login</th>
           <th> email</th>
-          <th>password</th>
+          <th>m_passe</th>
           <th>Matricule</th>
           <th>specialite</th>
+          <th>operation</th>
         </tr>
       </thead>
         <tbody>
@@ -27,12 +25,13 @@
             <td>{{items.email}}</td>
             <td>{{items.mdPasse}}</td>
             <td>{{items.matricule}}</td>
-            <td>{{items.speciality.name}}</td>
+            <!-- <td>{{items?.speciality.name}}</td> -->
+            <button  type="button" (click)="delete(items.id)" class=" btn  btn-danger me-2">- </button>
           </tr>
           <tr>
-            <td >{{doctorList.length }}</td>
+            <td >{{doctorList?.length }}</td>
           </tr>
         </tbody>
-        </table>
-    </div>
-</div>
+      </table>
+  
+   

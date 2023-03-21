@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Validated
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 @RestController
 @RequestMapping("/doctor")
 
@@ -83,10 +83,10 @@ public class DoctorController {
 
     @PostMapping("/getbyspeciality")
     //enregistrement des données
-    public ResponseEntity<String> getBySpeciality(@Validated @RequestBody Speciality speciality) {
+    public ResponseEntity<List<Doctor>> getBySpeciality(@Validated @RequestBody Speciality speciality) {
 
-        doctorService.getDoctorsbySpeciality(speciality);
+        ;
 
-        return new ResponseEntity<>("Enregistrement effectué avec succès !",HttpStatus.OK);
+        return new ResponseEntity<>(doctorService.getDoctorsbySpeciality(speciality),HttpStatus.OK);
     }
 }

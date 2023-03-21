@@ -15,7 +15,7 @@ import java.util.Optional;
 
 
 @Validated
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 @RestController
 @RequestMapping("/speciality")
 

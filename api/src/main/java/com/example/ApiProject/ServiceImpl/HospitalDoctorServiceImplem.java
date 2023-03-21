@@ -45,14 +45,14 @@ public class HospitalDoctorServiceImplem  implements HospitalDoctorService{
         Hospital hospital = hospre.findById(assignationDto.getHospital()).orElse(null);
         if(hospital == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
 
-        // Speciality speciality = sperep.findById(assignationDto.getSpeciality()).orElse(null);
-        // if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
 
         Doctor doctor = docrep.findById(assignationDto.getDoctor()).orElse(null);
         if(doctor == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
 
+        HospitalDoctor verifcation = hsdrep.findByHospitalAndDoctor(hospital,doctor);
+        if(verifcation != null) throw new ApplicationContextException("le docteur est deja enregistrer au sein de l'hopital");
 
-    
+
         // creation une liason entre l'hopital et le medecin
         HospitalDoctor addhospitalDoctor = new HospitalDoctor();
 

@@ -1,21 +1,22 @@
-<ng-container >
-  <img src="..." class="img-fluid" alt="...">
-</ng-container>
 <table class="table">
-  <thead class="table-success">
+  <thead>
     <tr>
       <th>#</th>
       <th>Name</th>
-      <th>Municipality</th>
       <th>Category</th>
+      <th>Municipality</th>
+      <td>city</td>
+      <td>Contry</td>
     </tr>
   </thead>
   <tbody   >
     <tr *ngFor=" let items of hospitalList let i = index">
       <th scope="row">{{i + 1}}</th>
       <td >{{items.name}}</td>
-      <td>{{items.municipality.name}}</td>
       <td>{{items.etablissementCategory.category}}</td>
+      <td>{{items.municipality.name}}</td>
+      <td>{{items.municipality.city.name}}</td>
+      <td>{{items.municipality.city.contry.name}}</td>
     </tr>
     <tr>
       <td *ngIf="hospitalList.length == 0" colspan="6">No hospital Found</td>

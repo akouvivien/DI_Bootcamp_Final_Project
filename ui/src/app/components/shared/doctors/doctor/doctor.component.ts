@@ -57,7 +57,7 @@ export class DoctorComponent implements OnInit {
 
         address : [``,Validators.required],
 
-        Matricule: [``,Validators.required],
+        matricule: [``,Validators.required],
 
         speciality: [``,Validators.required]
 

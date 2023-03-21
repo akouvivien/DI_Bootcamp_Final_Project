@@ -1,6 +1,5 @@
 import { Doctor } from 'src/app/interfaces/doctor';
 import { Component } from '@angular/core';
-import { Assignements } from 'src/app/interfaces/assignements';
 import { Hospital } from 'src/app/interfaces/hospital';
 import { Speciality } from 'src/app/interfaces/speciality';
 
@@ -29,40 +28,44 @@ export class LayoutAssignementsComponent {
 
     this.specialityList,
 
-    this.assignementList
+    this.assignementList,
+
+    this.assignementlSpecialityList
 
     console.log("retour appel api assignement dans le layout")
     console.log(this.assignementList)
-    console.log(this.specialityList)
+    console.log(this.assignementlSpecialityList)
 
   }
 
   getHospitalListFromAssignementsComponent(event: Hospital[]) {
-    console.log("l'hospital dans le layout retour")
-    console.log(event)
+    // console.log("l'hospital dans le layout retour")
+    // console.log(event)
     this.hospitalList = event;
   }
 
   getDoctorListFromAssignementsComponent(event: Doctor[]) {
-    console.log("l'doctor dans le layout retour")
-    console.log(event)
+    // console.log("l'doctor dans le layout retour")
+    // console.log(event)
     this.doctorList = event;
   }
 
   getSpecialityListFromAssignementsComponent(event: Speciality[]) {
-    console.log("l'speciality dans le layout retour")
-    console.log(event)
+    // console.log("l'speciality dans le layout retour")
+    // console.log(event)
     this.specialityList = event;
   }
 
   getAssignementsListFromAssignementsComponent(event: any) {
-    console.log("l'assignements dans le layout retour")
-    this.assignementlSpecialityList = event;
+    console.log("relation entre docteur et hopital dans la vue")
+    console.log(event)
+    this.assignementList = event;
   }
 
-  assignementlSpecialityListFromAssignementsComponent(event: any) {
-    console.log("l'speci affect dans le layout retour")
-    this.assignementList = event;
+  getassignementlSpecialityListFromAssignementsComponent(event: any) {
+    console.log("relation entre hopital et specialité dans la vue")
+    console.log(event)
+    this.assignementlSpecialityList   = event;
   }
 
 }

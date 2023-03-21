@@ -16,7 +16,7 @@ import com.example.ApiProject.Service.HospitalSpecialityService;
 
 
 @Validated
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 @RestController
 @RequestMapping("/hospitalspeciality")
 public class HospitalSpecialityController {

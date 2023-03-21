@@ -48,11 +48,11 @@ public class DoctorServiceImpl  implements DoctorService {
 
         addDoctor.setRoles(roles);
 
-        Speciality speciality = sprepo.findById(doctorDto.getSpeciality()).orElse(null);;
+        Speciality speciality = sprepo.findById(doctorDto.getSpeciality()).orElse(null);
+        
+        System.out.println(speciality);
 
-        if(speciality == null) throw new ApplicationContextException("la specialité selectionner n'existe pas");
-
-        addDoctor.setRoles(roles);
+        addDoctor.setSpeciality(speciality);
 
         addDoctor.setPhone_number(doctorDto.getPhone_number());
 

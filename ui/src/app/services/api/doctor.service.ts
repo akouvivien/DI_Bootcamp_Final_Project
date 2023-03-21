@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpService } from "./api.service";
 import { Doctor } from 'src/app/interfaces/doctor';
 import { url_path } from "src/app/constant/constant";
+import { Speciality } from "src/app/interfaces/speciality";
 
 @Injectable({
   providedIn : 'root'
@@ -26,9 +27,9 @@ export class DoctorService {
     return this.httpService.delete(`${url_path.DOCTOR_BASE}/${id}`);
   }
 
-
-  searchBySpeciality(doctor : Doctor) {
-    return this.httpService.post({endpoint : url_path.DOCTOR_SPECIALITY,data : doctor});
+  searchBySpeciality(speciality : Speciality) {
+    console.log(speciality)
+    return this.httpService.post({endpoint : url_path.DOCTOR_SPECIALITY,data : speciality});
    }
 
 }

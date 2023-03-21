@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.ApiProject.Dto.AssignationDto;
 import com.example.ApiProject.Model.Doctor;
 import com.example.ApiProject.Model.Hospital;
 import com.example.ApiProject.Model.HospitalDoctor;
@@ -21,5 +22,7 @@ List<HospitalDoctor> findAllByHospital(Hospital hospital);
 //recherche par rapport a doctor
 List<HospitalDoctor> findAllByDoctor(Doctor doctor);
 
+
+HospitalDoctor findByHospitalAndDoctor(Hospital hospital,Doctor doctor );
 
 }

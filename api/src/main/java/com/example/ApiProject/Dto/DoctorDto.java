@@ -29,7 +29,7 @@ public class DoctorDto {
 
     private boolean doctor_status;
 
-    private String Matricule;
+    private String matricule;
 
     private Long speciality;
 

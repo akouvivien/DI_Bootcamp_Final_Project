@@ -29,7 +29,7 @@ public class Doctor extends Users implements Serializable {
     @NotNull(message = "Le matricule du medecin est obligatoire")
     @NotBlank(message = "Le matricule ne peut etre vide")
     @Column(unique = true)
-    private String Matricule ;
+    private String matricule ;
 
     // relation hopital, docteur et specialité
     // @JsonIdentityReference(alwaysAsId = false)

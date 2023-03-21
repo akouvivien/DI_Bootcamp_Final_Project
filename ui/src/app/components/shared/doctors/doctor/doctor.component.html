@@ -1,7 +1,6 @@
-
-<!-- Button trigger modal -->
+  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  + add
+  + ajoutez des docteurs
 </button>
 
 <!-- Modal -->
@@ -83,9 +82,9 @@
 
           <div class="form-group">
 
-            <label for="Matricule">Matricule</label>
-            <input type="text" class="form-control" id="Matricule" formControlName="Matricule">
-            <div *ngIf="!doctorForm.controls['Matricule'].valid  &&  (doctorForm.controls['Matricule'].touched || doctorForm.controls['Matricule'].dirty)" class="messageError">
+            <label for="matricule">Matricule</label>
+            <input type="text" class="form-control" id="matricule" formControlName="matricule">
+            <div *ngIf="!doctorForm.controls['matricule'].valid  &&  (doctorForm.controls['matricule'].touched || doctorForm.controls['matricule'].dirty)" class="messageError">
               <p class="text-danger">votre Matricule svp!</p>
             </div>
 
@@ -108,3 +107,5 @@
     </div>
   </div>
 </div>
+
+

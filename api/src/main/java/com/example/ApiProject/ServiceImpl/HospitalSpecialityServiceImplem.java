@@ -29,7 +29,8 @@ public class HospitalSpecialityServiceImplem implements HospitalSpecialityServic
 
     @Override
     public HospitalSpeciality createHospitalSpeciality(AssignationDto assignationDto) {
-    
+
+
         Hospital hospital = hospre.findById(assignationDto.getHospital()).orElse(null);
         if(hospital == null) throw new ApplicationContextException("ce docteur n'existe pas dans la bd");
 
@@ -38,6 +39,9 @@ public class HospitalSpecialityServiceImplem implements HospitalSpecialityServic
 
         Speciality speciality = srepo.findById(assignationDto.getSpeciality()).orElse(null);
         if(speciality == null) throw new ApplicationContextException("cette specialité n'existe pas dans la bd");
+
+        HospitalSpeciality verification = hospitalspe.findByHospitalAndSpeciality(hospital,speciality);
+        if(verification != null) throw new ApplicationContextException("l'hopital contient deja cette specialité");
 
 
     

@@ -8,7 +8,7 @@
     <a class="navbar-brand" href="#" style="color:white !important;">Navbar</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#" style="color:white !important;">Home</a>
         </li>
         <li class="nav-item">
@@ -16,11 +16,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" style="color:white !important;">Disabled</a>
-        </li>
+        </li> -->
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success" type="submit">Search</button>
+      <form class="d-flex" >
+        <button (click)="logout()" class="btn btn-success" type="submit">Disconnect</button>
       </form>
     </div>
   </div>
@@ -32,55 +31,55 @@
 :#1CD9B0 !important">
   <div class="position-sticky pt-3">
     <ul class="nav flex-column">
-
-      <li class="nav-item mt-5" style="margin-top: 20px" >
-        <a class="nav-link active " aria-current="page" href="#" >
-          <span data-feather="home"><i class="fa fa-home"></i></span>
-          Dashboard
+      <li class="nav-item">
+        <a class="nav-link">
+          <span data-feather="layers"></span>
+          
         </a>
       </li>
+
         <ng-container *ngIf="user.roles.name=='Admin'">
       <li class="nav-item">
         <a class="nav-link active  " href="#" routerLink="/layout/doctor" >
           <span><i class="fa fa-home"></i></span>
-          doctors operation
+          Docteurs 
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#" routerLink="/layout/city">
-          City
+          Villes
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"routerLink="/layout/contry" >
           <span data-feather="users"></span>
-          Contry
+          Pays
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"routerLink="/layout/hospital">
           <span data-feather="bar-chart-2"></span>
-          Hospital
+          Hopitaux
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/appointements">
           <span data-feather="layers"></span>
-          Appointements
+          Rendez vous
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/municipality">
           <span data-feather="layers"></span>
-          municipality
+          Municipalités
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/assignements">
           <span data-feather="layers"></span>
-          affectation
+          gestion des hopitaux
         </a>
       </li>
 
@@ -95,21 +94,21 @@
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/speciality">
           <span data-feather="layers"></span>
-          Speciality
+          Specialités
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/category">
           <span data-feather="layers"></span>
-          category
+          Categories
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/statistique">
           <span data-feather="layers"></span>
-          Statistique
+          Statistiques
         </a>
       </li>
 

@@ -19,7 +19,7 @@ import com.example.ApiProject.Service.HospitalDoctorService;
 
 
 @Validated
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 @RestController
 @RequestMapping("/hospitaldoctor")
 public class HospitalDoctorController {
@@ -87,6 +87,8 @@ public class HospitalDoctorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+ 
 
 
     @PostMapping("/getbyhospital")

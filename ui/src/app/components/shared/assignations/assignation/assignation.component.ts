@@ -21,7 +21,7 @@ export class AssignationComponent {
 
 
 
-    //liste des affectations
+    //liste des assignements et docteurs
     assignementlList: any = [];
 
     //L'event qui sera retourné au parent et informera sur l'etat de la liste des affectations
@@ -85,7 +85,6 @@ export class AssignationComponent {
 
         doctor :[``,Validators.required],
 
-
        });
 
      //add appointements
@@ -99,14 +98,14 @@ export class AssignationComponent {
      });
    }
 
-    // effectuer des assignements dans la bd
+    // effectuer des assignements dans la bd entre les docteurs et les hopitaux
 
  onSubmit(){
 
     this._assign.AssignHospitalDoctor(this.assignementForm.value).subscribe({
       next:(response :any) =>{
         this.getallAssignements();
-
+       alert("doctor inserer avec sucess")
       },
       error: error => {
         console.error("Erreur lors de l'enregistrement des assignements!", error);
@@ -117,19 +116,21 @@ console.log(this.assignementForm.value)
 
 }
 
+
+// assignations des specialités et des hoptitaux
 onSubmit2(){
 
   this._assignspe.AssignHospitalSpeciality(this.assignementspeForm.value).subscribe({
     next:(response :any) =>{
       this.getallAssignementHospitalSpecialitys();
-
+      alert("specialité inserer avec sucess")
     },
     error: error => {
       console.error("Erreur lors de l'enregistrement des assignements!", error);
     }
   })
 
-console.log(this.assignementForm.value)
+console.log(this.assignementspeForm.value)
 
 }
 
@@ -145,7 +146,7 @@ getallAssignementHospitalSpecialitys(){
           this.assignementlSpecialityList = response ;
 
           // affiche  dans la console la liste des assignement
-          console.log("la relation entre relation entre specialité et hopital ")
+          console.log("la relation entre relation entre specialité et hopital dans le principal ")
           console.log(this.assignementlSpecialityList)
 
           //Renvoi de la liste au composant enfant
@@ -168,10 +169,10 @@ getallAssignements(){
     next: (response: any)=>{
 
       // affecte a assignementlList la liste des assignements venue de l'api
+      console.log("la relation entre hopital  et le doctor dans le principal")
       this.assignementlList = response ;
 
       // affiche  dans la console la liste des assignement
-      console.log("la relation entre l'hoptal et le medecin")
       console.log(this.assignementlList)
 
       //Renvoi de la liste au composant enfant
@@ -199,7 +200,7 @@ getALLHospitals(){
       this.hospitalList = response ;
 
       // affiche  dans la console la liste des appointement
-      console.log(this.hospitalList)
+      // console.log(this.hospitalList)
 
       //Renvoi de la liste au composant enfant
       this.hospitalListOutput.emit(this.hospitalList);
@@ -226,7 +227,7 @@ getALLSpecialitys(){
       this.specialityList = response;
 
       // affiche  dans la console la liste des speciality
-      console.log(this.specialityList)
+      // console.log(this.specialityList)
 
       //Renvoi de la liste au composant enfant
       this.specialityListOutput.emit(this.specialityList);
@@ -254,7 +255,7 @@ getALLDoctors(){
       this.doctorList = response ;
 
       // affiche  dans la console la liste des speciality
-      console.log(this.doctorList)
+      // console.log(this.doctorList)
 
       //Renvoi de la liste au composant enfant
       this.doctorListOutput.emit(this.doctorList);

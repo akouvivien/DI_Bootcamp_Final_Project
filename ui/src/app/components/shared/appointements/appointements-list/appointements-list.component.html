@@ -14,7 +14,10 @@
                 <th>#</th>
                 <th>patient</th>
                 <th>hopital</th>
-                <th>date de rendez vous</th>
+                <th>category</th>
+                <th>municipality</th>
+                <th>city</th>
+                <th>date</th>
               </tr>
             </thead>
             <tbody   >
@@ -22,6 +25,9 @@
                 <th scope="row">{{i + 1}}</th>
                 <td>{{items.patient.first_name}}</td>
                 <td>{{items.hospital.name}}</td>
+                <td>{{items.hospital.etablissementCategory.category}}</td>
+                <td>{{items.hospital.municipality.name}}</td>
+                <td>{{items.hospital.municipality.city.name}}</td>
                 <td>{{items.date}}</td>
                 <td>
                   <a  class="btn"><i class='fas fa-eye view'></i></a>

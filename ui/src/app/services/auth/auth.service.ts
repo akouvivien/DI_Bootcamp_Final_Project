@@ -20,4 +20,5 @@ export class httpService {
     return this._authService.post({endpoint : url_path.AUTH_REGISTER, data : user});
   }
 
+
 }

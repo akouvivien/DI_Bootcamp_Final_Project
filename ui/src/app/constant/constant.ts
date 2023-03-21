@@ -7,8 +7,8 @@ export const url_path = {
 
   //doctor
   DOCTOR_BASE:'doctor',
-  
-  DOCTOR_SPECIALITY:'getbyspeciality',
+//specialité par docteur
+  DOCTOR_SPECIALITY:'doctor/getbyspeciality',
 
   //patient
   PATIENT_BASE:'patient',
@@ -48,7 +48,7 @@ export const url_path = {
 
 //***********relation hopital et specialité */
 
-    //assignation de specialité a un hopital 
+    //assignation de specialité a un hopital
     HOSPITALSPECIALITY_BASE:'hospitalspeciality',
 
     //recherche des hoptiaux par specialités
@@ -62,21 +62,22 @@ export const url_path = {
     //***********relation hopital et doctor */
 
     
+    
     //relation hopital doctor
     HOSPITALDOCTOR_BASE:'hospitaldoctor',
 
     //recherche des hoptiaux par selon les hopitaux
-    HOSPITALDOCTOR_HOSPITAL:'hospitalspeciality/getbyhospitals',
+    HOSPITALDOCTOR_HOSPITAL:'hospitaldoctor/getbyhospital',
 
 
     //recherche des hoptiaux par selon les doctors
-    HOSPITALDOCTOR_DOCTOR:'hospitalspeciality/getbydoctor',
+    HOSPITALDOCTOR_DOCTOR:'hospitaldoctor/getbydoctor',
 
 
     ///***********relation hopital docteur et specialité */
 
 
-  //recherche sur la liasion entre hopital docteur et specialité  
+  //recherche sur la liasion entre hopital docteur et specialité
   SPECIALITYHOSPITALDOC_BASE:'specialityhospitaldoctor'
 
 

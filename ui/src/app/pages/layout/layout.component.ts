@@ -1,5 +1,6 @@
 import { environnement } from './../../environnements/environnement';
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 
 
@@ -11,7 +12,14 @@ import { User } from 'src/app/interfaces/user';
 })
 export class LayoutComponent  {
 
+  constructor(private route : Router,){}
+
    user!:User
+   logout(){
+    localStorage.removeItem(environnement.APIKEY)
+    this.route.navigate(['/authentification/login'])
+  }
+   
 
   ngOnInit(): void {
       let json = localStorage.getItem(environnement.APIKEY);

@@ -1,30 +1,30 @@
 <!-- add doctor -->
 <div class="container-fluid">
-  <h1 > hospital </h1>
+  <h1 > Hopitaux </h1>
   <div class="row bg-white">
 
-    <div class="col-3  ">
-       
-    </div>
-    <div class="col-9  mt-100" data-overlay="2">
-      <app-hospital 
-  
+    <div class="col" >
+      <app-hospital
+
       (categoryListOutput)="getCategoryListFromHospitalComponent($event)"
-  
+
       (municipalityListOutput)="getMunicipalityListFromHospitalComponent($event)">
-    
+
     </app-hospital>
 
-    <app-hospital-list 
-    
-    [municipalityList]="municipalityList"
-    
-    [categoryList]="categoryList"  >
-    
-  </app-hospital-list>
-       
+      <div class="col">
+
+        <app-hospital-list
+
+        [municipalityList]="municipalityList"
+
+        [categoryList]="categoryList"  >
+
+      </app-hospital-list>
+      </div>
+
     </div>
- 
+
   </div>
 
 </div>
