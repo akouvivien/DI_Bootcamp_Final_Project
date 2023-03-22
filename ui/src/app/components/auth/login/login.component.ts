@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         error: error => {
 
           console.error("Erreur lors de la recuperation des des informations !", error);
+          alert("impossible de se connecter")
 
         }
 

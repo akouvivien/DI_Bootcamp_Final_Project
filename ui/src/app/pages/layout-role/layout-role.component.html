@@ -1,9 +1,12 @@
 <!-- add roles -->
 <div class="container-fluid">
-
+<h1>Roles</h1>
   <div class="row no-gutters min-h-fullscreen bg-white">
 
-    <div class="col-8 " data-overlay="2" >
+    <app-role
+    (rolesListOutput)=" getRolesListFromRolesComponent($event)" >
+
+  </app-role>
 
       <app-role-list
 
@@ -11,16 +14,7 @@
 
       </app-role-list>
 
-    </div>
 
-    <div class="col-4  align-self-center">
-
-      <app-role
-      (rolesListOutput)=" getRolesListFromRolesComponent($event)" >
-
-    </app-role>
-
-    </div>
 
 
 </div>

@@ -127,6 +127,7 @@ onSubmit(){
   this._doctor.createDoctor(this.doctorForm.value).subscribe({
     next:(response :any) =>{
       this.getalldoctors();
+      
     },
     error: error => {
       console.error("Erreur lors de l'enregistrement d'un nouveau doctor!", error);

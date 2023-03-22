@@ -1,6 +1,7 @@
 <!-- add villes -->
+<!-- <div class="row"> -->
 
-<!-- Button trigger modal -->
+  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   + roles
 </button>
@@ -17,14 +18,14 @@
         <form  [formGroup]="rolesForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
           <div class="form-group">
-    
-            <label for="name">roles_name</label>
+
+            <label for="name">rol</label>
             <input type="text" class="form-control" id="name" formControlName="name">
             <div *ngIf="!rolesForm.controls['name'].valid  &&  (rolesForm.controls['name'].touched || rolesForm.controls['name'].dirty)" class="messageError">
               <p class="text-danger">veillez renseignez le role sil vous plait!</p>
             </div>
           </div>
-    
+
           <br>
           <button class="btn btn-bold btn-block btn-primary" type="submit">Enregistrer</button>
         </form>
@@ -32,7 +33,9 @@
     </div>
   </div>
 </div>
-    
+
+
+<!-- </div> -->
 
 
 

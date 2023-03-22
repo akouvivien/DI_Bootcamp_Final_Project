@@ -178,14 +178,14 @@ getallAssignements(){
       //Renvoi de la liste au composant enfant
       this.assignementlListOutput.emit(this.assignementlList);
 
-
   },
       error: error => {
         console.error("Erreur lors de la recuperation des des informations des rendez vous!", error);
       }
+
     })
 
-
+// window.location.reload()
 
 }
 //***************hospital**************** */
