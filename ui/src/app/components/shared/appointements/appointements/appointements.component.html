@@ -1,17 +1,23 @@
 
 <div class="row">
+  <ng-container *ngIf="appointementList.length == 0 && user.roles.name =='Patient'" >  <div class=" text-center "> <p> bonjour {{user.first_name}}
 
+     <br>je vous invites a visiter la rubrique docteur avant une prise de rendez-vous merci.... </p> </div> </ng-container>
+
+    <ng-container *ngIf="appointementList.length == 0 && user.roles.name =='Admin'" >  <div class=" text-center ">  <p> bonjour  Admin {{user.first_name}}   vous avez la possibilité d'enregistrez des rendez vous , <br> Vous ne pouvez prendre plus d'un rendez vous a la meme heure </p> </div></ng-container>
+
+  <!-- <ng-container *ngIf="appointementList.length == 0 && user.roles.name =='Patient'" >  <div class=" text-center bg-warning"> le choix du docteur depend de la specialité choisie</div>  </ng-container> -->
      <div class="col">
 
     <div class="card" style="width:18rem;">
       <div class="card-body">
-        <h5 class="card-title">recherche par patient</h5>
+        <h5 class="card-title">recherche</h5>
         <form  [formGroup]="appointementPaForm" (ngSubmit)="onSubmit2()"class="form-type-material">
 
 
           <ng-container *ngIf="user.roles.name == 'Admin'">
           <div class="form-group" >
-            <label for="id">patient</label>
+            <label for="id">selectionnez un patient</label>
             <select class="form-control" id="id" formControlName="id" for="id" >
               <option  *ngFor="let items of patientsList" value ="{{ items.id }}">{{ items.first_name }}</option>
             </select>
@@ -24,7 +30,7 @@
 
         <ng-container >
           <div class="form-group" *ngIf="user.roles.name == 'Patient'">
-            <label for="id">patient</label>
+            <label for="id">selectionnez votre identifiant</label>
             <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
             <select class="form-control" id="id" formControlName="id" for="id" >
               <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }} {{ user.adresse }} </option>
@@ -44,14 +50,14 @@
   <div class="col">
     <div class="card" style="width:18rem;">
       <div class="card-body">
-        <h5 class="card-title">prendre un rdv</h5>
+        <h5 class="card-title">prenez rendez-vous</h5>
           <div class="modal-body">
 
             <form  [formGroup]="appointementForm" (ngSubmit)="onSubmit()"class="form-type-material">
-
+              <!-- (change)="getallSpecialitybyHospital($event) -->
               <div class="form-group">
                 <label for="hospitalId">hopital</label>
-                <select class="form-control" id="hospitalId" formControlName="hospitalId" for="hospitalId">
+                <select class="form-control" id="hospitalId" formControlName="hospitalId" for="hospitalId"  >
                   <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
                 </select>
                 <div *ngIf="!appointementForm.controls['hospitalId'].valid  &&  (appointementForm.controls['hospitalId'].touched || appointementForm.controls['hospitalId'].dirty)" class="messageError">
@@ -159,7 +165,7 @@
         </ng-container> -->
 
         <div class="form-group">
-          <label for="id">hopital</label>
+          <label for="id"> selectionner un hopital</label>
           <!-- <input type="text" class="form-control" id="patientId" formControlName="patientId" value="{{ user.id }}" placeholder="{{ user.first_name }} {{ user.last_name }} {{ user.adresse }}" [disabled]="user.roles.name == 'Patient'"> -->
           <select class="form-control" id="id" formControlName="id" for="id" >
             <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>

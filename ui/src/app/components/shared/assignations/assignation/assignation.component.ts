@@ -1,3 +1,4 @@
+import { User } from 'src/app/interfaces/user';
 import { Assignements } from 'src/app/interfaces/assignements';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,6 +12,7 @@ import { HospitalService } from 'src/app/services/api/hospital.service';
 import { SpecialityService } from 'src/app/services/api/speciality.service';
 import { HospitalDoctorService } from 'src/app/services/api/hospitaldoctor.service';
 import { HospitalSpecialityService } from 'src/app/services/api/hospitalspeciality.service';
+import { environnement } from 'src/app/environnements/environnement';
 
 @Component({
   selector: 'app-assignation',
@@ -20,7 +22,7 @@ import { HospitalSpecialityService } from 'src/app/services/api/hospitalspeciali
 export class AssignationComponent {
 
 
-
+  user! : User
     //liste des assignements et docteurs
     assignementlList: any = [];
 
@@ -70,6 +72,14 @@ export class AssignationComponent {
     assignementspeForm!: FormGroup
 
    ngOnInit(): void {
+
+    let json = localStorage.getItem(environnement.APIKEY);
+    if (json != null) {
+      this.user = JSON.parse(json) as User;
+      console.log("local storage")
+      console.log(this.user)
+
+      }
 
    //actualisation
      this.getallAssignements();

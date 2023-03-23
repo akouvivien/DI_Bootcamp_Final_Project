@@ -1,7 +1,9 @@
+import { User } from 'src/app/interfaces/user';
 import { DoctorService } from 'src/app/services/api/doctor.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor';
 import { Speciality } from 'src/app/interfaces/speciality';
+import { environnement } from 'src/app/environnements/environnement';
 
 @Component({
   selector: 'app-doctor-list',
@@ -10,6 +12,8 @@ import { Speciality } from 'src/app/interfaces/speciality';
 })
 export class DoctorListComponent  implements OnInit{
 
+
+  user !: User
   //recois la valeur de doctors list en provenance de l'autre composant
   @Input() doctorList: any = [];
 
@@ -25,6 +29,14 @@ export class DoctorListComponent  implements OnInit{
 ){}
 ngOnInit(): void {
   this.delete
+
+  let json = localStorage.getItem(environnement.APIKEY);
+  if (json != null) {
+    this.user = JSON.parse(json) as User;
+    console.log("local storage")
+    console.log(this.user)
+
+    }
 }
 
 

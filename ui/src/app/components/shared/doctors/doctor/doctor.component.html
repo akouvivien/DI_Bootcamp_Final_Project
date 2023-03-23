@@ -1,111 +1,115 @@
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  + ajoutez des docteurs
-</button>
+  <ng-container *ngIf="user.roles.name == 'Admin'" >
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      + ajoutez un docteur
+    </button>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form  [formGroup]="doctorForm" (ngSubmit)="onSubmit()"class="form-type-material">
-
-          <div class="form-group">
-
-            <label for="first_name">first_name</label>
-            <input type="text" class="form-control" id="first_name" formControlName="first_name">
-            <div *ngIf="!doctorForm.controls['first_name'].valid  &&  (doctorForm.controls['first_name'].touched || doctorForm.controls['first_name'].dirty)" class="messageError">
-              <p class="text-danger">votre first_name est obligatoire!</p>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <div class="modal-body">
+            <form  [formGroup]="doctorForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
-          <div class="form-group">
+              <div class="form-group">
+
+                <label for="first_name">Nom</label>
+                <input type="text" class="form-control" id="first_name" formControlName="first_name">
+                <div *ngIf="!doctorForm.controls['first_name'].valid  &&  (doctorForm.controls['first_name'].touched || doctorForm.controls['first_name'].dirty)" class="messageError">
+                  <p class="text-danger">nom est obligatoire!</p>
+                </div>
+              </div>
+
+              <div class="form-group">
 
 
-            <label for="last_name">last_name</label>
-            <input type="text" class="form-control" id="last_name" formControlName="last_name">
-            <div *ngIf="!doctorForm.controls['last_name'].valid  &&  (doctorForm.controls['last_name'].touched || doctorForm.controls['last_name'].dirty)" class="messageError">
-              <p class="text-danger">votre last_name est obligatoire!</p>
-            </div>
+                <label for="last_name">Prenom</label>
+                <input type="text" class="form-control" id="last_name" formControlName="last_name">
+                <div *ngIf="!doctorForm.controls['last_name'].valid  &&  (doctorForm.controls['last_name'].touched || doctorForm.controls['last_name'].dirty)" class="messageError">
+                  <p class="text-danger">prenom est obligatoire!</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+                <div *ngIf="!doctorForm.controls['email'].valid  &&  (doctorForm.controls['email'].touched || doctorForm.controls['email'].dirty)" class="messageError">
+                  <p class="text-danger">email est obligatoire!</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="login">login</label>
+                <input type="text" class="form-control" id="login" formControlName="login">
+                <div *ngIf="!doctorForm.controls['login'].valid  &&  (doctorForm.controls['login'].touched || doctorForm.controls['login'].dirty)" class="messageError">
+                  <p class="text-danger">login  est obligatoire!</p>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="mdPasse">Mot de passe</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+                <div *ngIf="!doctorForm.controls['password'].valid  &&  (doctorForm.controls['password'].touched || doctorForm.controls['password'].dirty)" class="messageError">
+                  <p class="text-danger">le mot de passe est obligatoire!</p>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="phone_number">phone_number</label>
+                <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
+                <div *ngIf="!doctorForm.controls['phone_number'].valid  &&  (doctorForm.controls['phone_number'].touched || doctorForm.controls['phone_number'].dirty)" class="messageError">
+                  <p class="text-danger">le numero  est obligatoire!</p>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+
+                <label for="address">adresse</label>
+                <input type="text" class="form-control" id="address" formControlName="address">
+                <div *ngIf="!doctorForm.controls['address'].valid  &&  (doctorForm.controls['address'].touched || doctorForm.controls['address'].dirty)" class="messageError">
+                  <p class="text-danger">adresse svp!</p>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="matricule">Matricule</label>
+                <input type="text" class="form-control" id="matricule" formControlName="matricule">
+                <div *ngIf="!doctorForm.controls['matricule'].valid  &&  (doctorForm.controls['matricule'].touched || doctorForm.controls['matricule'].dirty)" class="messageError">
+                  <p class="text-danger">Matricule svp!</p>
+                </div>
+
+
+              </div>
+
+              <div class="form-group" >
+                <label for="speciality">Specialite</label>
+                <select class="form-control" id="speciality" formControlName="speciality" for="speciality" >
+                  <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+                </select>
+                <div *ngIf="!doctorForm.controls['speciality'].valid  &&  (doctorForm.controls['speciality'].touched || doctorForm.controls['speciality'].dirty)" class="messageError">
+                  <p class="text-danger">veillez selectionner une specialité!</p>
+                </div>
+              </div>
+              <br>
+              <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
+            </form>
           </div>
-
-          <div class="form-group">
-
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" formControlName="email">
-            <div *ngIf="!doctorForm.controls['email'].valid  &&  (doctorForm.controls['email'].touched || doctorForm.controls['email'].dirty)" class="messageError">
-              <p class="text-danger">votre email est obligatoire!</p>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="login">login</label>
-            <input type="text" class="form-control" id="login" formControlName="login">
-            <div *ngIf="!doctorForm.controls['login'].valid  &&  (doctorForm.controls['login'].touched || doctorForm.controls['login'].dirty)" class="messageError">
-              <p class="text-danger">votre login  est obligatoire!</p>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-            <label for="mdPasse">Mot de passe</label>
-            <input type="password" class="form-control" id="password" formControlName="password">
-            <div *ngIf="!doctorForm.controls['password'].valid  &&  (doctorForm.controls['password'].touched || doctorForm.controls['password'].dirty)" class="messageError">
-              <p class="text-danger">le mote de passe est obligatoire!</p>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-            <label for="phone_number">phone_number</label>
-            <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
-            <div *ngIf="!doctorForm.controls['phone_number'].valid  &&  (doctorForm.controls['phone_number'].touched || doctorForm.controls['phone_number'].dirty)" class="messageError">
-              <p class="text-danger">le numero  est obligatoire!</p>
-            </div>
-          </div>
-
-
-
-          <div class="form-group">
-
-            <label for="address">adresse</label>
-            <input type="text" class="form-control" id="address" formControlName="address">
-            <div *ngIf="!doctorForm.controls['address'].valid  &&  (doctorForm.controls['address'].touched || doctorForm.controls['address'].dirty)" class="messageError">
-              <p class="text-danger">votre adresse svp!</p>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-
-            <label for="matricule">Matricule</label>
-            <input type="text" class="form-control" id="matricule" formControlName="matricule">
-            <div *ngIf="!doctorForm.controls['matricule'].valid  &&  (doctorForm.controls['matricule'].touched || doctorForm.controls['matricule'].dirty)" class="messageError">
-              <p class="text-danger">votre Matricule svp!</p>
-            </div>
-
-
-          </div>
-
-          <div class="form-group" >
-            <label for="speciality">Speciality</label>
-            <select class="form-control" id="speciality" formControlName="speciality" for="speciality" >
-              <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
-            </select>
-            <div *ngIf="!doctorForm.controls['speciality'].valid  &&  (doctorForm.controls['speciality'].touched || doctorForm.controls['speciality'].dirty)" class="messageError">
-              <p class="text-danger">veillez selectionner une specialité!</p>
-            </div>
-          </div>
-          <br>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
+
+
+  </ng-container>
 

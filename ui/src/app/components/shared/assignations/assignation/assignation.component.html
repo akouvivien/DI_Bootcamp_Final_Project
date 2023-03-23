@@ -1,66 +1,71 @@
 <!-- add villes -->
-<div class="container-fluid">
-  <div class="container px-4">
-    <div class="row gx-5">
-      <div class="col">
-       <div class="p-3 border bg-light">
-        <h4>assignez des docteurs</h4>
 
-        <form  [formGroup]="assignementForm" (ngSubmit)="onSubmit()"class="form-type-material">
-  
-        <div class="form-group">
-          <label for="hospital">Hospital</label>
-          <select class="form-control" id="hospital" formControlName="hospital" for="hospital" >
-            <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
-          </select>
-          <div *ngIf="!assignementForm.controls['hospital'].valid  &&  (assignementForm.controls['hospital'].touched || assignementForm.controls['hospital'].dirty)" class="messageError">
-            <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label for="doctor">doctor</label>
-          <select class="form-control" id="doctor" formControlName="doctor" for="doctor" >
-            <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.first_name }}</option>
-          </select>
-          <div *ngIf="!assignementForm.controls['doctor'].valid  &&  (assignementForm.controls['doctor'].touched || assignementForm.controls['doctor'].dirty)" class="messageError">
-            <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
-          </div>
-  
-        </div>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
-        </form>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"><h4>assignez des specialité</h4>
+  <ng-container *ngIf="user.roles.name == 'Admin'" >
 
-          <form  [formGroup]="assignementspeForm" (ngSubmit)="onSubmit2()"class="form-type-material">
-  
-  
-        <div class="form-group">
-          <label for="hospital">Hospital</label>
-          <select class="form-control" id="hospital" formControlName="hospital" for="hospital" >
-            <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
-          </select>
-          <div *ngIf="!assignementspeForm.controls['hospital'].valid  &&  (assignementspeForm.controls['hospital'].touched || assignementspeForm.controls['hospital'].dirty)" class="messageError">
-            <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
-          </div>
-        </div>
-  
-  
+  <div class="container-fluid">
+    <div class="container px-4">
+      <div class="row gx-5">
+        <div class="col">
+         <div class="p-3 border bg-light">
+          <h4>assignez des docteurs</h4>
+
+          <form  [formGroup]="assignementForm" (ngSubmit)="onSubmit()"class="form-type-material">
+
           <div class="form-group">
-            <label for="speciality">speciality</label>
-            <select class="form-control" id="speciality" formControlName="speciality" for="speciality" >
-              <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+            <label for="hospital">Hopital</label>
+            <select class="form-control" id="hospital" formControlName="hospital" for="hospital" >
+              <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
             </select>
-            <div *ngIf="!assignementspeForm.controls['speciality'].valid  &&  (assignementspeForm.controls['speciality'].touched || assignementspeForm.controls['speciality'].dirty)" class="messageError">
-              <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+            <div *ngIf="!assignementForm.controls['hospital'].valid  &&  (assignementForm.controls['hospital'].touched || assignementForm.controls['hospital'].dirty)" class="messageError">
+              <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
             </div>
           </div>
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Sauvegarde</button>
-        </form>
-      </div>
+
+          <div class="form-group">
+            <label for="doctor">docteur</label>
+            <select class="form-control" id="doctor" formControlName="doctor" for="doctor" >
+              <option  *ngFor="let items of doctorList" value ="{{ items.id }}">{{ items.first_name }}</option>
+            </select>
+            <div *ngIf="!assignementForm.controls['doctor'].valid  &&  (assignementForm.controls['doctor'].touched || assignementForm.controls['doctor'].dirty)" class="messageError">
+              <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+            </div>
+
+          </div>
+            <button class="btn btn-bold btn-block btn-primary" type="submit">Enregistrez</button>
+          </form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light"><h4>assignez des specialités</h4>
+
+            <form  [formGroup]="assignementspeForm" (ngSubmit)="onSubmit2()"class="form-type-material">
+
+
+          <div class="form-group">
+            <label for="hospital">Hopital</label>
+            <select class="form-control" id="hospital" formControlName="hospital" for="hospital" >
+              <option  *ngFor="let items of hospitalList" value ="{{ items.id }}">{{ items.name }}</option>
+            </select>
+            <div *ngIf="!assignementspeForm.controls['hospital'].valid  &&  (assignementspeForm.controls['hospital'].touched || assignementspeForm.controls['hospital'].dirty)" class="messageError">
+              <p class="text-danger">veillez renseignez l'hopital sil vous plait!</p>
+            </div>
+          </div>
+
+
+            <div class="form-group">
+              <label for="speciality">specialité</label>
+              <select class="form-control" id="speciality" formControlName="speciality" for="speciality" >
+                <option  *ngFor="let items of specialityList" value ="{{ items.id }}">{{ items.name }}</option>
+              </select>
+              <div *ngIf="!assignementspeForm.controls['speciality'].valid  &&  (assignementspeForm.controls['speciality'].touched || assignementspeForm.controls['speciality'].dirty)" class="messageError">
+                <p class="text-danger">veillez renseignez la specialité sil vous plait!</p>
+              </div>
+            </div>
+            <button class="btn btn-bold btn-block btn-primary " type="submit">Enregistrez</button>
+          </form>
+        </div>
+        </div>
       </div>
     </div>
   </div>
+</ng-container>

@@ -6,12 +6,19 @@
           <th>prenom</th>
           <th>adresse</th>
           <th> telephone</th>
+
+          <ng-container  *ngIf="user.roles.name == 'Admin'">
           <th>login</th>
           <th>email</th>
           <th>m_passe</th>
           <th>Matricule</th>
+        </ng-container>
+
           <th>specialite</th>
-          <th>operations</th>
+          <ng-container  *ngIf="user.roles.name == 'Admin'" >
+            <th>operations</th>
+          </ng-container>
+
         </tr>
       </thead>
         <tbody>
@@ -21,12 +28,20 @@
             <td>{{items.last_name}}</td>
             <td>{{items.adresse}}</td>
             <td>{{items.phone_number}}</td>
-            <td>{{items.login}}</td>
-            <td>{{items.email}}</td>
-            <td>{{items.mdPasse}}</td>
-            <td>{{items.matricule}}</td>
+
+            <ng-container *ngIf="user.roles.name == 'Admin'">
+
+              <td>{{items.login}}</td>
+              <td>{{items.email}}</td>
+              <td>{{items.mdPasse}}</td>
+              <td>{{items.matricule}}</td>
+
+            </ng-container>
+
             <td>{{items.speciality.name}}</td>
-            <button  type="button" (click)="delete(items.id)" class=" btn  btn-danger me-2">-</button>
+            <ng-container  *ngIf="user.roles.name == 'Admin'" >
+              <button  type="button" (click)="delete(items.id)" class=" btn  btn-danger me-2" >-</button>
+            </ng-container>
           </tr>
           <tr>
             <td >{{doctorList.length }}</td>

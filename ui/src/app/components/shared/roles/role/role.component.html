@@ -3,7 +3,7 @@
 
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  + roles
+  + ajoutez un role
 </button>
 
 <!-- Modal -->
@@ -19,7 +19,7 @@
 
           <div class="form-group">
 
-            <label for="name">rol</label>
+            <label for="name">role</label>
             <input type="text" class="form-control" id="name" formControlName="name">
             <div *ngIf="!rolesForm.controls['name'].valid  &&  (rolesForm.controls['name'].touched || rolesForm.controls['name'].dirty)" class="messageError">
               <p class="text-danger">veillez renseignez le role sil vous plait!</p>

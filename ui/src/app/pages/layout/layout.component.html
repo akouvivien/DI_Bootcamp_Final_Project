@@ -105,14 +105,6 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/layout/statistique">
-          <span data-feather="layers"></span>
-          Statistiques
-        </a>
-      </li>
-
-
     </ng-container>
 
     <ng-container *ngIf="user.roles.name=='Patient'">
@@ -120,28 +112,42 @@
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/appointements">
           <span data-feather="layers"></span>
-          Appointements
+          rendez vous
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/city">
           <span data-feather="layers"></span>
-          city
+          villes
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/hospitalview">
           <span data-feather="layers"></span>
-          hospital
+          hospitaux
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/municipality">
           <span data-feather="layers"></span>
-          municipality
+          municipalités
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/layout/assignements">
+          <span data-feather="layers"></span>
+           hopitaux et specifications
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active  " href="#" routerLink="/layout/doctor" >
+          <span><i class="fa fa-home"></i></span>
+          Docteurs
         </a>
       </li>
 
@@ -149,21 +155,22 @@
     </ng-container>
 
     <ng-container  *ngIf="user.roles.name=='Doctor'">
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/layout/appointements">
-          <span data-feather="layers"></span>
-          Assignation
-        </a>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/layout/appointements">
           <span data-feather="layers"></span>
-          rdv
+          rendez vous
         </a>
       </li>
 
     </ng-container>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#" routerLink="/layout/statistique">
+        <span data-feather="layers"></span>
+        Statistiques
+      </a>
+    </li>
     </ul>
   </div>
 </nav>

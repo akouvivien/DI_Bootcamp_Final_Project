@@ -22,6 +22,8 @@ Appointements findAllByDate(Date date);
 //recherche par rapport a patient
 List<Appointements> findAllByPatient(Patient patient);
 
+Appointements  findByHospitalAndPatient(Hospital hospital, Patient patient);
+
 //recherche par rapport a  patient et l'hopital
 // List<Appointements> findAllByPatientAndHospital(AppointementDto appointementDto);
 

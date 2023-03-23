@@ -3,13 +3,11 @@
 
   <div class="card" >
     <div class="card-body">
-      <h4>renseignez une ville</h4>
-
       <form  [formGroup]="cityForm" (ngSubmit)="onSubmit()"class="form-type-material">
 
         <div class="form-group">
 
-          <label for="name">City_name</label>
+          <label for="name">Nom</label>
           <input type="text" class="form-control" id="name" formControlName="name">
           <div *ngIf="!cityForm.controls['name'].valid  &&  (cityForm.controls['name'].touched || cityForm.controls['name'].dirty)" class="messageError">
             <p class="text-danger">veillez renseignez le nom sil vous plait!</p>
@@ -18,7 +16,7 @@
 
         <div class="form-group">
 
-          <label for="contryId">Contry</label>
+          <label for="contryId">Pays</label>
           <select class="form-control" id="contryId" formControlName="contryId" for="contryId" >
             <option  *ngFor="let items of contryList" value ="{{ items.id }}">{{ items.name }}</option>
           </select>

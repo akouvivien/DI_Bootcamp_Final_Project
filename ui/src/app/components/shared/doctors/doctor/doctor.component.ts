@@ -1,6 +1,8 @@
+import { User } from 'src/app/interfaces/user';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environnement } from 'src/app/environnements/environnement';
 import { Speciality } from 'src/app/interfaces/speciality';
 import { DoctorService } from 'src/app/services/api/doctor.service';
 import { SpecialityService } from 'src/app/services/api/speciality.service';
@@ -12,6 +14,7 @@ import { SpecialityService } from 'src/app/services/api/speciality.service';
 })
 export class DoctorComponent implements OnInit {
 
+  user!:User
   // la liste des doctors
   doctorList: any = [];
 
@@ -39,6 +42,14 @@ export class DoctorComponent implements OnInit {
   //actualisation du docteur
     this.getalldoctors();
     this.getALLSpecialitys()
+
+    let json = localStorage.getItem(environnement.APIKEY);
+    if (json != null) {
+      this.user = JSON.parse(json) as User;
+      console.log("local storage")
+      console.log(this.user)
+
+      }
 
   //add doctor
       this.doctorForm= this.fb.group({
@@ -127,7 +138,7 @@ onSubmit(){
   this._doctor.createDoctor(this.doctorForm.value).subscribe({
     next:(response :any) =>{
       this.getalldoctors();
-      
+
     },
     error: error => {
       console.error("Erreur lors de l'enregistrement d'un nouveau doctor!", error);
@@ -135,6 +146,7 @@ onSubmit(){
   })
 
 console.log(this.doctorForm.value)
+ window.location.reload()
 
 }
 

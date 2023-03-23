@@ -33,6 +33,6 @@ public interface HospitalSpecialityService {
     // List<HospitalDoctor> getbyall(AssignationDto assignationDto);
 
     //recherche par hopital
-    List<HospitalSpeciality> getbyHospitals(Hospital hospital);
+    List<Speciality> getbyHospitals(Hospital hospital);
     
 }

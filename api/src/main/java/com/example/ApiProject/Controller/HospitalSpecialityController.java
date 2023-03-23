@@ -79,7 +79,7 @@ public class HospitalSpecialityController {
         @PostMapping("/getbyspeciality")
         public ResponseEntity<List<HospitalSpeciality> > getbyspecialities(@RequestBody Speciality speciality) {
             try {
-                hospitalSpre.getbyspecialities(speciality);
+                // hospitalSpre.getbyspecialities(speciality);
                 return new ResponseEntity<>(hospitalSpre.getbyspecialities(speciality), HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -87,9 +87,9 @@ public class HospitalSpecialityController {
         }
 
             @PostMapping("/getbyhospitals")
-            public ResponseEntity<List<HospitalSpeciality>> getbyHospitals(@RequestBody Hospital hospital) {
+            public ResponseEntity<List<Speciality>> getbyHospitals(@RequestBody Hospital hospital) {
                 try {
-                    hospitalSpre.getbyHospitals(hospital); 
+                    // hospitalSpre.getbyHospitals(hospital); 
                     return new ResponseEntity<>(hospitalSpre.getbyHospitals(hospital), HttpStatus.OK);
                 } catch (Exception e) {
                     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

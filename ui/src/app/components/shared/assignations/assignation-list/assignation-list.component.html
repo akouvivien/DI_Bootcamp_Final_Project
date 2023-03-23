@@ -1,47 +1,116 @@
- <br>
- <h2 class="text-center">  <strong >  les hopitaux et Specialités  </strong></h2>
-  <table class="table ">
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>hopital</td>
-        <td>specialité</td>
-      </tr>
-    </thead>
-      <tbody>
-        <tr *ngFor=" let items of assignementlSpecialityList ; let i = index">
-          <th scope="row">{{i + 1}}</th>
-          <td>{{items.hospital.name}}</td> 
-          <td>{{items.speciality.name}}</td>
-        </tr>
-        <tr>
-          <td>{{assignementlSpecialityList.length }}</td>
-        </tr>
-      </tbody>
-    </table>
-        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
-<!-- </div> -->
+<hr>
+ <ng-container *ngIf="user.roles.name == 'Patient'" >
+  <div class="row">
+    <div class="col">
+      <br>
+      <h4 class="text-center">  <strong >  les hopitaux et Specialités  </strong></h4>
+      <br>
+      <table class="table ">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>hopital</td>
+            <td>specialité</td>
+          </tr>
+        </thead>
+          <tbody>
+            <tr *ngFor=" let items of assignementlSpecialityList ; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{items.hospital.name}}</td>
+              <td>{{items.speciality.name}}</td>
+            </tr>
+            <tr>
+              <td>{{assignementlSpecialityList.length }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+    <div class="col">
 <br>
+      <h4 class="text-center">  <strong class="text-center">les hopitaux et docteurs</strong></h4>
+<br>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>hopital</td>
+            <td>docteur</td>
+          </tr>
+        </thead>
+          <tbody>
+            <tr *ngFor=" let el of assignementList; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{el.hospital.name}}</td>
+              <td>{{el.doctor.first_name}}</td>
+            </tr>
+            <tr>
+              <td>{{assignementList.length }}</td>
+            </tr>
+          </tbody>
+        </table>
 
-  <h2 class="text-center">  <strong class="text-center">les hopitaux et docteurs</strong></h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>hopital</td>
-        <td>docteur</td>
-      </tr>
-    </thead>
-      <tbody>
-        <tr *ngFor=" let el of assignementList; let i = index">
-          <th scope="row">{{i + 1}}</th>
-          <td>{{el.hospital.name}}</td>
-          <td>{{el.doctor.first_name}}</td>
-        </tr>
+    </div>
+  </div>
+
+ </ng-container >
+
+ <ng-container *ngIf="user.roles.name == 'Admin'">
+
+<div class="row">
+  <div class="col">
+    <br>
+    <h4 class="text-center">  <strong >  les hopitaux et Specialités  </strong></h4>
+    <br>
+    <table class="table ">
+      <thead>
         <tr>
-          <td>{{assignementList.length }}</td>
+          <td>#</td>
+          <td>hopital</td>
+          <td>specialité</td>
         </tr>
-      </tbody>
-    </table>
+      </thead>
+        <tbody>
+          <tr *ngFor=" let items of assignementlSpecialityList ; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{items.hospital.name}}</td>
+            <td>{{items.speciality.name}}</td>
+          </tr>
+          <tr>
+            <td>{{assignementlSpecialityList.length }}</td>
+          </tr>
+        </tbody>
+      </table>
 
+  </div>
+  <div class="col">
+<br>
+    <h4 class="text-center">  <strong class="text-center">les hopitaux et docteurs</strong></h4>
+<br>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>hopital</td>
+          <td>docteur</td>
+          <!-- <td>docteur spe</td> -->
+        </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor=" let el of assignementList; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{el.hospital.name}}</td>
+            <td>{{el.doctor.first_name}}</td>
+            <!-- <td>{{el.doctor.speciality.name}}</td> -->
+          </tr>
+          <tr>
+            <td>{{assignementList.length }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+</div>
+
+ </ng-container>

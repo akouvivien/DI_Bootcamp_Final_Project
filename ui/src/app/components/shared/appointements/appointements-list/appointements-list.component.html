@@ -1,42 +1,47 @@
 
 <ng-container  *ngIf="user.roles.name =='Admin'">
-<div class=" text-center" > bonjour {{user.first_name}} {{user.last_name}} consultez la liste de tous les endez vous du systeme </div>
+<div class=" text-center" > consultez l'historique des rendez vous selon le  patient via la section selectionnez un patient </div>
 </ng-container>
 
 <ng-container  *ngIf="user.roles.name =='Patient'">
-  <div  class=" text-center">  bonjour {{user.first_name}} {{user.last_name}}  consultez la liste de  vos rendez vous </div>
+  <div  class=" text-center">  consultez l'historique des rendez vous </div>
+</ng-container>
+<br>
+<ng-container *ngIf="appointementList.length == 0 && user.roles.name =='Patient'" >  <div class=" text-center bg-danger">aucun rendez-vous </div>  </ng-container>
+
+<ng-container *ngIf="appointementList.length != 0" >
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>patient</th>
+        <th>hopital</th>
+        <th>categorie</th>
+        <th>municipalité</th>
+        <th>ville </th>
+        <th>date</th>
+      </tr>
+    </thead>
+    <tbody   >
+      <tr *ngFor=" let items of appointementList  let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{items.patient.first_name}}</td>
+        <td>{{items.hospital.name}}</td>
+        <td>{{items.hospital.etablissementCategory.category}}</td>
+        <td>{{items.hospital.municipality.name}}</td>
+        <td>{{items.hospital.municipality.city.name}}</td>
+        <td>{{items.date}}</td>
+        <td>
+          <a  class="btn"><i class='fas fa-eye view'></i></a>
+          <a  class="btn"><i class="fa fa-edit edit"></i></a>
+          <button  class="btn"><i class='fas fa-trash-alt delete'></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="appointementList.length == 0" colspan="6">aucun rdv </td>
+      </tr>
+    </tbody>
+  </table>
+
 </ng-container>
 
-
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>patient</th>
-                <th>hopital</th>
-                <th>category</th>
-                <th>municipality</th>
-                <th>city</th>
-                <th>date</th>
-              </tr>
-            </thead>
-            <tbody   >
-              <tr *ngFor=" let items of appointementList  let i = index">
-                <th scope="row">{{i + 1}}</th>
-                <td>{{items.patient.first_name}}</td>
-                <td>{{items.hospital.name}}</td>
-                <td>{{items.hospital.etablissementCategory.category}}</td>
-                <td>{{items.hospital.municipality.name}}</td>
-                <td>{{items.hospital.municipality.city.name}}</td>
-                <td>{{items.date}}</td>
-                <td>
-                  <a  class="btn"><i class='fas fa-eye view'></i></a>
-                  <a  class="btn"><i class="fa fa-edit edit"></i></a>
-                  <button  class="btn"><i class='fas fa-trash-alt delete'></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td *ngIf="appointementList.length == 0" colspan="6">No appointements Found</td>
-              </tr>
-            </tbody>
-          </table>

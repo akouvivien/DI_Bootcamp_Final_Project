@@ -14,6 +14,7 @@ import { environnement } from 'src/app/environnements/environnement';
 import { UserService } from 'src/app/services/storage/user.services';
 import { DoctorService } from 'src/app/services/api/doctor.service';
 import { ToastrService } from 'ngx-toastr';
+import { HospitalSpecialityService } from 'src/app/services/api/hospitalspeciality.service';
 
 @Component({
   selector: 'app-appointements',
@@ -70,6 +71,7 @@ export class AppointementsComponent {
       private _doctor : DoctorService,
       private _local : UserService,
       private fb:FormBuilder,
+      private _hspe: HospitalSpecialityService,
       private route : Router
       ) {  }
 
@@ -149,7 +151,10 @@ appointementHoForm!:FormGroup
  onSubmit(){
   this._appointements.createAppointement(this.appointementForm.value).subscribe({
     next:(response :any) =>{
+
       this.getallAppointements();
+
+
       // this.toast.success('votre rendez vous est en cours de traitement')
     },
     error: error => {
@@ -190,7 +195,45 @@ console.log(this.appointementForm.value)
 // })
 
 // }
+// recherche hopital par specialité
 
+
+
+// getallSpecialitybyHospital(hospital: any){
+
+//   //recuperation de la liste des doctors selon leurs speialités
+//   let hospitalget!: Hospital;
+//   this.hospitalList.forEach((element: Hospital) => {
+//       if(element.id== hospital.target.value ) hospitalget = element
+//   });
+// console.log(hospitalget)
+//   // console.log(specialityget)
+// this._hspe.shearchByHospital(hospitalget).subscribe({
+// next: (response: any)=>{
+
+//  // affecte a doctorist la liste des docteurs venu de l'api
+//  this.specialityList = response ;
+//  console.log("liste des hopitaux par specialité");
+//  console.log(this.specialityList)
+
+//  // affiche  dans la console la liste des doctors
+
+//  console.log("la liste des hopitaux envoyer")
+//  console.log(this.specialityList)
+
+//  //Renvoi de la liste au composant enfant
+//  this.specialityListOutput.emit(this.specialityList);
+
+
+// },
+//  error: error => {
+//    console.error("Erreur lors de la recuperation des des informations !", error);
+//  }
+// })
+
+// }
+
+///************ recherche docteurs par specialité */
 
 
 getalldoctorsbySpeciality(speciality: any){

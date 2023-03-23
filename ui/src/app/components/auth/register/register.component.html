@@ -29,20 +29,20 @@
 
           <div class="form-group">
 
-            <label for="first_name">first_name</label>
+            <label for="first_name">Nom</label>
             <input type="text" class="form-control" id="first_name" formControlName="first_name">
             <div *ngIf="!registerForm.controls['first_name'].valid  &&  (registerForm.controls['first_name'].touched || registerForm.controls['first_name'].dirty)" class="messageError">
-              <p class="text-danger">votre first_name est obligatoire!</p>
+              <p class="text-danger">votre nom est obligatoire!</p>
             </div>
           </div>
 
           <div class="form-group">
 
 
-            <label for="last_name">last_name</label>
+            <label for="last_name">Prenom</label>
             <input type="text" class="form-control" id="last_name" formControlName="last_name">
             <div *ngIf="!registerForm.controls['last_name'].valid  &&  (registerForm.controls['last_name'].touched || registerForm.controls['last_name'].dirty)" class="messageError">
-              <p class="text-danger">votre last_name est obligatoire!</p>
+              <p class="text-danger">votre prenom est obligatoire!</p>
             </div>
           </div>
 
@@ -57,7 +57,7 @@
 
           <div class="form-group">
 
-            <label for="login">login</label>
+            <label for="login">Login</label>
             <input type="text" class="form-control" id="login" formControlName="login">
             <div *ngIf="!registerForm.controls['login'].valid  &&  (registerForm.controls['login'].touched || registerForm.controls['login'].dirty)" class="messageError">
               <p class="text-danger">votre login  est obligatoire!</p>
@@ -70,7 +70,7 @@
             <label for="mdPasse">Mot de passe</label>
             <input type="password" class="form-control" id="mdPasse" formControlName="password">
             <div *ngIf="!registerForm.controls['password'].valid  &&  (registerForm.controls['password'].touched || registerForm.controls['password'].dirty)" class="messageError">
-              <p class="text-danger">le mote de passe est obligatoire!</p>
+              <p class="text-danger">le mot de passe est obligatoire!</p>
             </div>
 
           </div>
@@ -78,7 +78,7 @@
           <div class="form-group">
 
 
-            <label for="phone_number">phone_number</label>
+            <label for="phone_number">Telephone</label>
             <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
             <div *ngIf="!registerForm.controls['phone_number'].valid  &&  (registerForm.controls['phone_number'].touched || registerForm.controls['phone_number'].dirty)" class="messageError">
               <p class="text-danger">le numero  est obligatoire!</p>
@@ -89,7 +89,7 @@
 
           <div class="form-group">
 
-            <label for="adresse">adresse</label>
+            <label for="adresse">Adresse</label>
             <input type="text" class="form-control" id="adresse" formControlName="adresse">
             <div *ngIf="!registerForm.controls['adresse'].valid  &&  (registerForm.controls['adresse'].touched || registerForm.controls['adresse'].dirty)" class="messageError">
               <p class="text-danger">votre adresse svp!</p>

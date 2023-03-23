@@ -1,5 +1,6 @@
 package com.example.ApiProject.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,9 +104,18 @@ public class HospitalSpecialityServiceImplem implements HospitalSpecialityServic
     }
 
     @Override
-    public List<HospitalSpeciality> getbyHospitals(Hospital hospital) {
+    public List<Speciality> getbyHospitals(Hospital hospital) {
        
-        return  hospitalspe.findAllByHospital(hospital);
+        
+        List<HospitalSpeciality> liste=  hospitalspe.findAllByHospital(hospital);
+
+        List<Speciality> spe= new  ArrayList<>();
+
+        liste.forEach( element ->{
+            spe.add(element.getSpeciality());
+        });
+        
+        return  spe;
     }
     
 }

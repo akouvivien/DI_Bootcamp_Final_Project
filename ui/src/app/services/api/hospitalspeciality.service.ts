@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HospitalSpeciality } from "src/app/interfaces/hospitalspeciality";
 import { HttpService } from "./api.service";
 import { url_path } from "src/app/constant/constant";
+import { Hospital } from "src/app/interfaces/hospital";
 
 
 
@@ -30,8 +31,8 @@ export class HospitalSpecialityService {
   }
 
 
-  shearchByHospital(hospitalspeciality : HospitalSpeciality) {
-    return this.httpService.post({endpoint : url_path.HOSPITALSPECIALITY_HOSPITAL,data : hospitalspeciality});
+  shearchByHospital(hospital : Hospital) {
+    return this.httpService.post({endpoint : url_path.HOSPITALSPECIALITY_HOSPITAL,data : hospital});
    }
 
    shearchBySpeciality(hospitalspeciality : HospitalSpeciality) {
